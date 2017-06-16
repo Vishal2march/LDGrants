@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- literacy budget Action definitions -->
+<struts>
+	<package name="struts-literacy-budget" namespace="/" extends="appSecurity">
+
+
+
+		
+<!--   actions below for JTABLE implementation of CONTRACTED_SERVICES budget tab-->
+
+	  <action name="literacyYr1ContractedServices" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="literacyYr1ContractedServices">
+             <result name="adultlit">/adultLiteracyYr1ContractedServices.tiles</result>
+             <result name="familylit">/familyLiteracyYr1ContractedServices.tiles</result>
+      </action>      
+                 		      
+      <action name="literacyYr1ContractedServicesList" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="literacyYr1ContractedServicesList">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+                  
+      <action name="addUpdateLiteracyContractedServicesRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="addUpdateLiteracyContractedServicesRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+            
+      <action name="deleteLiteracyContractedServicesRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="deleteLiteracyContractedServicesRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      
+      
+      <!--   actions below for JTABLE implementation of TRAVEL budget tab-->
+      
+      <action name="literacyYr1Travel" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="literacyYr1Travel">
+           <result name="adultlit">/adultLiteracyYr1Travel.tiles</result>
+           <result name="familylit">/familyLiteracyYr1Travel.tiles</result>
+      </action>         
+      
+      <action name="literacyYr1TravelList" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="literacyYr1TravelList">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>  
+                  
+      <action name="addUpdateLiteracyTravelRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="addUpdateLiteracyTravelRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+            
+      <action name="deleteLiteracyTravelRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="deleteLiteracyTravelRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      
+      
+           
+      <!--   actions below for JTABLE implementation of SUPPLY MATERIAL budget tab-->
+      
+      <action name="literacyYr1Supplies" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="literacyYr1Supplies">
+           <result name="adultlit">/adultLiteracyYr1Supplies.tiles</result>
+           <result name="familylit">/familyLiteracyYr1Supplies.tiles</result>
+      </action>  
+            
+      <action name="literacyYr1SuppliesList" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="literacyYr1SuppliesList">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>  
+                  
+      <action name="addUpdateLiteracySuppliesRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="addUpdateLiteracySuppliesRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+            
+      <action name="deleteLiteracySuppliesRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="deleteLiteracySuppliesRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      
+      
+      <!-- actions below for JTABLE implementation of EQUIPMENT budget tab    -->
+            
+      <action name="literacyYr1Equipment" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="literacyYr1Equipment">
+           <result name="adultlit">/adultLiteracyYr1Equipment.tiles</result>
+           <result name="familylit">/familyLiteracyYr1Equipment.tiles</result>
+      </action>    
+            
+      <action name="literacyYr1EquipmentList" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="literacyYr1EquipmentList">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>  
+                  
+      <action name="addUpdateLiteracyEquipmentRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="addUpdateLiteracyEquipmentRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+            
+      <action name="deleteLiteracyEquipmentRow" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="deleteLiteracyEquipmentRow">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      
+      
+      
+      
+      
+      <!--                ADMIN CONTRACTED_SERVICES budget tab-->
+
+	  <action name="literacyYr1ContractedServicesAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="literacyYr1ContractedServices">
+            <result name="adultlit">/adultLiteracyYr1ContractedServicesAdmin.tiles</result>
+            <result name="familylit">/familyLiteracyYr1ContractedServicesAdmin.tiles</result>
+      </action>      
+                  
+      <action name="addUpdateLiteracyContractedServicesRowAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.ContractedServicesAction" 
+            method="addUpdateLiteracyContractedServicesRowAdminFields">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      <!--                TRAVEL                          -->
+      
+      <action name="literacyYr1TravelAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="literacyYr1Travel">
+           <result name="adultlit">/adultLiteracyYr1TravelAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1TravelAdmin.tiles</result>
+      </action>    
+            
+      <action name="addUpdateLiteracyTravelRowAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.TravelAction" 
+            method="addUpdateLiteracyTravelRowAdminFields">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      <!--                    SUPPLIES                         -->
+      
+      <action name="literacyYr1SuppliesAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="literacyYr1Supplies">
+           <result name="adultlit">/adultLiteracyYr1SuppliesAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1SuppliesAdmin.tiles</result>
+      </action>  
+            
+      <action name="addUpdateLiteracySuppliesRowAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.SupplyAction" 
+            method="addUpdateLiteracySuppliesRowAdminFields">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+      <!--                        EQUIPMENT                        -->
+      
+      <action name="literacyYr1EquipmentAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="literacyYr1Equipment">
+           <result name="adultlit">/adultLiteracyYr1EquipmentAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1EquipmentAdmin.tiles</result>
+      </action>    
+      
+            
+      <action name="addUpdateLiteracyEquipmentRowAdmin" 
+            class="gov.nysed.oce.ldgrants.budget.action.EquipmentAction" 
+            method="addUpdateLiteracyEquipmentRowAdminFields">
+            <result type="json">
+            	<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>	
+				<param name="root">JSONROOT</param>			
+			</result>
+      </action>
+      
+		
+	</package>
+</struts>

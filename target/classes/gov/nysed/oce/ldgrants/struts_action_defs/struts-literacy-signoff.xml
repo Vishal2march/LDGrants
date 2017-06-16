@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-literacy-signoff" namespace="/" extends="appSecurity">
+
+		
+<!--    literacy final signoff-->
+
+	  <action name="literacyYr1FinalSignoff" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalSignoffAction" 
+            method="literacyYr1FinalSignoff">
+           <result name="adultlit">/adultLiteracyYr1FinalSignoff.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalSignoff.tiles</result>
+      </action>   
+            
+      <action name="submitLiteracyReportingYr1" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalSignoffAction" 
+            method="submitFinalReport">
+            <result type="redirectAction">
+        		<param name="actionName">literacyYr1FinalSignoff</param>
+        	</result>
+       </action>   
+     
+      
+       
+      
+      <!--       Literacy amendment signoff -->
+            
+      <action name="literacyAmendmentSignoff" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.AmendmentSignoffAction" 
+            method="amendmentSignoff">
+           <result name="adultlit">/adultLiteracyAmendmentSignoff.tiles</result>
+			<result name="familylit">/familyLiteracyAmendmentSignoff.tiles</result>
+      </action>   
+      
+      <action name="submitAmendmentLiteracy" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.AmendmentSignoffAction" 
+            method="submitAmendment">
+           <result type="redirectAction">
+        		<param name="actionName">literacyAmendmentSignoff</param>
+        	</result>
+      </action>   
+      
+           
+      
+            
+      <!--   ADMIN  final signoff-->
+
+	  <action name="literacyYr1FinalSignoffAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalSignoffAction" 
+            method="literacyYr1FinalSignoff">
+           <result name="adultlit">/adultLiteracyYr1FinalSignoffAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalSignoffAdmin.tiles</result>
+      </action> 
+      
+      
+    </package>
+</struts>   
+   

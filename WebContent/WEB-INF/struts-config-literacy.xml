@@ -1,0 +1,1064 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+  <form-bean name="StatBean" type="mypackage.StatisticBean" />
+  <form-bean name="emailHelpBean" type="mypackage.EmailHelpBean" />
+  <form-bean name="AssignCollectionBean" type="mypackage.RevAssignCollectionBean" />
+</form-beans>
+
+<action-mappings>
+  <action path="/fmliteracyApplication" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/FlHome.do" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="/error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/FlChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/aliteracyApplication" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/AlHome.do" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="/error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/AlChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/liInitialForms" type="literacy.LitInitialAction" parameter="item">
+      <forward name="fchecklist" path="/FlChecklist.do"/>
+      <forward name="fattachment" path="/FlAttachment.do"/>
+      <forward name="flnarrative" path="/FlNarrative.do"/>
+      <forward name="flsummarynarr" path="/FlSummaryNarr.do"/>
+      <forward name="flnarrativenew" path="/FlNarrativeNew"/>
+      <forward name="flsummarynarrnew" path="/FlSummaryNarrNew"/>
+      <forward name="fcoversheet" path="/FlCoversheet.do"/>
+      <forward name="flpartinst" path="/FlParticipants.do"/>
+      <forward name="flnewparticipant" path="/FlNewParticipants.do"/>
+      <forward name="flbcert" path="/FlCertification.do"/>
+      <forward name="fauth" path="/FlAuthorization.do"/>
+      <forward name="flcertform" path="/FlCertificationForm"/>
+      <forward name="flbudget1" path="/FlBudget1.do"/>
+      <forward name="flbudget4" path="/FlBudget4.do"/>
+      <forward name="flconfirmbdgtdelete" path="/FlDeleteBudget"/>
+      <forward name="flexpense1" path="/FlExpense1.do" />
+      <forward name="flexpense4" path="/FlExpense4.do" />
+      <forward name="flpayeeinfo" path="/FlPayeeInfo.do" />
+      <forward name="flfs" path="/FlFsForms.do"/>
+      <forward name="alfs" path="/AlFsForms.do"/>
+      <forward name="achecklist" path="/AlChecklist.do"/>
+      <forward name="acoversheet" path="/AlCoversheet.do"/>
+      <forward name="alpartinst" path="/AlParticipants.do"/>
+      <forward name="alnewparticipant" path="/AlNewParticipants.do"/>
+      <forward name="alnarrative" path="/AlNarrative.do"/>
+      <forward name="alsummarynarr" path="/AlSummaryNarr.do"/>
+      <forward name="alnarrativenew" path="/AlNarrativeNew"/>
+      <forward name="alsummarynarrnew" path="/AlSummaryNarrNew"/>
+      <forward name="aattachment" path="/AlAttachment.do"/>
+      <forward name="albcert" path="/AlCertification.do"/>
+      <forward name="aauth" path="/AlAuthorization.do"/>
+      <forward name="alcertform" path="/AlCertificationForm"/>
+      <forward name="albudget1" path="/AlBudget1.do"/>
+      <forward name="albudget4" path="/AlBudget4.do"/>
+      <forward name="alconfirmbdgtdelete" path="/AlDeleteBudget"/>
+      <forward name="alexpense1" path="/AlExpense1.do" />
+      <forward name="alexpense4" path="/AlExpense4.do" />
+       <forward name="alpayeeinfo" path="/AlPayeeInfo.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="idmissing" path="/FlHome.do" />  
+  </action>
+    
+  <action path="/liFinalForms" type="literacy.LitFinalAction" parameter="item">
+      <forward name="fauth" path="/FlFinalAuth.do"/>
+      <forward name="fchecklist" path="/FlChecklist.do"/>
+      <forward name="fattachment" path="/FlAttachment.do"/>
+      <forward name="flfinalrpt" path="/FlFinalReport.do"/>
+      <forward name="flfinalrptyear1" path="/FlFinalReportYear1"/>
+      <forward name="flfinalrptyear2" path="/FlFinalReportYear2"/>
+      <forward name="flfinalrptyear3" path="/FlFinalReportYear3"/>
+      <forward name="flstatistics" path="/FlStatistics.do"/>
+      <forward name="flnewstatistics" path="/FlNewStatistics.do"/>
+      <forward name="flinterim" path="/FlInterimReport.do"/>
+      <forward name="flintauth" path="/FlInterimAuth.do"/>
+      <forward name="flstatus" path="/FlStatus.do"/>
+      <forward name="flfs" path="/FlFsForms.do"/>
+      <forward name="alfs" path="/AlFsForms.do"/>
+      <forward name="flfs10a" path="/FlAmendmentSummary.do"/>
+      <forward name="alfs10a" path="/AlAmendmentSummary.do"/>
+      <forward name="flconfirmamenddelete" path="/FlDeleteAmendment"/>
+      <forward name="alconfirmamenddelete" path="/AlDeleteAmendment"/>
+      <forward name="flprojManager" path="/FlEditContact.do"/>
+      <forward name="alprojManager" path="/AlEditContact.do"/>
+      <forward name="flbudget1" path="/FlBudget1.do"/>
+      <forward name="flbudget4" path="/FlBudget4.do"/>
+      <forward name="flexpense1" path="/FlExpense1.do" />
+      <forward name="flexpense4" path="/FlExpense4.do" />
+      <forward name="achecklist" path="/AlChecklist.do"/>
+      <forward name="aattachment" path="/AlAttachment.do"/>
+      <forward name="aauth" path="/AlFinalAuth.do"/>
+      <forward name="alfinalrpt" path="/AlFinalReport.do"/>
+      <forward name="alfinalrptyear1" path="/AlFinalReportYear1"/>
+      <forward name="alfinalrptyear2" path="/AlFinalReportYear2"/>
+      <forward name="alfinalrptyear3" path="/AlFinalReportYear3"/>
+      <forward name="alstatistics" path="/AlStatistics.do"/>
+      <forward name="alintauth" path="/AlInterimAuth.do"/>
+      <forward name="alinterim" path="/AlInterimReport.do"/>
+      <forward name="albudget1" path="/AlBudget1.do"/>
+      <forward name="albudget4" path="/AlBudget4.do"/>
+      <forward name="alexpense1" path="/AlExpense1.do" />
+      <forward name="alexpense4" path="/AlExpense4.do" />
+      <forward name="alstatus" path="/AlStatus.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="idmissing" path="/FlHome.do" />  
+  </action>
+  
+   <action path="/liNarrative" type="literacy.LiNarrativeAction" parameter="t">     
+      <forward name="fnarrative" path="/FlNarrative.do"/>
+      <forward name="anarrative" path="/AlNarrative.do"/>
+      <forward name="fsummarynarr" path="/FlSummaryNarr.do"/>
+      <forward name="asummarynarr" path="/AlSummaryNarr.do"/>
+      <forward name="fnarrativenew" path="/FlNarrativeNew"/>
+      <forward name="anarrativenew" path="/AlNarrativeNew"/>
+      <forward name="fsummarynarrnew" path="/FlSummaryNarrNew"/>
+      <forward name="asummarynarrnew" path="/AlSummaryNarrNew"/>
+      <forward name="fnarrativenysl" path="/FlNarrativeNysl"/>
+      <forward name="finterim" path="/FlInterimReport.do"/>
+      <forward name="ainterim" path="/AlInterimReport.do"/>
+      <forward name="ffinalrpt" path="/FlFinalReport.do"/>
+      <forward name="ffinalrptyear1" path="/FlFinalReportYear1"/>
+      <forward name="ffinalrptyear2" path="/FlFinalReportYear2"/>
+      <forward name="ffinalrptyear3" path="/FlFinalReportYear3"/>
+      <forward name="afinalrpt" path="/AlFinalReport.do"/>
+      <forward name="afinalrptyear1" path="/AlFinalReportYear1"/>
+      <forward name="afinalrptyear2" path="/AlFinalReportYear2"/>
+      <forward name="afinalrptyear3" path="/AlFinalReportYear3"/>
+      <forward name="apurchasednarr" path="/AlPurchasedNarr"/>
+      <forward name="fpurchasednarr" path="/FlPurchasedNarr"/>     
+      <forward name="atravelnarr" path="/AlTravelNarr"/>
+      <forward name="ftravelnarr" path="/FlTravelNarr"/>  
+      <forward name="asupplynarr" path="/AlSupplyNarr"/>
+      <forward name="fsupplynarr" path="/FlSupplyNarr"/>  
+      <forward name="aequipmentnarr" path="/AlEquipmentNarr"/>
+      <forward name="fequipmentnarr" path="/FlEquipmentNarr"/>  
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  
+  <action path="/budgetSummaryNav" type="literacy.BudgetSummaryAction" parameter="t">     
+      <forward name="alpurchasednarr" path="/AlPurchasedNarr"/>
+      <forward name="flpurchasednarr" path="/FlPurchasedNarr"/>     
+      <forward name="altravelnarr" path="/AlTravelNarr"/>
+      <forward name="fltravelnarr" path="/FlTravelNarr"/> 
+      <forward name="alsupplynarr" path="/AlSupplyNarr"/>
+      <forward name="flsupplynarr" path="/FlSupplyNarr"/> 
+      <forward name="alequipmentnarr" path="/AlEquipmentNarr"/>
+      <forward name="flequipmentnarr" path="/FlEquipmentNarr"/> 
+      <forward name="flconfirmdelete" path="/FlDeleteBudgetSummary"/> 
+      <forward name="alconfirmdelete" path="/AlDeleteBudgetSummary"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  
+  <action path="/saveLitSummaryBudget" type="mypackage.GenericUpdateAction"
+      name="BudgetCollectionBean" scope="request" validate="false">     
+      <forward name="success" path="/budgetSummaryNav.do?t=addOrUpdate"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/liReadNarrative" type="statutory.ReadNarrativeAction" parameter="item" >
+       <forward name="part" path="/FlPartNarrative.do?m=part" />
+       <forward name="fadmin" path="/FlAdminNarrative.do?m=fadmin" />
+       <forward name="aadmin" path="/AlAdminNarrative.do?m=aadmin" />
+       <forward name="finterim" path="/FlAdminInterim.do" />
+       <forward name="ainterim" path="/AlAdminInterim.do" />
+       <forward name="ffinal" path="/FlAdminFinalNarr.do" />
+       <forward name="afinal" path="/AlAdminFinalNarr.do" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <action path="/flSaveNarrative" type="literacy.LiSaveNarrative"
+          name="projNarrative" scope="request" input="/FlNarrative.do">
+      <forward name="flnarr" path="/FlNarrative.do" />
+      <forward name="flnarrsummary" path="/FlSummaryNarr.do" />
+      <forward name="flnarrnew" path="/FlNarrativeNew" />
+      <forward name="flnarrsummarynew" path="/FlSummaryNarrNew" />
+      <forward name="flnarrnyslnew" path="/FlNarrativeNysl" />
+      <forward name="flnarrpurchasednew" path="/FlPurchasedNarr" />
+      <forward name="flnarrtravelnew" path="/FlTravelNarr" />
+      <forward name="flnarrsupplynew" path="/FlSupplyNarr" />
+      <forward name="flnarrequipmentnew" path="/FlEquipmentNarr" />
+      <forward name="flfinrpt" path="/FlFinalReport.do" />
+      <forward name="flfinrptyear1new" path="/FlFinalReportYear1" />
+      <forward name="flfinrptyear2new" path="/FlFinalReportYear2" />
+      <forward name="flfinrptyear3new" path="/FlFinalReportYear3" />
+      <forward name="flinterim" path="/FlInterimReport.do" />
+      <forward name="flpartnarr" path="/FlNewParticipants.do" />
+      <forward name="flpartnarrnew" path="/FlNewParticipants.do" />
+      <forward name="flb1" path="/FlBudget1.do" />
+      <forward name="flb2" path="/FlBudget2.do" />
+      <forward name="flb3" path="/FlBudget3.do" />
+      <forward name="flb4" path="/FlBudget4.do" />
+      <forward name="flb5" path="/FlBudget5.do" />
+      <forward name="flb6" path="/FlBudget6.do" />
+      <forward name="flb7" path="/FlBudget7.do" />
+      <forward name="alnarr" path="/AlNarrative.do" />
+      <forward name="alnarrsummary" path="/AlSummaryNarr.do" />
+      <forward name="alnarrnew" path="/AlNarrativeNew" />
+      <forward name="alnarrsummarynew" path="/AlSummaryNarrNew" />
+      <forward name="alnarrpurchasednew" path="/AlPurchasedNarr" />
+      <forward name="alnarrtravelnew" path="/AlTravelNarr" />
+      <forward name="alnarrsupplynew" path="/AlSupplyNarr" />
+      <forward name="alnarrequipmentnew" path="/AlEquipmentNarr" />
+      <forward name="alfinrpt" path="/AlFinalReport.do" />
+      <forward name="alfinrptyear1new" path="/AlFinalReportYear1" />
+      <forward name="alfinrptyear2new" path="/AlFinalReportYear2" />
+      <forward name="alfinrptyear3new" path="/AlFinalReportYear3" />
+      <forward name="alinterim" path="/AlInterimReport.do" />
+      <forward name="alpartnarr" path="/AlNewParticipants.do" />
+      <forward name="alpartnarrnew" path="/AlNewParticipants.do" />
+      <forward name="alb1" path="/AlBudget1.do" />
+      <forward name="alb2" path="/AlBudget2.do" />
+      <forward name="alb3" path="/AlBudget3.do" />
+      <forward name="alb4" path="/AlBudget4.do" />
+      <forward name="alb5" path="/AlBudget5.do" />
+      <forward name="alb6" path="/AlBudget6.do" />
+      <forward name="alb7" path="/AlBudget7.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+    
+  <action path="/flSaveCoverpage" type="literacy.LiSaveCoversheet"
+          name="coversheetBean" scope="request" input="/FlCoversheet.do">
+      <forward name="fcoversheet" path="/FlCoversheet.do" />
+      <forward name="acoversheet" path="/AlCoversheet.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/alSaveCoverpage" type="literacy.LiSaveCoversheet"
+          name="coversheetBean" scope="request" input="/AlCoversheet.do">
+      <forward name="fcoversheet" path="/FlCoversheet.do" />
+      <forward name="acoversheet" path="/AlCoversheet.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+   
+  <action path="/liParticipant" type="discretionary.ParticipatingNavAction"
+          parameter="item" >
+      <forward name="coversheet" path="/FlPartCoversheet.do" />
+      <forward name="narrative" path="/FlPartNarrative.do?m=part" />
+      <forward name="attachment" path="/FlPartAttachment.do" />
+      <forward name="budget" path="/FlPartBudget.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/saveFlChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/FlChecklist.do">
+      <forward name="success" path="/FlChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveAlChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/AlChecklist.do">
+      <forward name="success" path="/AlChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLitStatistics"  type="literacy.LitStatisticAction"
+              name="StatBean"  scope="request"  input="/FlStatistics.do">
+        <forward name="fl" path="/FlStatistics.do"/>
+        <forward name="al" path="/AlStatistics.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveFamLitStatisticsNew"  type="literacy.FamLitStatisticAction"
+              name="StatBean"  scope="request"  input="/FlNewStatistics.do">
+        <forward name="flstatistic" path="/FlNewStatistics.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!-- the following 3 submit actions were used for 2013-16 and older; starting 16-19 for KB using new action -->
+  <action path="/alSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitial" path="/AlSubmit.do?t=initial" />
+      <forward name="verifyfinal" path="/AlSubmit.do?t=final" />
+      <forward name="verifyFinalYr2" path="/AlSubmit.do?t=final2" />
+      <forward name="verifyFinalYr3" path="/AlSubmit.do?t=final3" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/flSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitial" path="/FlSubmit.do?t=initial" />
+      <forward name="verifyfinal" path="/FlSubmit.do?t=final" />
+      <forward name="verifyFinalYr2" path="/FlSubmit.do?t=final2" />
+      <forward name="verifyFinalYr3" path="/FlSubmit.do?t=final3" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/litSubmit" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="submitliteracyal" path="/AlHome.do" />
+      <forward name="submitliteracyfl" path="/FlHome.do" />
+      <forward name="submitliteracy" path="/welcomePage.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <!--new 2/3/16 per kbalsen for FY2016-19; validate app and save certification-->
+  <action path="/liSubmitCertApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitialal" path="/AlSubmitAppCert" />
+      <forward name="verifyinitialfl" path="/FlSubmitAppCert" />
+      <forward name="certformfl" path="/FlCertificationForm"/>
+      <forward name="certformal" path="/AlCertificationForm"/>
+      <forward name="homeal" path="/AlHome.do" />
+      <forward name="homefl" path="/FlHome.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/saveLitContactInfo"  type="mypackage.GenericUpdateAction"
+          name="coversheetBean" scope="request" validate="false" input="/FlEditContact.do">
+      <forward name="success" path="/liFinalForms.do?item=updateProjManager"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>
+  
+  <!-- LITERACY REVIEWERS -->  
+     <action path="/liReviewer" type="reviewers.ReviewerNavAction" parameter="item" >
+      <forward name="home" path="/FlReviewHome.do" />
+      <forward name="assignments" path="/FlRevAssignment.do" />
+      <forward name="rating" path="/FlRevRating.do" />
+      <forward name="revinfo" path="/FlRevInformation.do" />
+      <forward name="submit" path="/FlRevSubmit.do" />
+      <forward name="unsubmit" path="/FlRevUnsubmit.do" />
+      <forward name="grant" path="/FlRevApplication.do" />
+      <forward name="fs" path="/FlRevFsforms.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveFlRating"  type="reviewers.literacyrev.LiSaveRating"
+              name="RatingBean"  scope="request"   input="/FlRevRating.do">
+        <forward name="success" path="/FlRevRating.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!-- LITERACY ADMIN -->
+  <action path="/flAdminNav" type="discretionary.AdminNavAction" parameter="item">
+      <forward name="home" path="/FlAdminHome.do"/>
+      <forward name="newhome" path="/FlAdminHomeNew"/>
+      <forward name="grant" path="/FlCheckstatus.do"/>
+      <forward name="coversheet" path="/FlAdminCoversheet.do"/>   
+      <forward name="narrative" path="/FlAdminNarrative.do"/>
+      <forward name="narrativenew" path="/FlAdminNarrativeNew"/>
+      <forward name="attachment" path="/LitAdminAttachments.do"/>
+      <forward name="fs" path="/FlAdminFsForms.do"/>
+      <forward name="statistics" path="/FlAdminStatistics.do"/>
+      <forward name="statisticsnew" path="/FlAdminNewStatistics.do"/>
+      <forward name="budget1" path="/FlAdminBudget1.do"/>
+      <forward name="budget4" path="/FlAdminBudget4.do"/>
+      <forward name="appstatus" path="/FlAdminStatus.do"/>
+      <forward name="reports" path="/LitAdminReports.do"/>
+      <forward name="projManager" path="/FlAdminProjManager.do"/>
+      <forward name="contact" path="/FlAdminContact.do"/>
+      <forward name="fs10a" path="/FlAdminAmendment.do"/>
+      <forward name="verifyinitial" path="/FlAdminSubmitValid.do"/>
+      <forward name="certform" path="/FlAdminCertForm"/>
+      <forward name="finalrpt" path="/FlAdminFinalNarrativeView"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/alAdminNav" type="discretionary.AdminNavAction" parameter="item">      
+      <forward name="home" path="/AlAdminHome.do"/>
+      <forward name="newhome" path="/AlAdminHomeNew"/>
+      <forward name="grant" path="/AlCheckstatus.do"/>
+      <forward name="coversheet" path="/AlAdminCoversheet.do"/>
+      <forward name="narrative" path="/AlAdminNarrative.do"/>
+      <forward name="narrativenew" path="/AlAdminNarrativeNew"/>
+      <forward name="attachment" path="/LitAdminAttachments.do"/>
+      <forward name="fs" path="/AlAdminFsForms.do"/>
+      <forward name="statistics" path="/AlAdminStatistics.do"/>
+      <forward name="budget1" path="/AlAdminBudget1.do"/>
+      <forward name="budget4" path="/AlAdminBudget4.do"/>
+      <forward name="appstatus" path="/AlAdminStatus.do"/>
+      <forward name="projManager" path="/AlAdminProjManager.do"/>
+      <forward name="contact" path="/AlAdminContact.do"/>
+      <forward name="fs10a" path="/AlAdminAmendment.do"/>
+      <forward name="verifyinitial" path="/AlAdminSubmitValid.do"/>
+      <forward name="certform" path="/AlAdminCertForm"/>
+      <forward name="finalrpt" path="/AlAdminFinalNarrativeView"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/alRevertBudget" type="discretionary.AdminNavAction" parameter="i">
+      <forward name="grant" path="/AlCheckstatus.do"/>
+  </action>
+  
+  <action path="/flRevertBudget" type="discretionary.AdminNavAction" parameter="i">
+      <forward name="grant" path="/FlCheckstatus.do"/>
+  </action>
+    
+  <action path="/liAdminSubmit" type="discretionary.AdminNavAction" parameter="i">      
+      <forward name="algrant" path="/AlCheckstatus.do"/>      
+      <forward name="flgrant" path="/FlCheckstatus.do"/>     
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  
+  <action path="/liAdminNarrative" type="literacy.LiNarrativeAction" parameter="t">    
+      <forward name="fnarrative" path="/FlAdminNarrative.do"/>
+      <forward name="anarrative" path="/AlAdminNarrative.do"/>
+      <forward name="fnarrativenew" path="/FlAdminNarrativeNew"/><!-- starting FY 2016-19 -->
+      <forward name="anarrativenew" path="/AlAdminNarrativeNew"/>
+      <forward name="fnarrativenysl" path="/FlAdminNarrativeNysl"/>
+      <forward name="fbudgetsummarynarr" path="/FlAdminNarrativeBudgetSumm"/>
+      <forward name="abudgetsummarynarr" path="/AlAdminNarrativeBudgetSumm"/>
+      <forward name="ffinalrpt" path="/FlAdminFinalNarr.do"/>
+      <forward name="afinalrpt" path="/AlAdminFinalNarr.do"/>
+      <forward name="aadminfinal" path="/AlAdminFinalNarrativeView"/><!-- starting FY 2016-19 -->
+      <forward name="fadminfinal" path="/FlAdminFinalNarrativeView"/>
+      <forward name="fsummarynarr" path="/FlAdminNarrative.do"/><!--SH8/30/13 don't need seperate summnarr for admin-->
+      <forward name="asummarynarr" path="/AlAdminNarrative.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  
+  <action path="/flSaveAdminNarrative" type="literacy.AdminSaveNarrative"
+          name="projNarrative" scope="request" input="/FlAdminNarrative.do">
+      <forward name="fladminnarr" path="/FlAdminNarrative.do" />
+      <forward name="aladminnarr" path="/AlAdminNarrative.do" />
+      <forward name="fladminnarrnew" path="/FlAdminNarrativeNew" />
+      <forward name="aladminnarrnew" path="/AlAdminNarrativeNew" />
+      <forward name="fladminnarrnewbudget" path="/FlAdminNarrativeBudgetSumm" />
+      <forward name="aladminnarrnewbudget" path="/AlAdminNarrativeBudgetSumm" />
+      <forward name="fladminnarrnysl" path="/FlAdminNarrativeNysl" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+    
+  <action path="/flAdminAllocNav" type="literacy.AdminAllocationAction" parameter="i">
+      <forward name="updatealloc" path="/FlEditAllocation.do"/>
+      <forward name="allocation" path="/FlAdminAllocation.do"/>      
+  </action>
+  
+  <action path="/alAdminAllocNav" type="literacy.AdminAllocationAction" parameter="i">
+      <forward name="updatealloc" path="/AlEditAllocation.do"/>
+      <forward name="allocation" path="/AlAdminAllocation.do"/>      
+  </action>
+  
+  <action path="/saveAlAllocation"  type="mypackage.GenericUpdateAction" 
+            name="allocBean" scope="request" input="/AlEditAllocation">
+      <forward name="success" path="/alAdminAllocNav.do?i=saveAllocation"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveFlAllocation"  type="mypackage.GenericUpdateAction" 
+            name="allocBean" scope="request" input="/FlEditAllocation">
+      <forward name="success" path="/flAdminAllocNav.do?i=saveAllocation"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLitAdminBudget"  type="statutory.AdminBudgetSave"
+            name="BudgetCollectionBean"   scope="request" input="/FlAdminBudget1.do">
+      <forward name="fltab1" path="/FlAdminBudget1.do" />
+      <forward name="fltab2" path="/FlAdminBudget2.do" />
+      <forward name="fltab3" path="/FlAdminBudget3.do" />
+      <forward name="fltab4" path="/FlAdminBudget4.do" />      
+      <forward name="fltab5" path="/FlAdminBudget5.do" />     
+      <forward name="fltab6" path="/FlAdminBudget6.do" />
+      <forward name="fltab7" path="/FlAdminBudget7.do" />     
+      <forward name="altab1" path="/AlAdminBudget1.do" />
+      <forward name="altab2" path="/AlAdminBudget2.do" />
+      <forward name="altab3" path="/AlAdminBudget3.do" />
+      <forward name="altab4" path="/AlAdminBudget4.do" />
+      <forward name="altab5" path="/AlAdminBudget5.do" />
+      <forward name="altab6" path="/AlAdminBudget6.do" />
+      <forward name="altab7" path="/AlAdminBudget7.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>
+      
+  <action path="/addLitAdminAward"  type="literacy.LiAdminAddAward" parameter="item">
+      <forward name="fltab1" path="/FlAdminBudget1.do" />
+      <forward name="fltab2" path="/FlAdminBudget2.do" />
+      <forward name="fltab3" path="/FlAdminBudget3.do" />
+      <forward name="fltab4" path="/FlAdminBudget4.do" />   
+      <forward name="fltab5" path="/FlAdminBudget5.do" />
+      <forward name="fltab6" path="/FlAdminBudget6.do" />
+      <forward name="fltab7" path="/FlAdminBudget7.do" />
+      <forward name="altab1" path="/AlAdminBudget1.do" />
+      <forward name="altab2" path="/AlAdminBudget2.do" />
+      <forward name="altab3" path="/AlAdminBudget3.do" />
+      <forward name="altab4" path="/AlAdminBudget4.do" />
+      <forward name="altab5" path="/AlAdminBudget5.do" />
+      <forward name="altab6" path="/AlAdminBudget6.do" />
+      <forward name="altab7" path="/AlAdminBudget7.do" />
+      <forward name="aladminconfirmbdgtdelete" path="/AlAdminConfirmBudget.do" />
+      <forward name="fladminconfirmbdgtdelete" path="/FlAdminConfirmBudget.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+    </action>
+  
+  <action path="/litAdminRevNav"  type="discretionary.AdminRevAction"  parameter="item" >
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />
+       <forward name="ratingsfl" path="/FlAdminRatings.do" />
+       <forward name="ratingsal" path="/AlAdminRatings.do" />
+       <forward name="assignlist" path="/LitAssignReviewers.do" />
+       <forward name="reviewers" path="/LitViewReviewers.do" />
+  </action>  
+  
+  <action path="/adminUpdateProjMang"  type="literacy.AdminSavePManager"
+          name="coversheetBean" scope="request" validate="false" input="/FlAdminProjManager.do">
+      <forward name="flgrant" path="/FlCheckstatus.do"/>
+      <forward name="algrant" path="/AlCheckstatus.do"/>
+      <forward name="digrant" path="/DiAdminCheckstatus.do"/>
+      <forward name="cogrant" path="/AdminCoCheckStatus.do"/>
+      <forward name="cngrant" path="/CnAdminChecklist"/>
+      <forward name="flprojmanager" path="/FlAdminProjManager.do"/>
+      <forward name="alprojmanager" path="/AlAdminProjManager.do"/>
+      <forward name="diprojmanager" path="/DiAdminProjManager.do"/>
+      <forward name="coprojmanager" path="/AdminCoProjManager.do"/>
+      <forward name="cnprojmanager" path="/CnAdminUpdateManager.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>
+  
+  <action path="/litAdminUpdateContact"  type="literacy.AdminSaveContact"
+          name="coversheetBean" scope="request" validate="false" input="/FlAdminContact.do">
+      <forward name="flgrant" path="/FlCheckstatus.do"/>
+      <forward name="algrant" path="/AlCheckstatus.do"/>
+      <forward name="flcontact" path="/FlAdminContact.do"/>
+      <forward name="alcontact" path="/AlAdminContact.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>
+    
+  <action path="/litAdminEmail"  type="emailws.LitAdminEmail" parameter="i" >
+       <forward name="viewgrants" path="/LitAdminMail.do" />      
+       <forward name="unsentmail" path="/LitUnsentMail.do" /> 
+       <forward name="viewrecipients" path="/LitMailRecipients.do" />
+       <forward name="indivrecipient" path="/LitSelectRecipient.do" />
+       <forward name="template" path="/LitNewMail.do" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />
+  </action>
+  
+  <action path="/litAddRecipient"  type="emailws.AddIndivRecipient" 
+      name="AssignCollectionBean" scope="request" input="/LitSelectRecipient.do">
+      <forward name="success" path="/LitUnsentMail.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/litEmailNav" type="emailws.SedemsAction" parameter="item">  
+      <forward name="home" path="/LitUnsentMail.do" /> 
+      <forward name="unsentmail" path="/LitUnsentMail.do" />
+      <forward name="confirmdelete" path="/LitUnsentMail.do?i=delete" /> 
+      <forward name="confirmsend" path="/LitConfirmSend.do" /> 
+      <forward name="selectmail" path="/LitNewMail.do" /> 
+      <forward name="template" path="/LitNewMail.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+      <forward name="error" path="/error.jsp" />
+  </action>
+  
+  <action path="/saveNewMail"  type="emailws.AddUpdateMailAction"
+          name="emailHelpBean"  scope="request" input="/LitNewMail.do">
+        <forward name="success" path="/LitUnsentMail.do"/>
+        <forward name="error" path="/error.jsp"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true"/>
+  </action>
+  
+  <action path="/litSaveAssignment"  type="services.UpdateAssignmentAction"
+          name="AssignCollectionBean" scope="request" input="/LitAssignReviewers.do">
+      <forward name="success" path="/LitAssignReviewers.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/litReports"  type="reports.CpReportAction" parameter="item">
+      <forward name="revcontact" path="/reports/revContactRpt.jsp"/>
+      <forward name="revassign" path="/reports/dt/reviewerAssignments.jsp"/>
+      <forward name="revscores" path="/fmliteracy/adminRatings.jsp"/>
+      <forward name="awardamt" path="/reports/dt/awardAmountScoreRpt.jsp"/>
+      <forward name="projstatus" path="/reports/dt/projectStatusRpt.jsp"/>
+      <forward name="interimstatus" path="/reports/dt/interimProjectStatus.jsp"/>
+      <forward name="finalstatus" path="/reports/dt/finalReportStatus.jsp"/>
+      <forward name="scorerating" path="/reports/dt/allScoresRpt.jsp"/>
+      <forward name="allawardfy" path="/reports/dt/allProgramAwards.jsp"/>
+      <forward name="allawardco" path="/reports/dt/allProgramAwards.jsp"/>
+      <forward name="nonsubgrants" path="/reports/dt/unsubmittedApplications.jsp"/>
+      <forward name="litedlawtotal" path="/reports/dt/litAppEdlawTotal.jsp"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <!-- FAMILY LITERACY BUDGET-->
+  <action path="/saveFlPersonal"  type="services.PersonalUpdateAction"
+          name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=fl"/>
+      <forward name="fail" path="/FlBudget1.do"/>
+      <forward name="fail3" path="/FlBudget1.do"/>
+      <forward name="fail4" path="/FlBudget2.do"/>
+  </action>
+  
+  <action path="/saveFlBenefit"  type="services.BenefitsUpdateAction"
+          name="BudgetCollectionBean"  scope="request" input="/FlBudget3.do">
+      <forward name="success" path="/UpdateCpBudget?m=fl"/>
+      <forward name="fail" path="/FlBudget3.do"/>
+  </action>
+  
+  <action path="/saveFlContract"  type="services.ContractedUpdateAction"
+          name="BudgetCollectionBean" scope="request" input="/FlBudget4.do">
+      <forward name="success" path="/UpdateCpBudget?m=fl"/>
+      <forward name="fail" path="/FlBudget4.do"/>
+  </action>
+  
+  <action path="/saveFlSupply"  type="services.SupplyUpdateAction"
+          name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=fl"/>
+      <forward name="fail" path="/FlBudget5.do"/>
+      <forward name="fail1" path="/FlBudget5.do"/>
+      <forward name="fail2" path="/FlBudget6.do"/>
+  </action>
+  
+  <action path="/saveFlTravel"  type="services.TravelUpdateAction"
+          name="BudgetCollectionBean" scope="request" input="/FlBudget7.do">
+      <forward name="success" path="/UpdateCpBudget?m=fl"/>
+      <forward name="fail" path="/FlBudget7.do"/>
+  </action>
+  
+  <action path="/saveLitExpenses"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/FlExpense1.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lit"/>
+  </action>  
+  
+  <!--new 7/7/15, save additional fields, validate-->
+  <action path="/saveLitContrExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/FlExpense4.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lit"/>
+      <forward name="fail" path="/FlExpense4.do"/>
+      <forward name="failal" path="/AlExpense4.do"/>
+      <forward name="failfl" path="/FlExpense4.do"/>
+  </action>
+  
+  <action path="/saveALSuppExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/AlExpense5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lit"/>
+      <forward name="fail" path="/AlExpense5.do"/>
+      <forward name="fail1" path="/AlExpense5.do"/>
+      <forward name="fail2" path="/AlExpense6.do"/>
+  </action>
+  
+  <action path="/saveFLSuppExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/FlExpense5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lit"/>
+      <forward name="fail" path="/FlExpense5.do"/>
+      <forward name="fail1" path="/FlExpense5.do"/>
+      <forward name="fail2" path="/FlExpense6.do"/>
+  </action>
+  
+  <!-- ADULT LITERACY BUDGET -->  
+  <action path="/saveAlPersonal"  type="services.PersonalUpdateAction"
+          name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=al"/>
+      <forward name="fail" path="/AlBudget1.do"/>
+      <forward name="fail3" path="/AlBudget1.do"/>
+      <forward name="fail4" path="/AlBudget2.do"/>
+  </action>
+  
+  <action path="/saveAlBenefit"  type="services.BenefitsUpdateAction"
+          name="BudgetCollectionBean"  scope="request" input="/AlBudget3.do">
+      <forward name="success" path="/UpdateCpBudget?m=al"/>
+      <forward name="fail" path="/AlBudget3.do"/>
+  </action>
+  
+  <action path="/saveAlContract"  type="services.ContractedUpdateAction"
+          name="BudgetCollectionBean" scope="request" input="/AlBudget4.do">
+      <forward name="success" path="/UpdateCpBudget?m=al"/>
+      <forward name="fail" path="/AlBudget4.do"/>
+  </action>
+  
+  <action path="/saveAlSupply"  type="services.SupplyUpdateAction"
+          name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=al"/>
+      <forward name="fail" path="/AlBudget5.do"/>
+      <forward name="fail1" path="/AlBudget5.do"/>
+      <forward name="fail2" path="/AlBudget6.do"/>
+  </action>
+  
+  <action path="/saveAlTravel"  type="services.TravelUpdateAction"
+          name="BudgetCollectionBean" scope="request" input="/AlBudget7.do">
+      <forward name="success" path="/UpdateCpBudget?m=al"/>
+      <forward name="fail" path="/AlBudget7.do"/>
+  </action>   
+
+ <action path="/FlHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/flHome" /></action>
+ 
+ <action path="/FlChecklist" type="mypackage.LayoutActionBean" ><forward name="success" path="/flChecklist" /></action>
+ 
+ <action path="/FlAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAttachment" /></action>
+ 
+ <action path="/FlAddAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAddAttachment" /></action>
+ 
+ <action path="/FlNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/flNarrative" /></action>
+ 
+ <action path="/FlSummaryNarr" type="mypackage.LayoutActionBean" ><forward name="success" path="/flSummaryNarr" /></action>
+ 
+ <action path="/FlCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/flCoversheet" /></action>
+ 
+ <action path="/FlParticipants" type="mypackage.LayoutActionBean" ><forward name="success" path="/flParticipants" /></action>
+ 
+ <action path="/FlNewParticipants" type="mypackage.LayoutActionBean" ><forward name="success" path="/flNewParticipants" /></action>
+ 
+ <action path="/FlFsForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/flFsForms" /></action>
+ 
+ <action path="/FlBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget1" /></action>
+ 
+ <action path="/FlBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget2" /></action>
+ 
+ <action path="/FlBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget3" /></action>
+ 
+ <action path="/FlBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget4" /></action>
+ 
+ <action path="/FlBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget5" /></action>
+ 
+ <action path="/FlBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget6" /></action>
+ 
+ <action path="/FlBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/flBudget7" /></action>
+ 
+ <action path="/FlExpense1" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense1" /></action>
+ 
+ <action path="/FlExpense2" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense2" /></action>
+ 
+ <action path="/FlExpense3" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense3" /></action>
+ 
+ <action path="/FlExpense4" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense4" /></action>
+ 
+ <action path="/FlExpense5" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense5" /></action>
+ 
+ <action path="/FlExpense6" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense6" /></action>
+
+ <action path="/FlExpense7" type="mypackage.LayoutActionBean" ><forward name="success" path="/flExpense7" /></action>
+ 
+ <action path="/FlCertification" type="mypackage.LayoutActionBean" ><forward name="success" path="/flCertification" /></action>
+ 
+ <action path="/FlAuthorization" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAuthorization" /></action>
+ 
+ <action path="/FlFinalAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/flFinalAuth" /></action>
+ 
+ <action path="/FlFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/flFinalReport" /></action>
+ 
+ <action path="/FlInterimReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/flInterimReport" /></action>
+ 
+ <action path="/FlInterimAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/flInterimAuth" /></action>
+ 
+ <action path="/FlStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/flStatus" /></action>
+ 
+ <action path="/FlSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/flSubmit" /></action>
+ 
+ <action path="/FlHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/flHelp" /></action>
+ 
+ <action path="/FlStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/flStatistics" /></action>
+ 
+ <action path="/FlNewStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/flNewStatistics" /></action>
+ 
+ <action path="/FlPayeeInfo" type="mypackage.LayoutActionBean" ><forward name="success" path="/flPayeeInfo" /></action>
+
+ <action path="/FlAmendmentSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAmendmentSummary" /></action>
+ 
+ <action path="/FlEditContact" type="mypackage.LayoutActionBean" ><forward name="success" path="/flEditContact" /></action>
+ 
+ <action path="/FlPartCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/flPartCoversheet" /></action>
+ 
+ <action path="/FlPartNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/flPartNarrative" /></action>
+ 
+ <action path="/FlPartAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flPartAttachment" /></action>
+ 
+ <action path="/FlPartBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/flPartBudget" /></action>
+  
+ 
+ <action path="/AlChecklist" type="mypackage.LayoutActionBean" ><forward name="success" path="/alChecklist" /></action>
+ 
+ <action path="/AlHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/alHome" /></action>
+
+ <action path="/AlCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/alCoversheet" /></action>
+
+ <action path="/AlNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/alNarrative" /></action>
+
+ <action path="/AlSummaryNarr" type="mypackage.LayoutActionBean" ><forward name="success" path="/alSummaryNarr" /></action>
+
+ <action path="/AlParticipants" type="mypackage.LayoutActionBean" ><forward name="success" path="/alParticipants" /></action>
+
+ <action path="/AlNewParticipants" type="mypackage.LayoutActionBean" ><forward name="success" path="/alNewParticipants" /></action>
+
+ <action path="/AlAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAttachment" /></action>
+
+ <action path="/AlAddAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAddAttachment" /></action>
+
+ <action path="/AlAuthorization" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAuthorization" /></action>
+
+ <action path="/AlCertification" type="mypackage.LayoutActionBean" ><forward name="success" path="/alCertification" /></action>
+
+ <action path="/AlFsForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/alFsForms" /></action>
+
+ <action path="/AlFinalAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/alFinalAuth" /></action>
+
+ <action path="/AlInterimAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/alInterimAuth" /></action>
+
+ <action path="/AlInterimReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/alInterimReport" /></action>
+ 
+ <action path="/AlFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/alFinalReport" /></action>
+ 
+ <action path="/AlBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget1" /></action>
+ 
+ <action path="/AlBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget2" /></action>
+ 
+ <action path="/AlBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget3" /></action>
+ 
+ <action path="/AlBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget4" /></action>
+ 
+ <action path="/AlBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget5" /></action>
+ 
+ <action path="/AlBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget6" /></action>
+ 
+ <action path="/AlBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/alBudget7" /></action>
+ 
+ <action path="/AlExpense1" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense1" /></action>
+ 
+ <action path="/AlExpense2" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense2" /></action>
+ 
+ <action path="/AlExpense3" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense3" /></action>
+ 
+ <action path="/AlExpense4" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense4" /></action>
+ 
+ <action path="/AlExpense5" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense5" /></action>
+ 
+ <action path="/AlExpense6" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense6" /></action>
+
+ <action path="/AlExpense7" type="mypackage.LayoutActionBean" ><forward name="success" path="/alExpense7" /></action>
+ 
+ <action path="/AlStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/alStatus" /></action>
+
+ <action path="/AlSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/alSubmit" /></action>
+
+ <action path="/AlHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/alHelp" /></action>
+
+ <action path="/AlStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/alStatistics" /></action>
+
+ <action path="/AlPayeeInfo" type="mypackage.LayoutActionBean" ><forward name="success" path="/alPayeeInfo" /></action>
+
+ <action path="/AlAmendmentSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAmendmentSummary" /></action>
+
+ <action path="/AlEditContact" type="mypackage.LayoutActionBean" ><forward name="success" path="/alEditContact" /></action>
+
+  <!-- LITERACY REVIEWER -->  
+  <action path="/FlReviewHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/flReviewHome" /></action>
+
+  <action path="/FlRevRating" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevRating" /></action>
+
+  <action path="/FlRevInformation" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevInformation" /></action>
+
+  <action path="/FlRevAssignment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevAssignment" /></action>
+
+  <action path="/FlRevSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevSubmit" /></action>
+
+  <action path="/FlRevApplication" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevApplication" /></action>
+
+  <action path="/FlRevUnsubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevUnsubmit" /></action>
+
+  <action path="/FlRevFsforms" type="mypackage.LayoutActionBean" ><forward name="success" path="/flRevFsforms" /></action>
+
+  <!-- LITERACY ADMIN -->
+  <action path="/FlAdminHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminHome" /></action>
+
+  <action path="/FlCheckstatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/flCheckstatus" /></action>
+
+  <action path="/AlAdminHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminHome" /></action>
+
+  <action path="/AlCheckstatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/alCheckstatus" /></action>
+
+  <action path="/FlAdminNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminNarrative" /></action>
+
+  <action path="/AlAdminNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminNarrative" /></action>
+
+  <action path="/FlAdminCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminCoversheet" /></action>
+
+  <action path="/AlAdminCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminCoversheet" /></action>
+
+  <action path="/FlAdminFsForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminFsForms" /></action>
+
+  <action path="/AlAdminFsForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminFsForms" /></action>
+
+  <action path="/FlAdminInterim" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminInterim" /></action>
+
+  <action path="/AlAdminInterim" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminInterim" /></action>
+
+  <action path="/FlAdminFinalNarr" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminFinalNarr" /></action>
+
+  <action path="/AlAdminFinalNarr" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminFinalNarr" /></action>
+
+  <action path="/FlAdminStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminStatistics" /></action>
+
+  <action path="/FlAdminNewStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminNewStatistics" /></action>
+
+  <action path="/AlAdminStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminStatistics" /></action>
+
+  <action path="/FlAdminStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminStatus" /></action>
+
+  <action path="/AlAdminStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminStatus" /></action>
+
+  <action path="/FlAdminComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminComments" /></action>
+
+  <action path="/AlAdminComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminComments" /></action>
+
+  <action path="/AdminFlViewEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminFlViewEmail" /></action>
+
+  <action path="/AdminAlViewEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminAlViewEmail" /></action>
+
+  <action path="/FlAdminConfirmComment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminConfirmComment" /></action>
+
+  <action path="/AlAdminConfirmComment" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminConfirmComment" /></action>
+
+  <action path="/FlAdminRatings" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminRatings" /></action>
+
+  <action path="/AlAdminRatings" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminRatings" /></action>
+
+  <action path="/FlAdminProjManager" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminProjManager" /></action>
+
+  <action path="/AlAdminProjManager" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminProjManager" /></action>
+
+  <action path="/FlAdminContact" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminContact" /></action>
+
+  <action path="/AlAdminContact" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminContact" /></action>
+
+  <action path="/FlAdminAmendment" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminAmendment" /></action>
+
+  <action path="/AlAdminAmendment" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminAmendment" /></action>
+
+  <action path="/FlAdminAllocation" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminAllocation" /></action>
+
+  <action path="/AlAdminAllocation" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminAllocation" /></action>
+
+  <action path="/FlEditAllocation" type="mypackage.LayoutActionBean" ><forward name="success" path="/flEditAllocation" /></action>
+
+  <action path="/AlEditAllocation" type="mypackage.LayoutActionBean" ><forward name="success" path="/alEditAllocation" /></action>
+
+  <action path="/FlAdminConfirmBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminConfirmBudget" /></action>
+
+  <action path="/AlAdminConfirmBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminConfirmBudget" /></action>
+
+  <action path="/FlAdminSubmitValid" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminSubmitValid" /></action>
+
+  <action path="/AlAdminSubmitValid" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminSubmitValid" /></action>
+
+
+  <action path="/LitGrantSearch" type="mypackage.LayoutActionBean" ><forward name="success" path="/litGrantSearch" /></action>
+ 
+  <action path="/LitAdminAccounts" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminAccounts" /></action>
+ 
+  <action path="/LitAdminViewDates" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminViewDates" /></action>
+
+  <action path="/LitAdminAddDate" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminAddDate" /></action>
+
+  <action path="/LitUpdateReviewer" type="mypackage.LayoutActionBean" ><forward name="success" path="/litUpdateReviewer" /></action>
+
+  <action path="/LitViewReviewers" type="mypackage.LayoutActionBean" ><forward name="success" path="/litViewReviewers" /></action>
+
+  <action path="/LitAssignReviewers" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAssignReviewers" /></action>
+
+  <action path="/LitAdminHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminHelp" /></action>
+
+  <action path="/LitAdminMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminMail" /></action>
+
+  <action path="/LitNewMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/litNewMail" /></action>
+
+  <action path="/LitSelectRecipient" type="mypackage.LayoutActionBean" ><forward name="success" path="/litSelectRecipient" /></action>
+
+  <action path="/LitUnsentMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/litUnsentMail" /></action>
+
+  <action path="/LitMailRecipients" type="mypackage.LayoutActionBean" ><forward name="success" path="/litMailRecipients" /></action>
+
+  <action path="/LitConfirmSend" type="mypackage.LayoutActionBean" ><forward name="success" path="/litConfirmSend" /></action>
+
+  <action path="/LitAdminReports" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminReports" /></action>
+
+  <action path="/LitAdminAttachments" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminAttachments" /></action>
+ 
+  <action path="/LitAdminAddAttach" type="mypackage.LayoutActionBean" ><forward name="success" path="/litAdminAddAttach" /></action>
+ 
+  <action path="/FlAdminBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget1" /></action>
+
+  <action path="/FlAdminBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget2" /></action>
+
+  <action path="/FlAdminBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget3" /></action>
+
+  <action path="/FlAdminBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget4" /></action>
+
+  <action path="/FlAdminBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget5" /></action>
+  
+  <action path="/FlAdminBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget6" /></action>
+  
+  <action path="/FlAdminBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/flAdminBudget7" /></action>
+  
+  <action path="/AlAdminBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget1" /></action>
+
+  <action path="/AlAdminBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget2" /></action>
+
+  <action path="/AlAdminBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget3" /></action>
+
+  <action path="/AlAdminBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget4" /></action>
+
+  <action path="/AlAdminBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget5" /></action>
+  
+  <action path="/AlAdminBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget6" /></action>
+ 
+  <action path="/AlAdminBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/alAdminBudget7" /></action>
+ 
+   
+   <!-- redirect new literacy applicant year1 to struts2 action 
+    <action path="/litYr1ContractedServices" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/adultLiteracyYr1ContractedServices.action"/>
+    </action>
+    
+    <action path="/familyLitYr1ContractedServices" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1ContractedServices.action"/>
+    </action>
+        
+    <action path="/litYr1FinalSignoff" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/adultLiteracyYr1FinalSignoff.action"/>
+    </action>
+    
+    <action path="/familyLitYr1FinalSignoff" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1FinalSignoff.action"/>
+    </action>
+        
+    <action path="/litYr1FinalNarrative" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/adultLiteracyYr1FinalNarrative.action"/>
+    </action>
+    
+    <action path="/familyLitYr1FinalNarrative" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1FinalNarrative.action"/>
+    </action>
+               
+    <action path="/familyLitYr1Statistics" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1Statistics.action"/>
+    </action>
+    -->
+    
+    <!--  redirect admin struts1 to admin struts2 mapping        
+    
+    <action path="/litYr1FinalNarrativeAdmin" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/adultLiteracyYr1FinalNarrativeAdmin.action"/>
+    </action>
+    
+    <action path="/familyLitYr1FinalNarrativeAdmin" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1FinalNarrativeAdmin.action"/>
+    </action>    
+    
+    <action path="/familyLitYr1StatisticsAdmin" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1StatisticsAdmin.action"/>
+    </action>    
+
+    <action path="/litYr1ContractedServicesAdmin" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/adultLiteracyYr1ContractedServicesAdmin.action"/>
+    </action>
+    
+    <action path="/familyLitYr1ContractedServicesAdmin" type="mypackage.GenericUpdateAction">
+        <forward name="success" redirect="true" path="/familyLiteracyYr1ContractedServicesAdmin.action"/>
+    </action>
+     --> 
+    
+ 
+</action-mappings>
+</struts-config>

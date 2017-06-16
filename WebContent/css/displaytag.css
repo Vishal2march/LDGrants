@@ -1,0 +1,120 @@
+BODY {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+thead tr {
+	background-color:rgb(204,204,204);
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+th.sorted {
+	background-color: silver;
+}
+
+th a,th a:visited {
+	color: black;
+}
+
+th a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+
+th.sortable a {
+	background-image: url(../Images/arrow_off.png);
+        background-repeat: no-repeat;
+}
+
+th.order1 a {
+	background-image: url(../Images/arrow_down.png);
+        background-repeat: no-repeat;
+}
+
+th.order2 a {
+	background-image: url(../Images/arrow_up.png);
+        background-repeat: no-repeat;
+}
+
+tr.total {
+	background-color:White;
+  font-weight:bold;
+  width:100%;
+}
+
+tr.odd {
+	background-color:White;
+  width:100%;
+}
+
+tr.tableRowEven,tr.even {
+	/*background-color:Silver;*/
+  background-color:rgb(220,220,220);
+  width:100%;
+}
+
+div.exportlinks {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: 2px 0 10px 0;
+        font-size:smaller;
+        width: 95%;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display: inline;
+	display: inline-block;
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../Images/ico_file_excel.png);
+        background-repeat: no-repeat;
+}
+
+span.csv {
+	background-image: url(../Images/ico_file_csv.png);
+        background-repeat: no-repeat; 
+}
+
+span.xml {
+	background-image: url(../Images/ico_file_xml.png);
+        background-repeat: no-repeat; 
+}
+
+span.pdf {
+	background-image: url(../Images/ico_file_pdf.png);
+        background-repeat: no-repeat; 
+}
+
+span.rtf {
+	background-image: url(../Images/ico_file_rtf.png);
+        background-repeat: no-repeat; 
+}
+
+span.pagebanner {
+	padding: 2px 4px 2px 4px;
+	display: block;
+	border-bottom: none;
+        width: 95%;
+        font-size:smaller;
+}
+
+span.pagelinks {
+	padding: 2px 4px 2px 4px;
+	display: block;
+	border-top: none;
+	margin-bottom: 0px;
+        width: 95%;
+        font-size:smaller;
+}
+
+
+

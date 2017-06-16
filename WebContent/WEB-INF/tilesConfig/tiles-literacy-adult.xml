@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+
+	<!--  LITERACY YEAR1 FINAL BUDGETS (2016-17)  -->
+	<definition name="adultLiteracyYr1ContractedServices" extends="al.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy - Contracted Services"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/budget/yr1ContractedServicesJtable.jsp"/>        
+    </definition>
+    
+    <definition name="adultLiteracyYr1Travel" extends="al.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy - Travel"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/budget/yr1TravelJtable.jsp"/>        
+    </definition>
+    
+    <definition name="adultLiteracyYr1Supplies" extends="al.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy - Supplies and Materials"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/budget/yr1SuppliesJtable.jsp"/>        
+    </definition>
+    
+    <definition name="adultLiteracyYr1Equipment" extends="al.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy - Equipment"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/budget/yr1EquipmentJtable.jsp"/>        
+    </definition>
+    
+    <!-- literacy year1 final signoff -->
+    
+     <definition name="adultLiteracyYr1FinalSignoff" extends="al.layout">
+    	<put-attribute name="title" expression="Adult Literacy - Final Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/yr1FinalSignoff.jsp"/>        
+    </definition>
+    
+     <!-- literacy amendment signoff -->
+    
+     <definition name="adultLiteracyAmendmentSignoff" extends="al.layout">
+    	<put-attribute name="title" expression="Adult Literacy - Amendment Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/budgetAmendmentSummary/amendmentSignoffLiteracy.jsp"/>        
+    </definition>
+    
+    <!-- literacy year1 final narratives -->
+    
+    <definition name="adultLiteracyYr1FinalNarrative" extends="al.layout">
+    	<put-attribute name="title" expression="Adult Literacy - Final Narrative"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/yr1FinalNarrative.jsp"/>        
+    </definition>
+    
+    <!-- literacy final summayr -->
+    
+    <definition name="adultLiteracyFinalSummary" extends="al.layout">
+    	<put-attribute name="title" expression="Adult Literacy - Final Summary"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/finalSummary/finalSummary.jsp"/>        
+    </definition>
+    
+    <!-- literacy ADMIN final summayr -->
+    
+    <definition name="adultLiteracyFinalSummaryAdmin" extends="al.admin.layout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Final Summary"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/finalSummary/adminFinalSummary.jsp"/>        
+    </definition>
+    
+    <!-- adult literacy placeholder -->
+    
+    <definition name="adultLiteracyPlaceholder" extends="al.layout">
+    	<put-attribute name="title" expression="Adult Literacy "/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/placeholder.jsp"/>        
+    </definition>
+    
+        
+    <!-- literacy ADMIN year1 final narratives -->
+    
+    <definition name="adultLiteracyYr1FinalNarrativeAdmin" extends="al.admin.layout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Final Narrative"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/yr1FinalNarrative.jsp"/>        
+    </definition>
+    
+     <!-- literacy ADMIN year1 final signoff -->
+    
+    <definition name="adultLiteracyYr1FinalSignoffAdmin" extends="al.admin.layout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Final Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/finalSignoff.jsp"/>        
+    </definition>
+    
+    <!--  LITERACY ADMIN YEAR1  BUDGETS (2016-17)  -->
+    
+    <definition name="adultLiteracyYr1ContractedServicesAdmin" extends="al.admin.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Contracted Services"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/contractedServices.jsp"/>        
+    </definition>
+    
+     <definition name="adultLiteracyYr1TravelAdmin" extends="al.admin.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Travel"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/travel.jsp"/>        
+    </definition>
+    
+      <definition name="adultLiteracyYr1SuppliesAdmin" extends="al.admin.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Supplies and Materials"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/supplies.jsp"/>        
+    </definition>
+    
+      <definition name="adultLiteracyYr1EquipmentAdmin" extends="al.admin.budgetLayout">
+    	<put-attribute name="title" expression="Adult Literacy Admin - Equipment"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/equipment.jsp"/>        
+    </definition>
+    
+    <!-- Literacy landing pages -->
+
+      <definition name="literacyLanding" extends="nysed.bootstrap.layout">
+    	<put-attribute name="title" expression="Adult Literacy Home Page"/> 
+    	<put-attribute name="grantinfo" value="" />     
+      <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/newAlHome.jsp"/>  
+    </definition>
+    
+    <definition name="adultLiteracyAdminLanding" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+      <put-attribute name="title" expression="Adult Literacy Admin Home"/>      
+      <put-attribute name="body" value="/WEB-INF/jsps/adultLiteracy/admin/home.jsp"/>  
+    </definition>
+    
+
+</tiles-definitions>

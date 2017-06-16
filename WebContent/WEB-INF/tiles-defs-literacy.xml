@@ -1,0 +1,1243 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!--<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">-->
+     <!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+  <tiles-definitions>            
+    <definition name="flbanner" path="/common/banner.jsp">
+      <put name="grprogram" value="Family Literacy" /> 
+   </definition>
+   
+   <definition name="albanner" path="/common/banner.jsp">
+      <put name="grprogram" value="Adult Literacy" /> 
+   </definition>
+   
+   <definition name="fladminbanner" path="/common/adminbanner.jsp">
+      <put name="grprogram" value="Family Literacy Admin" /> 
+   </definition> 
+   
+   <definition name="aladminbanner" path="/common/adminbanner.jsp">
+      <put name="grprogram" value="Adult Literacy Admin" /> 
+   </definition> 
+   
+    <definition name="litadminbanner" path="/common/adminbanner.jsp">
+      <put name="grprogram" value="Literacy" /> 
+   </definition> 
+    
+    <!-- family literacy-->
+    <definition name="flapcntlayout" path="/layout.jsp">
+      <put name="header" value="flbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/flNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="flpartlayout" path="/layout.jsp">
+      <put name="header" value="flbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/flPartNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="flnarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="flbanner" type="definition" />  
+      <put name="menubar" value="/fmliteracy/flNavBar.jsp" />      
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminfllayout" path="/layout.jsp">
+      <put name="header" value="fladminbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/adminFlNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="fladminnarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="fladminbanner" type="definition" />  
+      <put name="menubar" value="/fmliteracy/adminFlNavBar.jsp" />  
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <!-- adult literacy-->
+   <definition name="alapcntlayout" path="/layout.jsp">
+      <put name="header" value="albanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/alNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="alnarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="albanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/alNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="aladminnarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="aladminbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/adminAlNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminallayout" path="/layout.jsp">
+      <put name="header" value="aladminbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/adminAlNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminlitlayout" path="/layout.jsp">
+      <put name="header" value="litadminbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/adminLitCommonNav.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminemaillayout" path="/common/narrLayout.jsp">
+      <put name="header" value="litadminbanner" type="definition" /> 
+      <put name="menubar" value="/fmliteracy/adminLitCommonNav.jsp" />
+      <put name="narrmenu" value="/fmliteracy/litEmailMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+  
+  <!-- LITERACY REVIEWER-->  
+  <definition name="flrevlayout" path="/layout.jsp">
+      <put name="header" value="revbanner" type="definition" /> 
+      <put name="menubar" value="/reviewers/literacy/liRevNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   
+   
+   <!--these are the applicant page mappings for fm literacy-->   
+    <definition name="/flHome" path="/layout.jsp"><!--changed 7/8/10-->
+      <put name="header" value="flbanner" type="definition" /> 
+      <put name="title" value="Family Literacy Home Page" />
+      <put name="body" value="/fmliteracy/fmLiteracyHome.jsp"/>
+      <put name="footer" value="/common/Footer.html" />
+    </definition>
+    
+    
+    <definition name="/flChecklist" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Checklist" />
+      <put name="body" value="/fmliteracy/flChecklist.jsp" />
+    </definition>
+    
+    <definition name="/flAttachment" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Attachments" />
+      <put name="body" value="/attachment.jsp?prog=fl" />
+    </definition>
+    
+    <definition name="/flAddAttachment" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Add Attachments" />
+      <put name="body" value="/addAttachment.jsp?prog=fl" />
+    </definition>
+    
+    <definition name="/flNarrative" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Application Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenu.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flSummaryNarr" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Summary Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenu.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liSummaryNarrative.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlNarrativeNew" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlSummaryNarrNew" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Summary Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liSummaryNarrative.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlPurchasedNarr" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Purchased Budget-Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/liNarrativePurchased.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlTravelNarr" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Travel Budget-Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/liNarrativeTravel.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlEquipmentNarr" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Equipment Budget-Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/liNarrativeEquipment.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlSupplyNarr" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Supply Budget-Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/liNarrativeSupply.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlDeleteBudgetSummary" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Confirm Delete" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/deleteBudgetSummary.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlNarrativeNysl" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Summary Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrativeNysl.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flCoversheet" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Cover Page" />
+      <put name="body" value="/fmliteracy/flCoversheet.jsp" />
+    </definition>
+    
+    <definition name="/flParticipants" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Participating Institutions" />
+      <put name="body" value="/common/participants.jsp?prog=fl" />
+    </definition>
+    
+    <definition name="/flNewParticipants" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Participating Institutions" />
+      <put name="body" value="/fmliteracy/participantsListAdd.jsp?prog=fl" />
+    </definition>
+    
+    <definition name="/flFsForms" extends="flapcntlayout">
+      <put name="title" value="Family Literacy FS Forms" />
+      <put name="body" value="/fmliteracy/liFsForms.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flBudget1" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Professional Salaries" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_salaries.jsp?t=1" />
+    </definition>
+    
+    <definition name="/flBudget2" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Support Staff Salaries" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_salaries.jsp?t=2" />
+    </definition>
+    
+    <definition name="/flBudget3" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Benefits" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_benefits.jsp" />
+    </definition>
+    
+    <definition name="/flBudget4" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Purchased Services" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_purchased.jsp" />
+    </definition>
+    
+     <definition name="/flBudget5" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Supplies Materials" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_supplyequip.jsp?t=5" />
+    </definition>
+    
+    <definition name="/flBudget6" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Equipment" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_supplyequip.jsp?t=6" />
+    </definition>
+    
+     <definition name="/flBudget7" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget-Travel" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/flpb_travel.jsp" />
+    </definition>
+    
+    <definition name="/flExpense1" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expSalaries.jsp?t=1" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense2" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expSalaries.jsp?t=2" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense3" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expBenefits.jsp?p=fl" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense4" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expPurchasedFamLit.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense5" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expSuppliesequipFamLit.jsp?t=5" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense6" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expSuppliesequipFamLit.jsp?t=6" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/flExpense7" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/pb_expTravel.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+     <definition name="/FlDeleteAmendment" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Confirm Amendment Delete" />
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+     <definition name="/FlDeleteBudget" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Confirm Budget Delete" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+     <definition name="/flCertification" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Board Certification" />
+      <put name="body" value="/fmliteracy/boardCertification.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/flAuthorization" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Director Authorization" />
+      <put name="body" value="/fmliteracy/liAuthorization.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlCertificationForm" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Certification Statement " />
+      <put name="body" value="/fmliteracy/flCertificationStatement.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flFinalAuth" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Director Final Report Authorization" />
+      <put name="body" value="/fmliteracy/liFinalAuthorization.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flFinalReport" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Final Report" />
+      <put name="narrmenu" value="/fmliteracy/finalNarrMenu.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/finalNarrative.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlFinalReportYear1" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Final Report Year 1" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year1.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlFinalReportYear2" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Final Report Year 2" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year2.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlFinalReportYear3" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Final Report Year 3" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year3.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flInterimReport" extends="flnarrlayout">
+      <put name="title" value="Family Literacy Interim Report" />
+      <put name="narrmenu" value="/fmliteracy/interimMenu.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/interimNarrative.jsp" />
+    </definition>
+    
+    <definition name="/flInterimAuth" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Interim Authorization" />
+      <put name="body" value="/fmliteracy/liInterimAuth.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flStatus" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/flSubmit" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Submit Application" />
+      <put name="body" value="/fmliteracy/submitApp.jsp" />
+    </definition>
+    
+    <definition name="/FlSubmitAppCert" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Submit Certification and Application" />
+      <put name="body" value="/fmliteracy/submitAppCertification.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flHelp" extends="flapcntlayout">
+      <put name="title" value="Literacy Help Page" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=lit" />
+    </definition>
+    
+    <definition name="/flStatistics" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Statistics" />
+      <put name="body" value="/fmliteracy/liStatistics.jsp" />
+    </definition>   
+    
+    <definition name="/flNewStatistics" extends="flapcntlayout">
+      <put name="title" value="New Family Literacy Statistics starting FY2013-14" />
+      <put name="body" value="/fmliteracy/liStatisticsFamLit.jsp" />
+    </definition>   
+    
+    <definition name="/flPayeeInfo" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Payee Info Form" />
+      <put name="body" value="/discretionary/diPayeeInfoForm.jsp?prog=lit" />
+    </definition>    
+    
+    <definition name="/flAmendmentSummary" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Amendment Summary" />
+      <put name="body" value="/fmliteracy/fsAmendmentLit.jsp?m=fl" />
+    </definition>   
+    
+    <definition name="/flEditContact" extends="flapcntlayout">
+      <put name="title" value="Family Literacy Edit Project Manager/Contact" />
+      <put name="body" value="/fmliteracy/editManagerContact.jsp?m=fl" />
+    </definition>   
+    
+    
+     <definition name="/flPartCoversheet" extends="flpartlayout">
+      <put name="title" value="Literacy Participant Cover Page" />
+      <put name="body" value="/fmliteracy/liCoversheetHtml.jsp" />
+    </definition>
+    
+     <definition name="/flPartNarrative" extends="flpartlayout">
+      <put name="title" value="Literacy Participant Narratives" />
+      <put name="body" value="/fmliteracy/liViewNarrative.jsp" />
+    </definition>
+    
+     <definition name="/flPartAttachment" extends="flpartlayout">
+      <put name="title" value="Literacy Participant Attachments" />
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+     <definition name="/flPartBudget" extends="flpartlayout">
+      <put name="title" value="Literacy Participant Budget" />
+      <put name="body" value="/fmliteracy/liBudgetHtml.jsp" />
+    </definition>
+    
+    
+    <!-- page mappings for adult literacy-->
+    
+    <definition name="/alChecklist" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Checklist" />
+      <put name="body" value="/fmliteracy/alChecklist.jsp" />
+    </definition>
+    
+    <definition name="/alHome" path="/layout.jsp"><!--changed 7/8/10-->
+      <put name="header" value="albanner" type="definition" /> 
+      <put name="title" value="Adult Literacy Home Page" />
+      <put name="body" value="/fmliteracy/alHome.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+    </definition>
+    
+    <definition name="/alCoversheet" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Cover Page" />
+      <put name="body" value="/fmliteracy/alCoversheet.jsp" />
+    </definition>
+    
+    <definition name="/alNarrative" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenu.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alSummaryNarr" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Summary Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenu.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liSummaryNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlNarrativeNew" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlSummaryNarrNew" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Summary Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liSummaryNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlPurchasedNarr" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Purchased Budget-Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/liNarrativePurchased.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlTravelNarr" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Travel Budget-Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/liNarrativeTravel.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlEquipmentNarr" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Equipment Budget-Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/liNarrativeEquipment.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlSupplyNarr" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Supply Budget-Narrative" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/liNarrative.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/liNarrativeSupply.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlDeleteBudgetSummary" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Confirm Delete" />
+      <put name="narrmenu" value="/fmliteracy/liNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/deleteBudgetSummary.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alParticipants" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Participants" />
+      <put name="body" value="/common/participants.jsp?prog=al" />
+    </definition>
+    
+    <definition name="/alNewParticipants" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Participants" />
+      <put name="body" value="/fmliteracy/participantsListAdd.jsp?prog=al" />
+    </definition>
+    
+    <definition name="/alAttachment" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Attachments" />
+      <put name="body" value="/attachment.jsp?prog=al" />
+    </definition>
+    
+    <definition name="/alAddAttachment" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Add Attachments" />
+      <put name="body" value="/addAttachment.jsp?prog=al" />
+    </definition>
+    
+    <definition name="/alAuthorization" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Cover Page Authorization" />
+      <put name="body" value="/fmliteracy/liAuthorization.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlCertificationForm" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Certification Statement" />
+      <put name="body" value="/fmliteracy/alCertificationStatement.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alCertification" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Board Certification" />
+      <put name="body" value="/fmliteracy/boardCertification.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alFsForms" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy FS Forms" />
+      <put name="body" value="/fmliteracy/liFsForms.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alFinalAuth" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Final Report Authorization" />
+      <put name="body" value="/fmliteracy/liFinalAuthorization.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alInterimAuth" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Interim Authorization" />
+      <put name="body" value="/fmliteracy/liInterimAuth.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alInterimReport" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Interim Report" />
+      <put name="narrmenu" value="/fmliteracy/interimMenu.jsp?p=al" />
+      <put name="body" value="/fmliteracy/interimNarrative.jsp" />
+    </definition>
+  
+   <definition name="/alFinalReport" extends="alnarrlayout">
+      <put name="title" value="Adult Literacy Final Report" />
+      <put name="narrmenu" value="/fmliteracy/finalNarrMenu.jsp?p=al" />
+      <put name="body" value="/fmliteracy/finalNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlFinalReportYear1" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Final Report Year 1" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year1.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlFinalReportYear2" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Final Report Year 2" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year2.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlFinalReportYear3" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Final Report Year 3" />
+      <put name="body" value="/fmliteracy/finalNarrative1619Year3.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alBudget1" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Professional Salaries" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_salaries.jsp?t=1" />
+    </definition>
+    
+    <definition name="/alBudget2" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Support Staff Salaries" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_salaries.jsp?t=2" />
+    </definition>
+    
+    <definition name="/alBudget3" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Benefits" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_benefits.jsp" />
+    </definition>
+    
+    <definition name="/alBudget4" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Purchased Services" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_purchased.jsp" />
+    </definition>
+    
+    <definition name="/alBudget5" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Supplies Materials" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_supplyequip.jsp?t=5" />
+    </definition>
+    
+    <definition name="/alBudget6" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Equipment" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_supplyequip.jsp?t=6" />
+    </definition>
+    
+    <definition name="/alBudget7" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget-Travel" />
+      <put name="body" value="/fmliteracy/litBudgetNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/alpb_travel.jsp" />
+    </definition>
+    
+    <definition name="/AlDeleteAmendment" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Confirm Delete Amendment" />
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+    <definition name="/AlDeleteBudget" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Confirm Delete Budget" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/alExpense1" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expSalaries.jsp?t=1" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense2" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expSalaries.jsp?t=2" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense3" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expBenefits.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense4" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expPurchased.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense5" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expSuppliesequip.jsp?t=5" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense6" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expSuppliesequip.jsp?t=6" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alExpense7" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Project Budget" />
+      <put name="body" value="/fmliteracy/litExpensesNav.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/pb_expTravel.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp" />
+    </definition>
+    
+    <definition name="/alStatus" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/alSubmit" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Submit Application" />
+      <put name="body" value="/fmliteracy/submitApp.jsp" />
+    </definition>
+    
+    <definition name="/AlSubmitAppCert" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Submit Certification and Application" />
+      <put name="body" value="/fmliteracy/submitAppCertification.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alHelp" extends="alapcntlayout">
+      <put name="title" value="Literacy Help Page" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=lit" />
+    </definition>
+    
+     <definition name="/alStatistics" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Statistics" />
+      <put name="body" value="/fmliteracy/liStatistics.jsp" />
+    </definition>
+    
+     <definition name="/alPayeeInfo" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Payee Info" />
+      <put name="body" value="/discretionary/diPayeeInfoForm.jsp?prog=lit" />
+    </definition>
+    
+    <definition name="/alAmendmentSummary" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Amendment Summary" />
+      <put name="body" value="/fmliteracy/fsAmendmentLit.jsp?m=al" />
+    </definition>
+    
+    <definition name="/alEditContact" extends="alapcntlayout">
+      <put name="title" value="Adult Literacy Update Project Manager/Contact" />
+      <put name="body" value="/fmliteracy/editManagerContact.jsp?m=al" />
+    </definition>
+    
+    <!-- LIT REVIEWER -->
+    
+    <definition name="/flReviewHome" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Home" />
+      <put name="body" value="/reviewers/literacy/revHomeLi.jsp" />
+    </definition>
+    
+    <definition name="/flRevRating" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Rating" />
+      <put name="body" value="/reviewers/literacy/liRating.jsp" />
+    </definition>
+    
+    <definition name="/flRevInformation" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Contact Information" />
+      <put name="body" value="/reviewers/coord/updateRevInfo.jsp" />
+    </definition>
+    
+    <definition name="/flRevAssignment" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Assignments" />
+      <put name="body" value="/reviewers/coord/revAssignments.jsp?p=li" />
+    </definition>
+    
+    <definition name="/flRevSubmit" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Submit Rating" />
+      <put name="body" value="/reviewers/coord/revSubmitRating.jsp" />
+    </definition>
+    
+    <definition name="/flRevApplication" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Application" />
+      <put name="body" value="/reviewers/coord/revGrantSummary.jsp?p=li" />
+    </definition>
+  
+   <definition name="/flRevUnsubmit" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Unsubmit Rating" />
+      <put name="body" value="/reviewers/literacy/liUnsubmit.jsp" />
+    </definition>
+    
+    <definition name="/flRevFsforms" extends="flrevlayout">
+      <put name="title" value="Literacy Reviewer Fs Forms" />
+      <put name="body" value="/fmliteracy/liFsForms.jsp?p=fl" />
+    </definition>
+    
+    <!--LITERACY ADMIN-->
+    
+    <definition name="/flAdminHome" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Home" />
+      <put name="body" value="/fmliteracy/liAdminHome.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/FlAdminHomeNew" extends="adminfllayout">
+      <put name="title" value="New Family Literacy Admin Home" />
+      <put name="body" value="/fmliteracy/liAdminHomeNew.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flCheckstatus" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin" />
+      <put name="body" value="/fmliteracy/flAdminCheckstatus.jsp" />
+    </definition>
+    
+     <definition name="/alAdminHome" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Home" />
+      <put name="body" value="/fmliteracy/liAdminHome.jsp?p=al" />
+    </definition>
+    
+    <definition name="/AlAdminHomeNew" extends="adminallayout">
+      <put name="title" value="New Adult Literacy Admin Home" />
+      <put name="body" value="/fmliteracy/liAdminHomeNew.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alCheckstatus" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin" />
+      <put name="body" value="/fmliteracy/alAdminCheckstatus.jsp" />
+    </definition>
+    
+    <definition name="/flAdminNarrative" extends="fladminnarrlayout">
+      <put name="title" value="Family Literacy Admin Narrative" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenu.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=fl" />
+    </definition>        
+    
+     <definition name="/alAdminNarrative" extends="aladminnarrlayout">
+      <put name="title" value="Adult Literacy Admin Narrative" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenu.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/FlAdminNarrativeNew" extends="fladminnarrlayout">
+      <put name="title" value="Family Literacy Admin Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=fl" />
+    </definition>        
+    
+     <definition name="/AlAdminNarrativeNew" extends="aladminnarrlayout">
+      <put name="title" value="Adult Literacy Admin Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=al" />
+    </definition>
+    
+    <definition name="/FlAdminNarrativeNysl" extends="fladminnarrlayout">
+      <put name="title" value="Family Literacy Admin Narrative 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/liNarrativeNysl.jsp?p=fl" />
+    </definition> 
+        
+    <definition name="/FlAdminNarrativeBudgetSumm" extends="fladminnarrlayout">
+      <put name="title" value="Family Literacy Admin Narrative Budget Summary 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenuNew.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=fl" />
+      <put name="body2" value="/fmliteracy/adminNarrativeBudgetSummary.jsp?p=fl" />
+    </definition>        
+    
+     <definition name="/AlAdminNarrativeBudgetSumm" extends="aladminnarrlayout">
+      <put name="title" value="Adult Literacy Admin Narrative Budget Summary 2016-19" />
+      <put name="narrmenu" value="/fmliteracy/adminNarrativeMenuNew.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminNarrative.jsp?p=al" />
+      <put name="body2" value="/fmliteracy/adminNarrativeBudgetSummary.jsp?p=al" />
+    </definition>
+    
+         
+    <definition name="/flAdminCoversheet" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Cover Page" />
+      <put name="body" value="/fmliteracy/liCoversheetHtml.jsp" />
+    </definition>
+    
+     <definition name="/alAdminCoversheet" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Cover Page" />
+      <put name="body" value="/fmliteracy/liCoversheetHtml.jsp" />
+    </definition>
+            
+    <definition name="/flAdminFsForms" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Fs Forms" />
+      <put name="body" value="/fmliteracy/liFsForms.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/alAdminFsForms" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Fs Forms" />
+      <put name="body" value="/fmliteracy/liFsForms.jsp?p=al" />
+    </definition>
+    
+    <definition name="/FlAdminCertForm" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Certification Statement" />
+      <put name="body" value="/fmliteracy/adminCertificationStatement.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/AlAdminCertForm" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Certification Statement" />
+      <put name="body" value="/fmliteracy/adminCertificationStatement.jsp?p=al" />
+    </definition>
+    
+    <definition name="/flAdminInterim" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Interim Narrative" />
+      <put name="body" value="/fmliteracy/liViewInterimNarr.jsp?m=finterim" />
+    </definition>
+    
+     <definition name="/alAdminInterim" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Interim Narrative" />
+      <put name="body" value="/fmliteracy/liViewInterimNarr.jsp?m=ainterim" />
+    </definition>
+    
+    <definition name="/flAdminFinalNarr" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Final Narrative" />
+      <put name="body" value="/fmliteracy/liViewFinalNarr.jsp?m=ffinal" />
+    </definition>
+    
+    <definition name="/FlAdminFinalNarrativeView" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Final Narrative starting 2016-19" />
+      <put name="body" value="/fmliteracy/adminFinalNarrativeView.jsp?m=ffinal" />
+    </definition>
+    
+     <definition name="/alAdminFinalNarr" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Final Narrative" />
+      <put name="body" value="/fmliteracy/liViewFinalNarr.jsp?m=afinal" />
+    </definition>
+    
+    <definition name="/AlAdminFinalNarrativeView" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Final Narrative starting 2016-19" />
+      <put name="body" value="/fmliteracy/adminFinalNarrativeView.jsp?m=afinal" />
+    </definition>
+    
+    <definition name="/flAdminStatistics" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Statistics" />
+      <put name="body" value="/fmliteracy/liViewStatistics.jsp" />
+    </definition>
+    
+    <definition name="/flAdminNewStatistics" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Statistics 2013-14" />
+      <put name="body" value="/fmliteracy/flViewStatisticsNew.jsp" />
+    </definition>
+    
+     <definition name="/alAdminStatistics" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Statistics" />
+      <put name="body" value="/fmliteracy/liViewStatistics.jsp" />
+    </definition>
+    
+    <definition name="/flAdminStatus" extends="adminfllayout">
+      <put name="title" value="Family Literacy Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+     <definition name="/alAdminStatus" extends="adminallayout">
+      <put name="title" value="Adult Literacy Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/flAdminComments" extends="adminfllayout">
+      <put name="title" value="Family Literacy Application Comments" />
+      <put name="body" value="/fmliteracy/flAdminComments.jsp" />
+    </definition>
+    
+     <definition name="/alAdminComments" extends="adminallayout">
+      <put name="title" value="Adult Literacy Application Comments" />
+      <put name="body" value="/fmliteracy/alAdminComments.jsp" />
+    </definition>
+    
+    <definition name="/adminFlViewEmail" extends="adminfllayout">
+      <put name="title" value="Family Literacy View Emails" />
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+     <definition name="/adminAlViewEmail" extends="adminallayout">
+      <put name="title" value="Adult Literacy View Emails" />
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/flAdminConfirmComment" extends="adminfllayout">
+      <put name="title" value="Family Literacy Confirm Send Email" />
+      <put name="body" value="/confirmCorrectionEmail.jsp" />
+    </definition>
+    
+     <definition name="/alAdminConfirmComment" extends="adminallayout">
+      <put name="title" value="Adult Literacy Confirm Send Email" />
+      <put name="body" value="/confirmCorrectionEmail.jsp" />
+    </definition>
+    
+    <definition name="/flAdminRatings" extends="adminfllayout">
+      <put name="title" value="Family Literacy Project Rating" />
+      <put name="body" value="/fmliteracy/adminRatings.jsp" />
+    </definition>
+    
+     <definition name="/alAdminRatings" extends="adminallayout">
+      <put name="title" value="Adult Literacy Project Rating" />
+      <put name="body" value="/fmliteracy/adminRatings.jsp" />
+    </definition>
+    
+    <definition name="/flAdminProjManager" extends="adminfllayout">
+      <put name="title" value="Family Literacy Project Manager" />
+      <put name="body" value="/fmliteracy/adminProjManUpdate.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/alAdminProjManager" extends="adminallayout">
+      <put name="title" value="Adult Literacy Project Manager" />
+      <put name="body" value="/fmliteracy/adminProjManUpdate.jsp?p=al" />
+    </definition>
+    
+    <definition name="/flAdminContact" extends="adminfllayout">
+      <put name="title" value="Family Literacy Contact" />
+      <put name="body" value="/fmliteracy/adminContactUpdate.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/alAdminContact" extends="adminallayout">
+      <put name="title" value="Adult Literacy Contact" />
+      <put name="body" value="/fmliteracy/adminContactUpdate.jsp?p=al" />
+    </definition>
+    
+    <definition name="/flAdminAmendment" extends="adminfllayout">
+      <put name="title" value="Family Literacy Amendment Summary" />
+      <put name="body" value="/statutory/adminFS10.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/alAdminAmendment" extends="adminallayout">
+      <put name="title" value="Adult Literacy Amendment Summary" />
+      <put name="body" value="/statutory/adminFS10.jsp?p=al" />
+    </definition>
+    
+    <definition name="/flAdminAllocation" extends="adminfllayout">
+      <put name="title" value="Family Literacy Appropriation" />
+      <put name="body" value="/fmliteracy/adminAllocSearch.jsp?p=fl" />
+    </definition>
+    
+     <definition name="/alAdminAllocation" extends="adminallayout">
+      <put name="title" value="Adult Literacy Appropriation" />
+      <put name="body" value="/fmliteracy/adminAllocSearch.jsp?p=al" />
+    </definition>
+    
+    <definition name="/flEditAllocation" extends="adminfllayout">
+      <put name="title" value="Family Literacy Edit Appropriation" />
+      <put name="body" value="/fmliteracy/adminEditAllocation.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/alAdminConfirmBudget" extends="adminallayout">
+      <put name="title" value="Adult Literacy Budget Delete" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/flAdminConfirmBudget" extends="adminfllayout">
+      <put name="title" value="Family Literacy Budget Delete" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/alAdminSubmitValid" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin - Submit Application" />
+      <put name="body" value="/fmliteracy/adminSubmitValidate.jsp" />
+    </definition>
+    
+    <definition name="/flAdminSubmitValid" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin - Submit Application" />
+      <put name="body" value="/fmliteracy/adminSubmitValidate.jsp" />
+    </definition>
+    
+     <definition name="/alEditAllocation" extends="adminallayout">
+      <put name="title" value="Adult Literacy Edit Appropriation" />
+      <put name="body" value="/fmliteracy/adminEditAllocation.jsp?p=al" />
+    </definition>
+    
+    <definition name="/litGrantSearch" extends="adminlitlayout">
+      <put name="title" value="Literacy Admin Search" />
+      <put name="body" value="/lgrmif/adminSearch.jsp?p=lit" />
+    </definition>    
+        
+    <definition name="/litAdminAccounts" extends="adminlitlayout">
+      <put name="title" value="Literacy User Accounts" />
+      <put name="body" value="/adminLDAPAccounts.jsp" />
+    </definition>
+    
+    <definition name="/litAdminViewDates" extends="adminlitlayout">
+      <put name="title" value="Literacy Application Available/Due Dates" />
+      <put name="body" value="/adminAppDate.jsp?m=lit" />
+    </definition>
+    
+    <definition name="/litAdminAddDate" extends="adminlitlayout">
+      <put name="title" value="Literacy Application Add Available/Due Date" />
+      <put name="body" value="/adminAddDate.jsp?m=lit" />
+    </definition>
+    
+    <definition name="/litUpdateReviewer" extends="adminlitlayout">
+      <put name="title" value="Literacy Add/Update Reviewer" />
+      <put name="body" value="/coordinated/addUpdateReviewer.jsp" />
+    </definition>
+    
+    <definition name="/litViewReviewers" extends="adminlitlayout">
+      <put name="title" value="Literacy Reviewers" />
+      <put name="body" value="/coordinated/adminViewReviewers.jsp?p=li" />
+    </definition>
+    
+    <definition name="/litAssignReviewers" extends="adminlitlayout">
+      <put name="title" value="Literacy Assign Reviewers" />
+      <put name="body" value="/fmliteracy/litAssignReviewer.jsp" />
+    </definition>
+    
+    <definition name="/litAdminHelp" extends="adminlitlayout">
+      <put name="title" value="Literacy Admin Help" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=lit" />
+    </definition>
+    
+    <definition name="/litAdminReports" extends="adminlitlayout">
+      <put name="title" value="Literacy Admin Reports" />
+      <put name="body" value="/fmliteracy/adminLitReports.jsp" />
+      <put name="body2" value="/adminProgramReports.jsp" />
+    </definition>
+    
+    <definition name="/litAdminMail" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Mail Options" />
+      <put name="body" value="/fmliteracy/litAdminMail.jsp" />
+    </definition>
+    
+    <definition name="/litNewMail" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Create/Update Mail" />
+      <put name="body" value="/common/addUpdateMail.jsp" />
+    </definition>
+    
+    
+    <definition name="/litSelectRecipient" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Select Individual Recipient" />
+      <put name="body" value="/common/individualRecipient.jsp" />
+    </definition>
+    
+    <definition name="/litUnsentMail" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Unsent Mail" />
+      <put name="body" value="/common/viewUnsentMail.jsp" />
+    </definition>
+    
+    <definition name="/litMailRecipients" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Email Recipients" />
+      <put name="body" value="/common/addRecipients.jsp" />
+    </definition>
+    
+    <definition name="/litConfirmSend" extends="adminemaillayout">
+      <put name="title" value="Literacy Admin Confirm Send Mail" />
+      <put name="body" value="/common/confirmSend.jsp?p=lit" />
+    </definition>
+    
+    <definition name="/litAdminAttachments" extends="adminlitlayout">
+      <put name="title" value="Literacy Admin Attachments" />
+      <put name="body" value="/attachment.jsp?prog=litadmin" />
+    </definition>
+    
+    <definition name="/litAdminAddAttach" extends="adminlitlayout">
+      <put name="title" value="Literacy Admin Add Attachment" />
+      <put name="body" value="/addAttachment.jsp?prog=litadmin" />
+    </definition>    
+    
+    <definition name="/flAdminBudget1" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget- Professional Salaries" />
+      <put name="body2" value="/fmliteracy/pb_admSalaries.jsp?t=1" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget2" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget- Support Staff Salaries" />
+      <put name="body2" value="/fmliteracy/pb_admSalaries.jsp?t=2" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget3" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget-Benefits" />
+      <put name="body2" value="/fmliteracy/pb_admBenefits.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget4" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget-Purchased Services" />
+      <put name="body2" value="/fmliteracy/pb_admPurchased.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget5" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget- Supplies/Materials" />
+      <put name="body2" value="/fmliteracy/pb_admSupplyEquip.jsp?t=5" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget6" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget- Equipment" />
+      <put name="body2" value="/fmliteracy/pb_admSupplyEquip.jsp?t=6" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/flAdminBudget7" extends="adminfllayout">
+      <put name="title" value="Family Literacy Admin Budget- Travel" />
+      <put name="body2" value="/fmliteracy/pb_admTravel.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=fl" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=fl" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=fl" />
+    </definition>
+    
+    <definition name="/alAdminBudget1" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget- Professional Salaries" />
+      <put name="body2" value="/fmliteracy/pb_admSalaries.jsp?t=1" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget2" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget-Support Staff Salaries" />
+      <put name="body2" value="/fmliteracy/pb_admSalaries.jsp?t=2" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget3" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget-Benefits" />
+      <put name="body2" value="/fmliteracy/pb_admBenefits.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget4" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget- Purchased Services" />
+      <put name="body2" value="/fmliteracy/pb_admPurchased.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget5" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget- Supplies/Materials" />
+      <put name="body2" value="/fmliteracy/pb_admSupplyEquip.jsp?t=5" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget6" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget- Equipment" />
+      <put name="body2" value="/fmliteracy/pb_admSupplyEquip.jsp?t=6" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+    
+    <definition name="/alAdminBudget7" extends="adminallayout">
+      <put name="title" value="Adult Literacy Admin Budget- Travel" />
+      <put name="body2" value="/fmliteracy/pb_admTravel.jsp" />
+      <put name="body3" value="/fmliteracy/pbExpenseTotals.jsp?p=al" />
+      <put name="body4" value="/fmliteracy/adminLinkChecklist.jsp?p=al" />
+      <put name="body" value="/fmliteracy/adminBudgetNav.jsp?p=al" />
+    </definition>
+        
+  </tiles-definitions>

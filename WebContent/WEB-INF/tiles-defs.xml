@@ -1,0 +1,824 @@
+<?xml version='1.0' encoding="ISO-8859-1" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+  <tiles-definitions>      
+   <definition name="sabanner" path="/common/cpbanner.jsp">
+      <put name="grprogram" value="Statutory Aid Grants" /> 
+   </definition>
+   
+   <definition name="cobanner" path="/common/cpbanner.jsp">
+      <put name="grprogram" value="Coordinated Aid Grants" /> 
+   </definition> 
+   
+   <definition name="revbanner" path="/common/adminbanner.jsp">
+      <put name="grprogram" value="Application Review" /> 
+   </definition> 
+   
+   <definition name="cpadminbanner" path="/common/adminbanner.jsp">
+      <put name="grprogram" value="Conservation/Preservation Admin" /> 
+   </definition> 
+   
+    <definition name="apcntlayout" path="/layout.jsp">
+      <put name="header" value="sabanner" type="definition" /> 
+      <put name="menubar" value="/statutory/SANavBar.html" />      
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+    <definition name="priorlayout" path="/layout.jsp">
+      <put name="header" value="sabanner" type="definition" /> 
+      <put name="menubar" value="/statutory/SANavBarViewOnly.html" />      
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminlayout" path="/layout.jsp">
+      <put name="header" value="cpadminbanner" type="definition" /> 
+      <put name="menubar" value="/statutory/AdminNavBar.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+      
+    <definition name="apcntcolayout" path="/layout.jsp">
+      <put name="header" value="cobanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/CoNavBar.html" />      
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="apcntviewcolayout" path="/layout.jsp">
+      <put name="header" value="cobanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/CoViewNavBar.html" />      
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="apcntcoDesclayout" path="/common/narrLayout.jsp">
+      <put name="header" value="cobanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/CoNavBar.html" />
+      <put name="narrmenu" value="/coordinated/narrativeMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="coFinalNarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="cobanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/CoNavBar.html" />
+      <put name="narrmenu" value="/coordinated/finalNarrativeMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+    <definition name="admincolayout" path="/layout.jsp">
+      <put name="header" value="cpadminbanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/AdminCoNavBar.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>  
+   
+   <definition name="admincommonlayout" path="/layout.jsp">
+      <put name="header" value="cpadminbanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/AdminCommonNav.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>  
+   
+   <definition name="cpadminemaillayout" path="/common/narrLayout.jsp">
+      <put name="header" value="cpadminbanner" type="definition" /> 
+      <put name="menubar" value="/coordinated/AdminCommonNav.html" />
+      <put name="narrmenu" value="/common/cpEmailMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   
+   <definition name="revcolayout" path="/layout.jsp">
+      <put name="header" value="revbanner" type="definition" /> 
+      <put name="menubar" value="/reviewers/coord/RevNavBar.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+      
+   <!--these are the applicant and admin page mappings for statutory-->   
+    <definition name="/apcntHomePage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Home Page" />
+      <put name="body" value="/statutory/saHomePage.jsp" />
+    </definition>
+    
+    <definition name="/adminHomePage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Home Page" />
+      <put name="body" value="/discretionary/adminHome.jsp?p=sa" />
+    </definition>
+    
+    <definition name="/apcntCoversheetPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Coversheet" />
+      <put name="body" value="/statutory/saCoverSheet.jsp" />
+    </definition>    
+    
+    <definition name="/adminCoversheetPage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Coversheet" />
+      <put name="body" value="/statutory/adminCoverSheet.jsp" />
+    </definition>
+    
+    <definition name="/apcntDescription" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Description" />
+      <put name="body" value="/statutory/saDescription.jsp" />
+    </definition>
+    
+    <definition name="/adminDescription" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Description" />
+      <put name="body" value="/statutory/saViewNarrative.jsp" />
+    </definition>
+    
+   
+    <definition name="/apcntSaauth" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Authorizations" />
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+    <definition name="/apcntChecklistPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Checklist" />
+      <put name="body" value="/statutory/saChecklistNew.jsp" />
+    </definition>
+    
+    <definition name="/apcntFinalReportPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Final Report Narrative" />
+      <put name="body" value="/statutory/saFinalReport.jsp" />
+    </definition>
+    
+    <definition name="/adminFinalReportPage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Final Report Narrative" />
+      <put name="body" value="/viewFinalReport.jsp?m=saa" />
+    </definition>
+    
+    <definition name="/apcntFinalSignoffPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Final Report Signoff" />
+      <put name="body" value="/statutory/saFinalRptSignoff.jsp" />
+    </definition>
+    
+    <definition name="/apcntAuthPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Institutional Authorization" />
+      <put name="body" value="/statutory/saInstAuthorization.jsp" />
+    </definition>
+    
+    <definition name="/adminAuthPage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - Authorizations" />
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+     <definition name="/apcntPriornarrative" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid Project Description" />
+      <put name="body" value="/statutory/saViewNarrative.jsp" />
+    </definition>
+    
+    
+    
+    <definition name="/apcntPriorReportPage" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid Final Report" />
+      <put name="body" value="/viewFinalReport.jsp" />
+    </definition>
+    
+    <definition name="/apcntPriorBudgetPage" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid Budget" />
+      <put name="body" value="/statutory/saViewBudget.jsp" />
+    </definition>
+    
+     <definition name="/apcntPriorCoversheetPage" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid Coversheet" />
+      <put name="body" value="/statutory/saPriorCoversheet.jsp" />
+    </definition>
+    
+    <definition name="/apcntPriorStatusPage" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/apcntAppStatusPage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/adminCommentsPage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Application Comments" />
+      <put name="body" value="/statutory/saAdminComments.jsp" />
+    </definition>
+    
+    <definition name="/apcntFS10APage" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - FS10A Budget Amendment" />
+      <put name="body" value="/statutory/fs10aFormNew.jsp?m=sa" />
+    </definition>
+    
+    <definition name="/adminFS10APage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - FS10A Budget Amendment" />
+      <put name="body" value="/statutory/adminFS10.jsp?p=sa" />
+    </definition>
+    
+    <definition name="/adminCheckStatusPage" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - Check Application Status" />
+      <put name="body" value="/statutory/adminCheckStatus.jsp" />
+    </definition>
+    
+     <definition name="/adminLdapPage" extends="admincommonlayout">
+      <put name="title" value="Admin - LDAP Accounts" />
+      <put name="body" value="/adminLDAPAccounts.jsp" />
+    </definition>
+    
+    <definition name="/adminSearchPage" extends="admincommonlayout">
+      <put name="title" value="Admin - Search for CP Grant" />
+      <put name="body" value="/lgrmif/adminSearch.jsp?p=cp" />
+    </definition>
+                
+    <definition name="/apcntViewDoc" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Download Documents" />
+      <put name="body" value="/statutory/saViewDocuments.jsp" />
+    </definition>
+    
+    <definition name="/apcntAddDoc" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Add a Document" />
+      <put name="body" value="/statutory/addDocument.jsp" />
+    </definition>
+    
+    <definition name="/adminHelpIndex" extends="admincommonlayout">
+      <put name="title" value="Admin - Help" />
+      <put name="body" value="/docs/adminHelpIndex.jsp" />
+    </definition>
+    
+    <definition name="/apcntHelpIndex" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Help" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=saco" />
+    </definition>
+    
+    <definition name="/adminReports" extends="admincommonlayout">
+      <put name="title" value="Admin - Reports" />
+      <put name="body" value="/adminReports.jsp" />
+      <put name="body2" value="/adminProgramReports.jsp" />
+    </definition>
+    
+    <definition name="/adminEmails" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - Send Status Emails" />
+      <put name="body" value="/coordinated/adminEmail.jsp?p=sa" />
+    </definition>
+    
+    <definition name="/adminSaMassEmail" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - Send Mass Mailing" />
+      <put name="body" value="/coordinated/adminMassApprEmail.jsp?p=sa" />
+    </definition>
+    
+    <definition name="/apcntSubmit" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Confirm Submission" />
+      <put name="body" value="/statutory/confirmSubmit.jsp" />
+    </definition>
+    
+    <definition name="/ApcntDeleteAmendment" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Confirm Delete Amendment" />
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+    <definition name="/ApcntDeleteBudget" extends="apcntlayout">
+      <put name="title" value="Statutory Aid - Confirm Budget Delete" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/apcntPriorAuth" extends="priorlayout">
+      <put name="title" value="Prior Statutory Aid - Authorizations" />
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+    <definition name="/adminSaViewemail" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid - SentEmails" />
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/adminSaConfirmComment" extends="adminlayout">
+      <put name="title" value="Confirm Comment Email" />
+      <put name="body" value="/confirmCorrectionEmail.jsp" />
+    </definition>
+        
+    <definition name="/cpEditApprEmail" extends="cpadminemaillayout">
+      <put name="title" value="Edit Email" />
+      <put name="body" value="/common/cpEmailEdit.jsp" />
+    </definition>
+    
+    <definition name="/cpConfirmSendMail" extends="cpadminemaillayout">
+      <put name="title" value="Confirm Send Email" />
+      <put name="body" value="/common/confirmSend.jsp?p=cp" />
+    </definition>
+    
+    <definition name="/cpUnsentEmail" extends="cpadminemaillayout">
+      <put name="title" value="Unsent Emails" />
+      <put name="body" value="/common/cpunsentmail.jsp" />
+    </definition>
+    
+    <definition name="/cpAdminMassMail" extends="cpadminemaillayout">
+      <put name="title" value="C/P Mass Emails" />
+      <put name="body" value="/common/cpAdminSelectMail.jsp" />
+    </definition>
+    
+    <definition name="/cpEmailRecipients" extends="cpadminemaillayout">
+      <put name="title" value="C/P Email Recipients" />
+      <put name="body" value="/common/cpAdminSelectRecipients.jsp" />
+    </definition>
+      
+    
+    <definition name="/adminBudgetPage1" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab1_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminBudgetPage2" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab2_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminBudgetPage3" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab3_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminBudgetPage4" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab4_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminBudgetPage5" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab5_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminBudgetPage6" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/pb_tab6_adm.jsp" />
+    </definition>
+    
+    <definition name="/adminDeleteBudget" extends="adminlayout">
+      <put name="title" value="Admin Statutory Aid Delete Budget Record"  />       
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+     <definition name="/apcntBudgetPage1" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab1.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetPage2" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab2.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetPage3" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab3.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetPage4" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab4.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetPage5" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab5.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetPage6" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/testpb_tab6.jsp" />
+    </definition>
+    
+    <definition name="/apcntBudgetView" extends="apcntlayout">
+      <put name="title" value="Statutory Aid Project Budget" />
+      <put name="body" value="/statutory/saViewBudget.jsp" />
+    </definition>
+    
+    
+    
+    <!--these are the applicant and admin page mappings for coordinated-->   
+    <definition name="/apcntCOHome" extends="apcntcolayout">
+      <put name="title" value="Coordinated Home Page" />
+      <put name="body" value="/coordinated/coHomePage.jsp" />
+    </definition>
+    
+     <definition name="/apcntCoChecklist" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Checklist" />
+      <put name="body" value="/coordinated/coChecklistNew.jsp" />
+    </definition>
+    
+     <definition name="/apcntCoCoversheet" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Cover Sheet" />
+      <put name="body" value="/coordinated/coCoverSheetNew.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoFinalreport" extends="coFinalNarrlayout">
+      <put name="title" value="Coordinated - Final Report" />
+      <put name="body" value="/coordinated/coNarrative.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab1" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab1.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab2" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab2.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab3" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab3.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab4" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab4.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab5" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab5.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBtab6" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab6.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBViewtab1" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab1exp.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBViewtab2" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab2exp.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBViewtab3" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab3exp.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBViewtab4" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab4exp.jsp" />
+    </definition>
+    
+    <definition name="/apcntCoPBViewtab5" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab5exp.jsp" />
+    </definition> 
+    
+    <definition name="/apcntCoPBViewtab6" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/testpb_tab6exp.jsp" />
+    </definition> 
+    
+    <definition name="/apcntCoViewDocs" extends="apcntcolayout">
+      <put name="title" value="Coordinated - View Attachments" />
+      <put name="body" value="/attachment.jsp?prog=co" />
+    </definition>
+    
+    <definition name="/coAddDocs" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Add an Attachment" />
+      <put name="body" value="/addAttachment.jsp?prog=co" />
+    </definition>
+    
+    <definition name="/CoDeleteAmendment" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Confirm Delete Amendment" />
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+    <definition name="/CoDeleteBudget" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Confirm Budget Delete" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/coAppStatus" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/coSubmit" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Confirm Submission" />
+      <put name="body" value="/coordinated/confirmSubmitCo.jsp" />
+    </definition>
+    
+    <definition name="/coInstAuth" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Institutional Authorization" />
+      <put name="body" value="/coordinated/coInstAuthorization.jsp" />
+    </definition>
+    
+    <definition name="/coFinalSignoff" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Final Report Signoff" />
+      <put name="body" value="/coordinated/coFinalRptSignoff.jsp" />
+    </definition>
+    
+     <definition name="/coViewFinal" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Final Report" />
+      <put name="body" value="/viewFinalReport.jsp" />
+    </definition>
+    
+    <definition name="/coViewAppStatus" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Application Status" />
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/coViewCoversheet" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Coversheet" />
+      <put name="body" value="/coordinated/coViewCoversheet.jsp" />
+    </definition>
+    
+    <definition name="/coViewNarrative" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Project Description" />
+      <put name="body" value="/coordinated/coViewNarrative.jsp" />
+    </definition>
+    
+    <definition name="/coViewDocuments" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - View Attachments" />
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+    <definition name="/coViewBudget" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Project Budget" />
+      <put name="body" value="/coordinated/completeBudgetHTML.jsp" />
+    </definition>
+    
+    <definition name="/coViewHelp" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Help Manuals" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=saco" />
+    </definition>
+    
+    <definition name="/coViewAuth" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Authorizations" />
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+    <definition name="/coCoopAgree" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Cooperative Agreement" />
+      <put name="body" value="/coordinated/coopAgreement.jsp" />
+    </definition>
+    
+     <definition name="/coApcntHelp" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Help Manuals" />
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=saco" />
+    </definition>
+    
+    <definition name="/coReadBudget" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Budget" />
+      <put name="body" value="/coordinated/completeBudgetHTML.jsp" />
+    </definition>
+    
+    <definition name="/coComments" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Reviewer Comments" />
+      <put name="body" value="/coordinated/coViewComments.jsp" />
+    </definition>
+    
+    <definition name="/coSelectFs" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Select FS form" />
+      <put name="body" value="/selectFS10F.jsp?pr=apcnt" />
+    </definition>
+    
+    <definition name="/coViewComments" extends="apcntviewcolayout">
+      <put name="title" value="Coordinated - Comments and Scores" />
+      <put name="body" value="/coordinated/coViewComments.jsp" />
+    </definition>   
+    
+    <definition name="/coFS10AForm" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Budget Amendment" />
+      <put name="body" value="/statutory/fs10aFormNew.jsp?m=co" />
+    </definition>   
+    
+    <definition name="/coApcntNarrative" extends="apcntcoDesclayout">
+      <put name="title" value="Coordinated Project Description" />      
+      <put name="body" value="/coordinated/coNarrative.jsp" />
+    </definition>   
+    
+    <definition name="/coAuthorize" extends="apcntcolayout">
+      <put name="title" value="Coordinated - Authorizations" />
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+    <definition name="/coApplication" path="/layout.jsp">
+      <put name="title" value="C/P Coordinated" />
+      <put name="body" value="/coordinated/completeCoverHTML.jsp" />
+      <put name="body2" value="/coordinated/completeBudgetHTML.jsp" />
+      <put name="body3" value="/coordinated/completeNarrativeHTML.jsp" />
+    </definition>
+    
+    
+    
+    
+    <definition name="/adminCoPBTab1" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab1adm.jsp" />
+    </definition>  
+    
+    <definition name="/adminCoPBTab2" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab2adm.jsp" />
+    </definition>  
+    
+    <definition name="/adminCoPBTab3" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab3adm.jsp" />
+    </definition>  
+    
+    <definition name="/adminCoPBTab4" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab4adm.jsp" />
+    </definition>  
+    
+    <definition name="/adminCoPBTab5" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab5adm.jsp" />
+    </definition>  
+    
+     <definition name="/adminCoPBTab6" extends="admincolayout">
+      <put name="title" value="Admin - Coordinated Budget" />      
+      <put name="body" value="/coordinated/pb_tab6adm.jsp" />
+    </definition>  
+    
+    
+     <definition name="/adminCoViewemail" extends="admincolayout">
+      <put name="title" value="Coordinated - View Email" />      
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition> 
+        
+    <definition name="/adminCoHome" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Home Page" />      
+      <put name="body" value="/coordinated/adminHome.jsp" />
+    </definition>  
+    
+    <definition name="/adminCoCheckStatus" extends="admincolayout">
+      <put name="title" value="Coordinated - Update Application Status" />      
+      <put name="body" value="/coordinated/adminCoCheckStatus.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoCoversheet" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Coversheet" />      
+      <put name="body" value="/coordinated/completeCoverHTML.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoFinalRpt" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Final Report" />      
+      <put name="body" value="/viewFinalReport.jsp?m=coa" />
+    </definition> 
+    
+    <definition name="/adminCoNarrative" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Project Narratives" />      
+      <put name="body" value="/coordinated/coViewNarrative.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoInstAuth" extends="admincolayout">
+      <put name="title" value="Coordinated Admin -  Authorizations" />      
+      <put name="body" value="/viewAuthorizations.jsp" />
+    </definition>
+    
+    <definition name="/adminCoRateSummary" extends="admincolayout">
+      <put name="title" value="Coordinated - Reviewer Rating Summary" />      
+      <put name="body" value="/coordinated/coViewComments.jsp" />
+    </definition>
+    
+    <definition name="/adminCoProjManager" extends="admincolayout">
+      <put name="title" value="Coordinated - Edit Project Manager" />      
+      <put name="body" value="/fmliteracy/adminProjManUpdate.jsp" />
+    </definition>
+    
+     <definition name="/adminCoDocuments" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Documents" />      
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoComments" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Comments" />      
+      <put name="body" value="/coordinated/adminCoComments.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoEmail" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Emails" />      
+      <put name="body" value="/coordinated/adminEmail.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/adminCoFS10AForm" extends="admincolayout">
+      <put name="title" value="Coordinated- FS10A Budget Amendment" />
+      <put name="body" value="/statutory/adminFS10.jsp?p=co" />
+    </definition>
+    
+    <definition name="/adminUpdateReviewer" extends="admincolayout">
+      <put name="title" value="Coordinated - Update Reviewer" />      
+      <put name="body" value="/coordinated/addUpdateReviewer.jsp" />
+    </definition> 
+    
+    <definition name="/adminViewRev" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin View Reviewer" />      
+      <put name="body" value="/coordinated/adminViewReviewers.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/adminRevProcess" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Review Process" />      
+      <put name="body" value="/coordinated/adminAssignRev.jsp" />
+    </definition> 
+    
+    <definition name="/adminRating" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Ratings" />      
+      <put name="body" value="/adminViewRatings.jsp" />
+    </definition> 
+    
+    <definition name="/adminRevEmail" extends="admincolayout">
+      <put name="title" value="Coordinated - Admin Emails to Reviewers" />      
+      <put name="body" value="/coordinated/adminRevEmail.jsp" />
+    </definition> 
+    
+    <definition name="/adminViewDate" extends="admincommonlayout">
+      <put name="title" value="C/P Grant Application Begin/End Dates" />      
+      <put name="body" value="/adminAppDate.jsp?m=cp" />
+    </definition> 
+    
+    <definition name="/adminAddDate" extends="admincommonlayout">
+      <put name="title" value="Admin Grant Application Add Dates" />      
+      <put name="body" value="/adminAddDate.jsp?m=cp" />
+    </definition> 
+    
+    <definition name="/adminFsSelect" extends="admincolayout">
+      <put name="title" value="Coordinated Admin Select FS Form" />      
+      <put name="body" value="/selectFS10F.jsp?pr=admin" />
+    </definition> 
+    
+    <definition name="/adminApprEmail" extends="admincolayout">
+      <put name="title" value="Admin Mass Mailing" />      
+      <put name="body" value="/coordinated/adminMassApprEmail.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/adminRevComment" extends="admincolayout">
+      <put name="title" value="Edit Reviewer Comment" />      
+      <put name="body" value="/adminUpdateRevComment.jsp" />
+    </definition> 
+    
+    <definition name="/adminCoConfirmComment" extends="admincolayout">
+      <put name="title" value="Confirm Comment Email" />      
+      <put name="body" value="/confirmCorrectionEmail.jsp" />
+    </definition> 
+    
+    <definition name="/searchRevMail" extends="admincolayout">
+      <put name="title" value="Search Coordinated Reviewer Emails" />      
+      <put name="body" value="/viewReviewerEmail.jsp" />
+    </definition> 
+    
+    <definition name="/cpAdminAttachment" extends="admincommonlayout">
+      <put name="title" value="C/P Attachments" />      
+      <put name="body" value="/attachment.jsp?prog=cpadmin" />
+    </definition> 
+    
+    <definition name="/cpAdminAddAttach" extends="admincommonlayout">
+      <put name="title" value="C/P Add Attachment" />      
+      <put name="body" value="/addAttachment.jsp?prog=cpadmin" />
+    </definition> 
+    
+    
+    <!--these are tile mappings for Co reviewer pages-->
+    
+    <definition name="/revHome" extends="revcolayout">
+      <put name="title" value="Reviewer Home Page" />      
+      <put name="body" value="/reviewers/coord/revHome.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/revInfo" extends="revcolayout">
+      <put name="title" value="Reviewer Contact Information" />      
+      <put name="body" value="/reviewers/coord/updateRevInfo.jsp" />
+    </definition> 
+    
+    <definition name="/revAssignments" extends="revcolayout">
+      <put name="title" value="Reviewer Assignments" />      
+      <put name="body" value="/reviewers/coord/revAssignments.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/revRegister" extends="revcolayout">
+      <put name="title" value="Reviewer Participation Record" />      
+      <put name="body" value="/reviewers/coord/revParticipationForm.jsp" />
+    </definition> 
+    
+    <definition name="/viewAccepted" extends="revcolayout">
+      <put name="title" value="Reviewer View Grants Accepted" />      
+      <put name="body" value="/reviewers/coord/revParticipationView.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/revGrantSummary" extends="revcolayout">
+      <put name="title" value="Reviewer - Grant Proposal Information" />      
+      <put name="body" value="/reviewers/coord/revGrantSummary.jsp?p=co" />
+    </definition> 
+    
+    <definition name="/revRating" extends="revcolayout">
+      <put name="title" value="Reviewer - Rating Form" />      
+      <put name="body" value="/reviewers/coord/coRating.jsp" />
+    </definition> 
+    
+     <definition name="/revSubmit" extends="revcolayout">
+      <put name="title" value="Reviewer - Submit Rating Form" />      
+      <put name="body" value="/reviewers/coord/revSubmitRating.jsp" />
+    </definition>
+    
+    <definition name="/revHelpIndex" extends="revcolayout">
+      <put name="title" value="Reviewer - Help Index" />      
+      <put name="body" value="/docs/reviewerHelpIndex.jsp" />
+    </definition>   
+    
+    <definition name="/revCoEducRating" extends="revcolayout">
+      <put name="title" value="Reviewer - Education Rating Form" />      
+      <put name="body" value="/reviewers/coord/coEducRating.jsp" />
+    </definition>   
+    
+  </tiles-definitions>
+  
+  

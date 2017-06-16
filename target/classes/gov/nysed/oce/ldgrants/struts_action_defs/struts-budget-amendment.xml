@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- literacy budget Action definitions -->
+<struts>
+	<package name="struts-budget-amendment" namespace="/" extends="appSecurity">
+
+		<action name="budgetamendmentsummary"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="buildBudgetAmendmentPage">
+			<result name="success">/budgetamendmentsummary.tiles</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- deletefsrecord action successfully completes -->
+		<!-- and redirects to budgetamendmentsummary.action hides -->
+		<!-- url that would allow user to mistakenly trigger addnewfsrecord action -->
+
+		<action name="addnewfsrecord"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="addNewRecord">
+			<result name="success" type="redirectAction">
+				<param name="actionName">budgetamendmentsummary</param>
+			</result>
+		</action>
+
+		<!-- deletefsrecord action successfully completes -->
+		<!-- and redirects to budgetamendmentsummary.action hides -->
+		<!-- url that would allow user to mistakenly trigger deletefsrecord action -->
+
+		<action name="deletefsrecord"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="deleteRecord">
+			<result name="success" type="redirectAction">
+				<param name="actionName">budgetamendmentsummary</param>
+			</result>
+		</action>
+
+		<action name="savefs10arecords"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="saveFs10aRecords">
+			<result name="success" type="redirectAction">
+				<param name="actionName">budgetamendmentsummary</param>
+			</result>
+		</action>
+
+		<action name="isbudgetamendmentstatus"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="isBudgetAmendmentStatus">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="struts-budget-amendment-admin" namespace="/"
+		extends="adminAppSecurity">
+
+		<action name="adminredirect">
+			<result name="success" type="redirectAction">
+				<param name="actionName">adminbudgetamendmentsummary</param>
+				<param name="ad">true</param>
+				<param name="fmtId">5</param>
+			</result>
+		</action>
+
+		<action name="adminbudgetamendmentsummary"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="buildBudgetAmendmentPage">
+			<result name="success">/adminbudgetamendmentsummary.tiles</result>
+			<result name="adminpage">/adminbudgetamendmentsummary.tiles</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="lockamendment"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="lockAmendment">
+			<result name="success" type="redirectAction">
+				<param name="actionName">adminbudgetamendmentsummary</param>
+			</result>
+		</action>
+
+		<action name="unlockamendment"
+			class="gov.nysed.oce.ldgrants.budget.action.BudgetAmendmentSummaryAction"
+			method="unlockAmendment">
+			<result name="success" type="redirectAction">
+				<param name="actionName">adminbudgetamendmentsummary</param>
+			</result>
+		</action>
+	</package>
+</struts>

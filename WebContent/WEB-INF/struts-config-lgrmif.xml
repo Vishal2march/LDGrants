@@ -1,0 +1,798 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+<form-beans>
+  <form-bean name="projNarrative1" type="mypackage.DescriptionBean" />
+  <form-bean name="PartCollectionBean" type="mypackage.PartCollectionBean" />
+  <form-bean name="PanelBean" type="mypackage.PanelBean" />
+  <form-bean name="VendorBean" type="mypackage.VendorBean" />
+  <form-bean name="PanelReviewBean" type="mypackage.PanelReviewBean" />
+</form-beans>
+
+<action-mappings>
+  <action path="/lgrmifNav" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/LgHome.do" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="/error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/LgChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>    
+  
+  <action path="/lgApplicant" type="statutory.CpNavigationAction" parameter="i" >
+      <forward name="coversheet" path="/LgApplicationsheet.do" />
+      <forward name="budget" path="/LgBudget1.do" />
+      <forward name="finalrpt" path="/LgFinalReport.do" />
+      <forward name="narrative" path="/LgNarrative.do" />
+      <forward name="attachment" path="/LgAttachments.do" />
+      <forward name="checklist" path="/LgChecklist.do" />
+      <forward name="appstatus" path="/LgStatus.do" />
+      <forward name="auth" path="/LgAuthorization.do" />
+      <forward name="finalauth" path="/LgFinalSignoff.do" />
+      <forward name="statistic" path="/LgStatistics.do" />
+      <forward name="statisticnew" path="/LgStatisticsNew.do" />
+      <forward name="partinst" path="/LgParticipants.do" />
+      <forward name="coopagree" path="/LgCoopAgreement.do" />
+      <forward name="payeeinfo" path="/LgPayeeInfo.do" />
+      <forward name="acceptform" path="/LgAcceptanceForm.do" />
+      <forward name="lgforms" path="/LgAdditionalForms.do" />
+      <forward name="lgim" path="/LgImageMicrofilm.do" />
+      <forward name="lgvq" path="/LgVendorQuote.do" />
+      <forward name="fs" path="/LgFsOtherForms.do" />
+      <forward name="fs20" path="/LgFsForms.do" />
+      <forward name="fs10a" path="/LgFs10aSummary.do" />
+      <forward name="decnotes" path="/LgDecisionSummary.do" />
+      <forward name="printlink" path="/LgAppPrintout.do" />
+      <forward name="confirmbdgtdelete" path="/LgDeleteBdgtRecord" />
+      <forward name="confirmamenddelete" path="/LgDeleteAmendment" />
+      <forward name="mwbe" path="/LgMwbe.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="idmissing" path="/LgHome.do" />
+  </action>
+  
+  <action path="/lgReadNarrative" type="statutory.ReadNarrativeAction" parameter="t" >
+       <forward name="admin" path="/LgAdminNarrative.do" />  
+       <forward name="applicant" path="/LgNarrative.do" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <action path="/saveLgNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/LgNarrative.do">
+      <forward name="narrative" path="/LgNarrative.do" />
+      <forward name="finalreport" path="/LgFinalReport.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveStatistics"  type="lgrmif.SaveStatisticAction"
+              name="StatBean"  scope="request"  input="/LgStatistics.do">
+        <forward name="lg" path="/LgStatistics.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveStatisticsLgNew"  type="lgrmif.SaveStatisticAction"
+              name="StatBean"  scope="request"  input="/LgStatisticsNew.do">
+        <forward name="lg" path="/LgStatisticsNew.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveImageMicrofilm"  type="lgrmif.SaveMicroformAction"
+              name="StatBean"  scope="request"  input="/LgImageMicrofilm.do">
+        <forward name="success" path="/LgImageMicrofilm.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLgChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/LgChecklist.do">
+      <forward name="success" path="/LgChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/lgSaveApplication" type="lgrmif.LgCoversheetAction"
+          name="coversheetBean" scope="request" input="/LgApplicationsheet.do">
+      <forward name="coversheet" path="/LgApplicationsheet.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/handleAttachment"  type="lgrmif.AttachmentAction" parameter="i">
+        <forward name="lgconfirm" path="/LgAttachments.do?confirm=true"/>
+        <forward name="diconfirm" path="/DiAttachment.do?confirm=true"/>
+        <forward name="staidconfirm" path="/StateAidAttachment.do?confirm=true"/>
+        <forward name="coconfirm" path="/ApcntCoViewDocs.do?confirm=true"/>
+        <forward name="flconfirm" path="/FlAttachment.do?confirm=true"/>
+        <forward name="alconfirm" path="/AlAttachment.do?confirm=true"/>
+        <forward name="cnconfirm" path="/cnAttachment.do?confirm=true"/><!--sh ok-->
+        <forward name="cnreviewconfirm" path="/cnReviewAttachment.do?confirm=true"/><!--sh ok-->
+        <forward name="litadminconfirm" path="/LitAdminAttachments.do?confirm=true"/>
+        <forward name="cpadminconfirm" path="/CpAdminAttachment.do?confirm=true"/>
+        <forward name="lgradminconfirm" path="/LgAdminAttachment.do?confirm=true"/>
+        <forward name="conadminconfirm" path="/CnAdminAttachment.do?confirm=true"/>
+        <forward name="lgattach" path="/LgAttachments.do"/>
+        <forward name="diattach" path="/DiAttachment.do"/>
+        <forward name="staidattach" path="/StateAidAttachment.do"/>
+        <forward name="cnattach" path="/cnAttachment.do"/><!--sh ok-->
+        <forward name="cnreviewattach" path="/cnReviewAttachment.do"/><!--sh ok-->
+        <forward name="coattach" path="/ApcntCoViewDocs.do"/>
+        <forward name="flattach" path="/FlAttachment.do"/>
+        <forward name="litadminattach" path="/LitAdminAttachments.do"/>
+        <forward name="cpadminattach" path="/CpAdminAttachment.do"/>
+        <forward name="lgradminattach" path="/LgAdminAttachment.do"/>
+        <forward name="conadminattach" path="/CnAdminAttachment.do"/>
+        <forward name="alattach" path="/AlAttachment.do"/>
+        <forward name="diadd" path="/DiAddAttachment.do"/>
+        <forward name="coadd" path="/CoAddDocs.do"/>
+        <forward name="lgadd" path="/LgAddAttachment.do"/>
+        <forward name="aladd" path="/AlAddAttachment.do"/>
+        <forward name="fladd" path="/FlAddAttachment.do"/>
+        <forward name="staidadd" path="/StateAidAddAttach.do"/>
+        <forward name="cnadd" path="/constructionAddAttachment.do"/><!--sh ok-->
+        <forward name="cnreviewadd" path="/cnReviewNav.do?item=attachment"/><!--sh ok-->
+        <forward name="litadminadd" path="/LitAdminAddAttach.do"/>
+        <forward name="cpadminadd" path="/CpAdminAddAttach.do"/>
+        <forward name="lgradminadd" path="/LgAdminAddAttach.do"/>
+        <forward name="conadminadd" path="/CnAdminAddAttach.do"/>
+        <forward name="partdiadd" path="/DiPartAddDocument.do"/>
+        <forward name="partlgadd" path="/LgPartAddAttach.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/savePartEligibility"  type="lgrmif.SavePartEligibleAction"
+            name="PartCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/LgParticipants.do"/>
+      <forward name="fail" path="/LgParticipants.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+   <action path="/lgParticipantForms" type="discretionary.ParticipatingNavAction"
+          parameter="i">
+      <forward name="coversheet" path="/LgPartApplication.do" />
+      <forward name="attachment" path="/LgPartAttachments.do" />
+      <forward name="coopagree" path="/LgPartCoAgreement.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/lgVendorNav" type="lgrmif.VendorNavAction"  parameter="i">
+      <forward name="allvendors" path="/LgVendorQuote.do?vlist=true" />
+      <forward name="vendorquote" path="/LgVendorQuote.do" />
+      <forward name="vrecord" path="/LgEditVendor.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/saveLgVendor" type="mypackage.GenericUpdateAction"
+          name="VendorBean" scope="request" input="/LgEditVendor.do">
+      <forward name="success" path="/lgVendorNav.do?i=savevendor" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLgVendorQuote" type="services.VendorQuoteAction"
+          name="AssignCollectionBean" scope="request" input="/LgVendorQuote.do" validate="false">
+      <forward name="success" path="/LgVendorQuote.do" />
+       <forward name="fail" path="/LgVendorQuote.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/lgSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitial" path="/LgConfirmSubmit.do?t=initial" />
+      <forward name="verifyfinal" path="/LgConfirmSubmit.do?t=final" />
+      <forward name="submitinitial" path="/LgHome.do" />
+      <forward name="submitfinal" path="/LgHome.do" />
+      <forward name="submitamend" path="/LgHome.do" />
+      <forward name="error" path="/error.jsp?errormsg=An error occured submitting the application." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>    
+  
+  <!--this saves 1st budget narrative on page-->
+  <action path="/saveLgBgtNarrative" type="lgrmif.SaveBgtNarrAction"
+          name="projNarrative" scope="request" input="/LgBudget1.do">
+      <forward name="budget1" path="/LgBudget1.do" />
+      <forward name="budget2" path="/LgBudget2.do" />
+      <forward name="budget3" path="/LgBudget3.do" />
+      <forward name="budget4" path="/LgBudget4.do" />
+      <forward name="budget5" path="/LgBudget5.do" />
+      <forward name="budget6" path="/LgBudget6.do" />
+      <forward name="budget7" path="/LgBudget7.do" />
+      <forward name="budget8" path="/LgBudget8.do" />
+      <forward name="budget9" path="/LgBudget9.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+     
+  <!-- lgrmif old expenses -->
+  <action path="/saveLgExpenses"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget1.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lg"/>
+  </action>
+  
+  <!--new actions for expenses 8/4/14;  -->
+  <action path="/saveLgPersExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget1.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lg"/>
+      <forward name="fail" path="/LgBudget1.do"/>
+      <forward name="fail3" path="/LgBudget1.do"/>
+      <forward name="fail4" path="/LgBudget2.do"/>
+  </action>
+  
+  <action path="/saveLgSuppExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget3.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lg"/>
+      <forward name="fail" path="/LgBudget3.do"/>
+      <forward name="fail1" path="/LgBudget7.do"/>
+      <forward name="fail2" path="/LgBudget3.do"/>
+  </action>
+  
+  <action path="/saveLgRemodExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget4.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lg"/>
+      <forward name="fail" path="/LgBudget4.do"/>
+  </action>
+  
+  <action path="/saveLgPurchExpenses"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=lg"/>
+      <forward name="fail" path="/LgBudget5.do"/>
+      <forward name="fail5" path="/LgBudget5.do"/>
+      <forward name="fail6" path="/LgBudget6.do"/>
+  </action>
+    
+  <!-- initial budget -->
+  <action path="/saveLgBenefit"  type="services.BenefitsUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget9.do">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+      <forward name="fail" path="/LgBudget9.do"/>
+  </action>
+  
+  <action path="/saveLgTravel"  type="services.TravelUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget8.do">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+      <forward name="fail" path="/LgBudget8.do"/>
+  </action>
+  
+  <action path="/saveLgRemodeling"  type="services.OtherUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/LgBudget4.do">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+      <forward name="fail" path="/LgBudget4.do"/>
+  </action>
+  
+  <action path="/saveLgSupplies"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+      <forward name="fail" path="/LgBudget3.do"/>
+      <forward name="fail1" path="/LgBudget7.do"/>
+      <forward name="fail2" path="/LgBudget3.do"/>
+  </action>
+  
+  <action path="/saveLgPurchased"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+       <forward name="fail" path="/LgBudget5.do"/><!--this one called for exceptions-->
+      <forward name="fail5" path="/LgBudget5.do"/>
+      <forward name="fail6" path="/LgBudget6.do"/>
+  </action>
+  
+  <action path="/saveLgSalaries"  type="services.PersonalUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/UpdateCpBudget?m=lg"/>
+      <forward name="fail" path="/LgBudget1.do"/><!--this one called for exceptions-->
+      <forward name="fail3" path="/LgBudget1.do"/>
+      <forward name="fail4" path="/LgBudget2.do"/>
+  </action>
+  
+  <!--lgrmif reviewers and Admin-->
+   <action path="/lgReviewer" type="reviewers.ReviewerNavAction" parameter="item" >
+      <forward name="home" path="/LgRevHome.do" />
+      <forward name="revinfo" path="/LgReviewerInfo.do" />
+      <forward name="assignments" path="/LgRevAssignments.do" />
+      <forward name="lgassignments" path="/LgRevAssignments.do" />
+      <forward name="grant" path="/LgReviewerGrant.do" />
+      <forward name="rating" path="/LgEvaluation.do" />
+      <forward name="ratingnew" path="/LgNewEvaluation.do" />
+      <forward name="rating1415" path="/LgEvaluation1415.do" />
+      <forward name="rating1516" path="/LgEvaluation1516.do" />
+      <forward name="participation" path="/LgParticipation.do" />
+      <forward name="record" path="/LgParticipateForm.do" /> 
+      <forward name="addrecord" path="/LgParticipateForm.do" /> 
+      <forward name="submit" path="/LgSubmitRating.do" />
+      <forward name="panelsearch" path="/LgPanelAssignments.do" />
+      <forward name="delibform" path="/LgRevDeliberation.do" />
+      <forward name="delibformnew" path="/LgRevNewDelibForm.do" />
+      <forward name="delibform1213" path="/LgRevDeliberation1213.do" />
+      <forward name="delibform1415" path="/LgRevDeliberation1415.do" />
+      <forward name="delibform1516" path="/LgRevDeliberation1516.do" />
+      <forward name="regionpage" path="/LgRevDecisionSearch.do" />
+      <forward name="decision" path="/LgRevDecision.do" />
+      <forward name="budget" path="/LgRevBudget1.do" />
+      <forward name="reports" path="/LgRevReports.do" />
+      <forward name="attachment" path="/LgRevAttachments.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/editDecision"  type="mypackage.GenericUpdateAction"
+    name="PanelReviewBean" scope="request" input="/LgRevDecision.do" validate="false">
+      <forward name="success" path="/lgReviewer.do?item=updatedecision"/>
+      <forward name="fail" path="/LgRevDecision.do"/>
+  </action>
+  
+  <action path="/saveLgRating"  type="reviewers.LgRatingAction"
+        name="RatingBean"  scope="request" input="/LgEvaluation.do">
+        <forward name="success" path="/LgEvaluation.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLgNewRating"  type="reviewers.LgRatingAction"
+        name="RatingBean"  scope="request" input="/LgNewEvaluation.do">
+        <forward name="success" path="/LgNewEvaluation.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLgRating1415"  type="reviewers.LgRatingAction"
+        name="RatingBean"  scope="request" input="/LgEvaluation1415.do">
+        <forward name="success" path="/LgEvaluation1415.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveLgRating1516"  type="reviewers.LgRatingAction"
+        name="RatingBean"  scope="request" input="/LgEvaluation1516.do">
+        <forward name="success" path="/LgEvaluation1516.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibRating1213"  type="reviewers.LgDelibRatingAction"
+        name="RatingBean"  scope="request" input="/LgRevDeliberation1213.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1213.do"/>
+        <forward name="fail" path="/LgRevDeliberation1213.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibRating1415"  type="reviewers.LgDelibRatingAction"
+        name="RatingBean"  scope="request" input="/LgRevDeliberation1415.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1415.do"/>
+        <forward name="fail" path="/LgRevDeliberation1415.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibRating1516"  type="reviewers.LgDelibRatingAction"
+        name="RatingBean"  scope="request" input="/LgRevDeliberation1516.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1516.do"/>
+        <forward name="fail" path="/LgRevDeliberation1516.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDeliberation"  type="reviewers.LgDeliberationAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation.do">
+        <forward name="success" path="/LgRevDeliberation.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveNewDeliberation"  type="reviewers.LgDeliberationAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevNewDelibForm.do">
+        <forward name="success" path="/LgRevNewDelibForm.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDeliberation1213"  type="reviewers.LgDeliberationAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1213.do">
+        <forward name="success" path="/LgRevDeliberation1213.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDeliberation1415"  type="reviewers.LgDeliberationAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1415.do">
+        <forward name="success" path="/LgRevDeliberation1415.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDeliberation1516"  type="reviewers.LgDeliberationAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1516.do">
+        <forward name="success" path="/LgRevDeliberation1516.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibNarrative"  type="reviewers.LgDelibNarrativeAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveNewDelibNarr"  type="reviewers.LgDelibNarrativeAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevNewDelibForm.do" validate="false">
+        <forward name="success" path="/LgRevNewDelibForm.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibNarr1213"  type="reviewers.LgDelibNarrativeAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1213.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1213.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+   <action path="/saveDelibNarr1415"  type="reviewers.LgDelibNarrativeAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1415.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1415.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveDelibNarr1516"  type="reviewers.LgDelibNarrativeAction"
+        name="PanelReviewBean"  scope="request" input="/LgRevDeliberation1516.do" validate="false">
+        <forward name="success" path="/LgRevDeliberation1516.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/lgAdminNav" type="discretionary.AdminNavAction" parameter="item" >
+      <forward name="home" path="/LgAdminHome.do" />
+      <forward name="grant" path="/LgGrantSummary.do" />
+      <forward name="reports" path="/LgAdminReports.do" />
+      <forward name="budget" path="/LgAdminBudget1.do" />
+      <forward name="attachment" path="/LgAdminAttachment.do" />
+      <forward name="finalrpt" path="/LgAdminNarrative.do" />
+      <forward name="narrative" path="/LgAdminNarrList.do" />
+      <forward name="coversheet" path="/LgAdminApplication.do" />
+      <forward name="bonuspts" path="/LgAdminBonusPoints.do" />
+      <forward name="scores" path="/LgAdminScores.do" />
+      <forward name="statistics" path="/LgAdminStatistics.do" />
+      <forward name="evalform" path="/LgAdminUpdateEval.do" />
+      <forward name="delibform" path="/LgAdminUpdateDelib.do" />
+      <forward name="fs10a" path="/LgAdminFs10aSummary.do" />
+      <forward name="confirmbdgtdelete" path="/LgAdminDeleteBudget" />
+      <forward name="mwbe" path="/LgAdminMwbe.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>   
+  
+  <action path="/updateBonusPts"  type="mypackage.GenericUpdateAction"
+          name="coversheetBean" scope="request" input="/LgAdminBonusPoints.do" validate="false">
+      <forward name="success" path="/lgAdminNav.do?item=updatebonuspts"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/updateEvalForm"  type="mypackage.GenericUpdateAction"
+          name="RatingBean" scope="request" input="/LgAdminUpdateEval.do" validate="false">
+      <forward name="success" path="/lgAdminNav.do?item=updateeval"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/updateDelibForm"  type="mypackage.GenericUpdateAction"
+          name="PanelReviewBean" scope="request" input="/LgAdminUpdateDelib.do" validate="false">
+      <forward name="success" path="/lgAdminNav.do?item=updatedelib"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/saveLgMail"  type="emailws.EditEmailAction"
+          name="emailHelpBean"  scope="request" validate="false" input="/LgAdminMassMail.do">
+        <forward name="template" path="/LgAdminMassMail.do"/>
+        <forward name="error" path="/error.jsp"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true"/>
+  </action>
+  
+  <action path="/lgAddRecipients"  type="emailws.RecipientsAction"
+          name="AssignCollectionBean" scope="request" input="/LgRecipients.do">
+      <forward name="success" path="/LgUnsentMail.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/saveLgAdminBudget"  type="statutory.AdminBudgetSave"
+            name="BudgetCollectionBean"   scope="request" input="/LgAdminBudget1.do">
+      <forward name="lgtab1" path="/LgAdminBudget1.do" />
+      <forward name="lgtab2" path="/LgAdminBudget2.do" />
+      <forward name="lgtab3" path="/LgAdminBudget3.do" />
+      <forward name="lgtab4" path="/LgAdminBudget4.do" />
+      <forward name="lgtab5" path="/LgAdminBudget5.do" />
+      <forward name="lgtab6" path="/LgAdminBudget6.do" />
+      <forward name="lgtab7" path="/LgAdminBudget7.do" />
+      <forward name="lgtab8" path="/LgAdminBudget8.do" />
+      <forward name="lgtab9" path="/LgAdminBudget9.do" />
+      <forward name="lgrtab1" path="/LgRevBudget1.do" />
+      <forward name="lgrtab2" path="/LgRevBudget2.do" />
+      <forward name="lgrtab3" path="/LgRevBudget3.do" />
+      <forward name="lgrtab4" path="/LgRevBudget4.do" />
+      <forward name="lgrtab5" path="/LgRevBudget5.do" />
+      <forward name="lgrtab6" path="/LgRevBudget6.do" />
+      <forward name="lgrtab7" path="/LgRevBudget7.do" />
+      <forward name="lgrtab8" path="/LgRevBudget8.do" />
+      <forward name="lgrtab9" path="/LgRevBudget9.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>
+  
+  <action path="/adminSearch" type="lgrmif.AdminSearch" parameter="item" >
+      <forward name="lgsearch" path="/LgAdminSearch.do" />
+      <forward name="cpsearch" path="/AdminSearchForm.do" />
+      <forward name="litsearch" path="/LitGrantSearch.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>   
+  
+  <action path="/lgAdminRevNav" type="discretionary.AdminRevAction" parameter="item" >
+      <forward name="home" path="/LgAdminHome.do" />
+      <forward name="reviewers" path="/LgViewReviewers.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>   
+  
+  <action path="/lgAdminPanel" type="lgrmif.AdminPanelAction" parameter="item" >
+      <forward name="panel" path="/LgPanels.do" />
+      <forward name="addpanel" path="/LgUpdatePanel.do" />
+      <forward name="grantsearch" path="/LgPanelGrantSearch.do" />
+      <forward name="searchrevs" path="/LgPanelRevSearch.do" />
+      <forward name="moneyamts" path="/LgAdminPanelAmount.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>   
+  
+  <action path="/lgSavePanelGrant"  type="mypackage.GenericUpdateAction"
+          name="AssignCollectionBean" scope="request" input="/LgPanelGrantSearch.do">
+      <forward name="success" path="/lgAdminPanel.do?item=addpanelgra"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/savePanel"  type="lgrmif.SavePanelAction"
+            name="PanelBean" scope="request" input="/LgUpdatePanel.do">
+      <forward name="success" path="/LgPanels.do" />      
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>
+  
+  <action path="/lgReports" type="reports.LgReportAction" parameter="i" >
+      <forward name="revcontact" path="/reports/revContactRpt.jsp"/>
+      <forward name="revidinfo" path="/reports/dt/revInfoRpt.jsp"/>
+      <forward name="availability" path="/reports/dt/lgReviewerAvailable.jsp"/>
+      <forward name="applications" path="/reports/dt/lgrmifApplicationsRpt.jsp"/>
+      <forward name="revassign" path="/reports/dt/reviewerPanelRpt.jsp"/>
+      <forward name="graassign" path="/reports/dt/grantPanelRpt.jsp"/>
+      <forward name="categoryawards" path="/reports/dt/awardsByCategory.jsp"/>
+      <forward name="revcomment" path="/lgrmif/commentSummary.jsp"/>
+      <forward name="revrating" path="/lgrmif/ratingSummary.jsp"/>
+      <forward name="revratingnew" path="/lgrmif/ratingSummary1112.jsp"/>
+      <forward name="delibsummary" path="/lgrmif/finalDeliberationSummary.jsp"/>
+      <forward name="delibsummarynew" path="/lgrmif/finalDelibSummary1112.jsp"/>      
+      <forward name="delibsummary1213" path="/lgrmif/finalDelibSummary1213.jsp"/>
+      <forward name="delibsummary1415" path="/lgrmif/finalDelibSummary1415.jsp"/>
+      <forward name="delibsummary1516" path="/lgrmif/finalDelibSummary1516.jsp"/>
+      <forward name="nonsubgrants" path="/reports/dt/unsubmittedApplications.jsp"/>
+      <forward name="regionawards" path="/reports/dt/awardsByRegion.jsp"/>
+      <forward name="countyawards" path="/reports/dt/awardsByCounty.jsp"/>
+      <forward name="govtypeawards" path="/reports/dt/awardsByGovtype.jsp"/>
+      <forward name="regionlist" path="/reports/dt/applicationProjManager.jsp"/>
+      <forward name="finalrpt" path="/reports/dt/finalRptSubmitted.jsp"/>
+      <forward name="allregion" path="/reports/dt/regionApplications.jsp"/>
+      <forward name="countfmn" path="/reports/fullModifyNoFundRpt.jsp"/>
+      <forward name="scoreorder" path="/reports/dt/lgScoreOrder.jsp"/>
+      <forward name="scoreorderathome" path="/reports/dt/lgScoreOrderAtHome.jsp"/>
+      <forward name="budgetcateg" path="/reports/dt/budgetCategory.jsp"/>
+      <forward name="directorrpt" path="/reports/dt/directorMissing.jsp"/>
+      <forward name="bonuspts" path="/reports/dt/bonuspointsRpt.jsp"/>
+      <forward name="scorerecpanel" path="/reports/dt/panelScoreRecommendation.jsp"/>
+      <forward name="decnotes" path="/reports/dt/decisionNotesRpt.jsp"/>
+      <forward name="peoplerpt" path="/reports/dt/grantPeopleRpt.jsp"/>
+      <forward name="summarydescr" path="/reports/dt/summaryDescrRpt.jsp"/>
+      <forward name="fundlist" path="/reports/dt/lgFundList.jsp"/>
+      <forward name="statisticrpt" path="/reports/dt/lgStatisticList.jsp"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+  </action>   
+  
+  <action path="/LgHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgHome" /></action>
+ 
+  <action path="/LgChecklist" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgChecklist" /></action>
+ 
+  <action path="/LgApplicationsheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgApplicationsheet" /></action>
+ 
+  <action path="/LgNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgNarrative" /></action>
+ 
+  <action path="/LgAuthorization" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAuthorization" /></action>
+ 
+  <action path="/LgFinalSignoff" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgFinalSignoff" /></action>
+ 
+  <action path="/LgFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgFinalReport" /></action>
+ 
+  <action path="/LgStatistics" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgStatistics" /></action>
+ 
+  <action path="/LgStatisticsNew" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgStatisticsNew" /></action>
+ 
+  <action path="/LgAttachments" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAttachments" /></action>
+ 
+  <action path="/LgAddAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAddAttachment" /></action>
+ 
+  <action path="/LgParticipants" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgParticipants" /></action>
+ 
+  <action path="/LgCoopAgreement" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgCoopAgreement" /></action>
+ 
+  <action path="/LgPayeeInfo" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPayeeInfo" /></action>
+ 
+  <action path="/LgFsForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgFsForms" /></action>
+ 
+  <action path="/LgFsOtherForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgFsOtherForms" /></action>
+ 
+  <action path="/LgFs10aSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgFs10aSummary" /></action>
+ 
+  <action path="/LgConfirmSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgConfirmSubmit" /></action>
+ 
+  <action path="/LgHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgHelp" /></action>
+ 
+  <action path="/LgAcceptanceForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAcceptanceForm" /></action>
+ 
+  <action path="/LgStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgStatus" /></action>
+ 
+  <action path="/LgImageMicrofilm" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgImageMicrofilm" /></action>
+ 
+  <action path="/LgMwbe" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgMwbe" /></action>
+ 
+  <action path="/LgVendorQuote" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgVendorQuote" /></action>
+  
+  <action path="/LgEditVendor" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgEditVendor" /></action>
+ 
+  <action path="/LgAdditionalForms" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAdditionalForms" /></action>
+ 
+  <action path="/LgApplicationView" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgApplicationView" /></action>
+ 
+  <action path="/LgDecisionSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgDecisionSummary" /></action>
+ 
+  <action path="/LgAppPrintout" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAppPrintout" /></action>
+ 
+  <action path="/LgBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget1" /></action>
+ 
+  <action path="/LgBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget2" /></action>
+ 
+  <action path="/LgBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget3" /></action>
+ 
+  <action path="/LgBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget4" /></action>
+ 
+  <action path="/LgBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget5" /></action>
+ 
+  <action path="/LgBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget6" /></action>
+ 
+  <action path="/LgBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget7" /></action>
+ 
+  <action path="/LgBudget8" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget8" /></action>
+ 
+  <action path="/LgBudget9" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgBudget9" /></action>
+ 
+  <!-- lg participant mappings-->
+  <action path="/LgPartApplication" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPartApplication" /></action>
+ 
+  <action path="/LgPartCoAgreement" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPartCoAgreement" /></action>
+ 
+  <action path="/LgPartAttachments" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPartAttachments" /></action>
+ 
+  <action path="/LgPartAddAttach" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPartAddAttach" /></action>
+ 
+  <!--REVIEWER MAPPINGS-->
+  <action path="/LgRevHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevHome" /></action>
+ 
+  <action path="/LgParticipation" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgParticipation" /></action>
+ 
+  <action path="/LgParticipateForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgParticipateForm" /></action>
+ 
+  <action path="/LgReviewerInfo" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgReviewerInfo" /></action>
+ 
+  <action path="/LgRevAssignments" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevAssignments" /></action>
+ 
+  <action path="/LgReviewerGrant" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgReviewerGrant" /></action>
+ 
+  <action path="/LgEvaluation" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgEvaluation" /></action>
+ 
+  <action path="/LgNewEvaluation" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgNewEvaluation" /></action>
+ 
+  <action path="/LgEvaluation1415" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgEvaluation1415" /></action>
+ 
+  <action path="/LgEvaluation1516" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgEvaluation1516" /></action>
+ 
+  <action path="/LgSubmitRating" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgSubmitRating" /></action>
+ 
+  <action path="/LgPanelAssignments" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgPanelAssignments" /></action>
+ 
+  <action path="/LgRevDeliberation" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevDeliberation" /></action>
+ 
+  <action path="/LgRevNewDelibForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevNewDelibForm" /></action>
+ 
+ <action path="/LgRevDeliberation1213" type="mypackage.LayoutActionBean" ><forward name="success" path="/LgRevDeliberation1213" /></action>
+ 
+ <action path="/LgRevDeliberation1415" type="mypackage.LayoutActionBean" ><forward name="success" path="/LgRevDeliberation1415" /></action>
+ 
+ <action path="/LgRevDeliberation1516" type="mypackage.LayoutActionBean" ><forward name="success" path="/LgRevDeliberation1516" /></action>
+ 
+ <action path="/LgRevDecisionSearch" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevDecisionSearch" /></action>
+ 
+ <action path="/LgRevDecision" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevDecision" /></action>
+ 
+ <action path="/LgRevReports" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevReports" /></action>
+ 
+ <action path="/LgRevAttachments" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevAttachments" /></action>
+ 
+ <action path="/LgRevBudget1" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget1" /></action>
+ 
+ <action path="/LgRevBudget2" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget2" /></action>
+ 
+ <action path="/LgRevBudget3" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget3" /></action>
+ 
+ <action path="/LgRevBudget4" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget4" /></action>
+ 
+ <action path="/LgRevBudget5" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget5" /></action>
+ 
+ <action path="/LgRevBudget6" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget6" /></action>
+ 
+ <action path="/LgRevBudget7" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget7" /></action>
+ 
+ <action path="/LgRevBudget8" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget8" /></action>
+ 
+ <action path="/LgRevBudget9" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgRevBudget9" /></action>
+ 
+  <!-- ADMIN MAPPINGS-->
+  <action path="/LgAdminHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgAdminHome" /></action>
+ 
+  <action path="/LgGrantSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/lgGrantSummary" /></action>
+ 
+  <action path="/LgViewReviewers" type="mypackage.LayoutActionBean"><forward name="success" path="/lgViewReviewers" /></action>
+
+  <action path="/LgUpdateReviewer" type="mypackage.LayoutActionBean"><forward name="success" path="/lgUpdateReviewer" /></action>
+
+  <action path="/LgPanels" type="mypackage.LayoutActionBean"><forward name="success" path="/lgPanels" /></action>
+
+  <action path="/LgUpdatePanel" type="mypackage.LayoutActionBean"><forward name="success" path="/lgUpdatePanel" /></action>
+
+ <action path="/LgPanelRevSearch" type="mypackage.LayoutActionBean"><forward name="success" path="/lgPanelRevSearch" /></action>
+
+ <action path="/LgPanelGrantSearch" type="mypackage.LayoutActionBean"><forward name="success" path="/lgPanelGrantSearch" /></action>
+
+ <action path="/LgViewDates" type="mypackage.LayoutActionBean"><forward name="success" path="/lgViewDates" /></action>
+
+ <action path="/LgAddDate" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAddDate" /></action>
+
+ <action path="/LgAccounts" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAccounts" /></action>
+
+ <action path="/LgAdminHelp" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminHelp" /></action>
+
+ <action path="/LgAdminMwbe" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminMwbe" /></action>
+
+ <action path="/LgAdminReports" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminReports" /></action>
+
+ <action path="/LgAdminViewEmail" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminViewEmail" /></action>
+
+ <action path="/LgAdminAttachment" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminAttachment" /></action>
+
+ <action path="/LgAdminAddAttach" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminAddAttach" /></action>
+
+ <action path="/LgAdminApplication" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminApplication" /></action>
+
+ <action path="/LgAdminNarrative" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminNarrative" /></action>
+
+ <action path="/LgAdminSearch" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminSearch" /></action>
+
+ <action path="/LgAdminBudget1" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget1" /></action>
+
+ <action path="/LgAdminBudget2" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget2" /></action>
+
+ <action path="/LgAdminBudget3" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget3" /></action>
+
+ <action path="/LgAdminBudget4" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget4" /></action>
+
+ <action path="/LgAdminBudget5" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget5" /></action>
+
+ <action path="/LgAdminBudget6" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget6" /></action>
+
+ <action path="/LgAdminBudget7" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget7" /></action>
+
+ <action path="/LgAdminBudget8" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget8" /></action>
+
+ <action path="/LgAdminBudget9" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBudget9" /></action>
+
+ <action path="/LgAdminPanelAmount" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminPanelAmount" /></action>
+
+ <action path="/LgAdminScores" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminScores" /></action>
+
+ <action path="/LgAdminBonusPoints" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminBonusPoints" /></action>
+
+ <action path="/LgAdminStatistics" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminStatistics" /></action>
+
+ <action path="/LgAdminMassMail" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminMassMail" /></action>
+
+ <action path="/LgUnsentMail" type="mypackage.LayoutActionBean"><forward name="success" path="/lgUnsentMail" /></action>
+
+ <action path="/LgRecipients" type="mypackage.LayoutActionBean"><forward name="success" path="/lgRecipients" /></action>
+
+ <action path="/LgConfirmSendMail" type="mypackage.LayoutActionBean"><forward name="success" path="/lgConfirmSendMail" /></action>
+
+ <action path="/LgAdminUpdateEval" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminUpdateEval" /></action>
+
+ <action path="/LgAdminUpdateDelib" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminUpdateDelib" /></action>
+
+ <action path="/LgAdminFs10aSummary" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminFs10aSummary" /></action>
+
+ <action path="/LgAdminNarrList" type="mypackage.LayoutActionBean"><forward name="success" path="/lgAdminNarrList" /></action>
+
+</action-mappings>
+</struts-config>

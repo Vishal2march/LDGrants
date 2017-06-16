@@ -1,0 +1,188 @@
+
+BODY {
+	BACKGROUND: #ffffff; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 13px;
+}
+
+TABLE {  	FONT-FAMILY: Arial, Helvetica, sans-serif;   }
+
+
+
+table.bannersc{ /* statutory and coordinated banner */
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  /*background-color:rgb(41,82,0); dark green*/
+  width:100%;  
+  border-color:rgb(0,80,128);
+  border-style:solid; 
+  border-width:thin;
+}
+
+table.adminnav{ /* cp admin navigation bar - not being used 9/30/08 */
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  background-color:rgb(103,69,137); 
+  color:White; 
+  width:100%;
+}
+
+table.scnav{ /* statutory and coordianted navigation bar */
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  /*background-color:rgb(153,153,102); light green*/
+  background-color:rgb(0,80,128); 
+  color:White; 
+  width:100%;
+}
+
+table.boxtype{
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(128,128,128); 
+  border-style:solid; 
+  border-width:thin;
+}
+
+.graygrid{
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(128,128,128); 
+  border:1.0pt ;
+  border-style:solid; 
+  border-width:thin;
+  border-collapse:collapse;
+  padding:2.0pt ;
+}
+
+.borderbox{
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(128,128,128); 
+  border-style:solid; 
+  border-width:thin;
+}
+
+.borderbox th{
+  text-align:left;
+  font-weight:bold;
+  font-size:small;
+}
+
+
+table.blackbox{
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(0,0,0); 
+  border-style:solid; 
+  border-width:thin;
+}
+
+tr.graybox{
+   border-color:rgb(128,128,128); 
+   border-style:solid; 
+   border-width:thin;
+}
+
+td{
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  FONT-SIZE: 13px;  
+}
+
+td.adminbgt{  /* admin budget tabs */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  /* background-color:rgb(103,69,137); */
+  background-color:rgb(153,153,153);
+  text-align:center;
+  width:16%;  
+}
+
+td.adminbgtselect{  /* admin budget - selected tab */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  /* background-color:rgb(230,221,238); */
+  background-color:Silver;
+  text-align:center;
+  width:16%;  
+}
+
+td.scbgt{  /*   statutory/coordinated budget tabs */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  /* background-color:rgb(153,153,102); */
+  background-color:rgb(153,153,153);
+  text-align:center;
+  width:16%;  
+}
+
+td.scbgtselect{  /* statutory/coordinated budget - selected tab */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  /* background-color:rgb(233,230,173); */
+  background-color:Silver;
+  text-align:center;
+  width:16%;  
+}
+
+td.dibgt{  /*   discretionary budget tabs */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  background-color:rgb(153,153,153); 
+  text-align:center;
+  width:20%;  
+}
+
+td.dibgtselect{  /* discretionary budget - selected tab */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  background-color:Silver;
+  text-align:center;
+  width:20%;  
+}
+
+td.litbgt{  /* literacy budget tab */
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  background-color:rgb(153,153,153); 
+  text-align:center;
+  width:14%;  
+}
+
+pre.emailMessage{
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+}
+
+
+th{  FONT-FAMILY: Arial, Verdana, sans-serif;   }
+
+ul{
+  FONT-SIZE: 10PT;
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+}
+
+
+a{
+  FONT-FAMILY: Arial, Verdana, sans-serif;
+  FONT-SIZE: 13px;
+}
+
+a.discnarr {
+  FONT-FAMILY: Times New Roman;
+  FONT-SIZE:105%;  
+}
+
+h4{  margin-top:1em;    margin-bottom:1em;   }
+
+.error{  color: Red;  }
+
+.indent{  margin-left:2em;  }
+
+.blackframe{
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(0,0,0); 
+  border-style:solid; 
+  border-width:thin;
+}
+
+p.bdgtitle{  margin-top:0em;  margin-bottom:0em;  }
+
+a.whitelink:link {   color:White;   }
+a.whitelink:visited {  color:White;  }
+
+a.blacklink:link {   color:Black;   }
+a.blacklink:visited {  color:Black;  }
+
+/* links for statutory/coordinated applicant navigation bars -yellow links */
+a.sclink:link {   color:rgb(255,204,0);  } 
+a.sclink:visited {  color:rgb(255,204,0);  }
+
+
+A.type2:link    {color:#FF0000; text-decoration:underline;}
+A.type2:visited {color:#FF0000; text-decoration:underline;}
+A.type2:active  {color:#FF0000; text-decoration:underline;}
+A.type2:hover   {color:#ABCDEF; text-decoration:underline;}

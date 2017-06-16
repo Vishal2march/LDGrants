@@ -1,0 +1,270 @@
+<%--
+ * @author  Stefanie Husak
+ * Development Environment        :  JDeveloper 11g
+ * Name of the Application        :  flViewStatisticsNew.jsp
+ * Description:
+ * For Family Lit starting FY2013-14, this is admin read-only view of
+ * statistics page. 
+--%>
+<%@ page contentType="text/html;charset=windows-1252"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+    <title></title>
+  </head>
+  <body>
+  
+  <br/>
+  <table width="95%" align="center" class="boxtype" summary="for layout only">
+    <tr>
+      <th colspan="2">Family Literacy Library Services<br/>Project Statistics</th>
+    </tr>
+    <tr>
+      <td><b>Project Number</b></td>
+      <td>03<fmt:formatNumber minIntegerDigits="2" pattern="##" type="number" value="${thisGrant.fccode}" />
+          -<fmt:formatNumber value="${thisGrant.fycode}" minIntegerDigits="2" />
+          -<fmt:formatNumber  minIntegerDigits="4" pattern="####" value="${thisGrant.projseqnum}" /></td>
+    </tr> 
+    <tr>
+      <td><b>Institution:</b></td>
+      <td><c:out value="${thisGrant.instName}" /></td>
+    </tr>
+  </table><br/>
+  
+  
+  <table width="95%" align="center" class="boxtype" summary="for layout only">
+      <tr>
+        <td colspan="2">Complete all that are applicable</td>
+      </tr>
+      <tr>
+        <td width="80%"></td>
+        <td><b>Year 1</b></td>
+        <td><b>Year 2</b></td>
+        <td><b>Year 3</b></td>
+      </tr>
+      <tr>
+        <td>A.	Number of libraries and/or branches in the system that offered a 
+        summer reading program for children and/or teens this year?</td>
+        <td><c:out value="${StatBean.sitesStr}" /></td>
+        <td><c:out value="${StatBean.sites2}" /></td>
+        <td><c:out value="${StatBean.sites3}" /></td>
+        <td><c:out value="${StatBean.sites + StatBean.sites2 + StatBean.sites3}"/></td>
+      </tr>
+      <tr>
+        <td>Plan to offer next year?</td>
+        <td><c:out value="${StatBean.planSites}" /></td>
+        <td><c:out value="${StatBean.planSites2}" /></td>
+        <td><c:out value="${StatBean.planSites3}" /></td>
+        <td><c:out value="${StatBean.planSites + StatBean.planSites2 + StatBean.planSites3}"/></td>
+      </tr>
+      <tr>
+        <td>B. Number of libraries and/or branches in the system that used the 
+        CSLP children's slogan for this year?</td>
+        <td><c:out value="${StatBean.childSlogan}"/></td>
+        <td><c:out value="${StatBean.childSlogan2}"/></td>
+        <td><c:out value="${StatBean.childSlogan3}"/></td>
+        <td><c:out value="${StatBean.childSlogan + StatBean.childSlogan2 + StatBean.childSlogan3}"/></td>
+      </tr>
+      <tr>
+        <td>Plan to use the CSLP Children’s slogan for next year?</td>
+        <td><c:out value="${StatBean.planChildSlogan}" /></td>        
+        <td><c:out value="${StatBean.planChildSlogan2}" /></td>
+        <td><c:out value="${StatBean.planChildSlogan3}" /></td>
+        <td><c:out value="${StatBean.planChildSlogan + StatBean.planChildSlogan2 + StatBean.planChildSlogan3}"/></td>
+      </tr>
+      <tr>
+        <td>C. Number of libraries and/or branches in the system that used 
+        the CSLP teen slogan for this year? </td>
+        <td><c:out value="${StatBean.teenSlogan}"/></td>   
+        <td><c:out value="${StatBean.teenSlogan2}"/></td> 
+        <td><c:out value="${StatBean.teenSlogan3}"/></td> 
+         <td><c:out value="${StatBean.teenSlogan + StatBean.teenSlogan2 + StatBean.teenSlogan3}"/></td>
+      </tr>
+      <tr>
+        <td>Plan to use the CSLP teen slogan for next year?</td>
+        <td><c:out value="${StatBean.planTeenSlogan}" /></td>        
+        <td><c:out value="${StatBean.planTeenSlogan2}" /></td> 
+        <td><c:out value="${StatBean.planTeenSlogan3}" /></td> 
+        <td><c:out value="${StatBean.planTeenSlogan + StatBean.planTeenSlogan2 + StatBean.planTeenSlogan3}"/></td>
+      </tr>
+      <tr>
+        <td>D. TOTAL number of children who registered for the summer 
+        reading program this year</td>
+        <td><c:out value="${StatBean.participantsStr}" /></td>   
+        <td><c:out value="${StatBean.participants2}" /></td> 
+        <td><c:out value="${StatBean.participants3}" /></td> 
+        <td><c:out value="${StatBean.participants + StatBean.participants2 + StatBean.participants3}"/></td>
+      </tr>
+      <tr>
+        <td>E. TOTAL number of teens who registered 
+        for the summer reading program this year</td>
+        <td><c:out value="${StatBean.teenParticipants}" /></td>   
+        <td><c:out value="${StatBean.teenParticipants2}" /></td>
+        <td><c:out value="${StatBean.teenParticipants3}" /></td>
+        <td><c:out value="${StatBean.teenParticipants + StatBean.teenParticipants2 + StatBean.teenParticipants3}"/></td>
+      </tr>
+      <tr>
+        <td height="20" />
+      </tr>
+      
+      <tr>
+        <td height="20" />
+      </tr>
+      <tr>
+        <td><b>F. Reading totals for this year:</b><br/>For participants recording by time read:</td>
+      </tr>  
+      <tr>
+        <td>1. TOTAL number of children who recorded by minutes read</td>
+        <td><c:out value="${StatBean.numChildMinutes}" /></td>  
+        <td><c:out value="${StatBean.numChildMinutes2}" /></td>  
+        <td><c:out value="${StatBean.numChildMinutes3}" /></td>  
+        <td><c:out value="${StatBean.numChildMinutes + StatBean.numChildMinutes2 + StatBean.numChildMinutes3}"/></td>
+      </tr>
+      <tr>
+        <td>2. TOTAL minutes read by these children</td>
+        <td><c:out value="${StatBean.childMinutesRead}" /></td>  
+        <td><c:out value="${StatBean.childMinutesRead2}" /></td> 
+        <td><c:out value="${StatBean.childMinutesRead3}" /></td> 
+        <td><c:out value="${StatBean.childMinutesRead + StatBean.childMinutesRead2 + StatBean.childMinutesRead3}"/></td>
+      </tr>
+      <tr>
+        <td>3. TOTAL number of teens who recorded by minutes read</td>
+        <td><c:out value="${StatBean.numTeenMinutes}" /></td>  
+        <td><c:out value="${StatBean.numTeenMinutes2}" /></td>
+        <td><c:out value="${StatBean.numTeenMinutes3}" /></td>
+        <td><c:out value="${StatBean.numTeenMinutes + StatBean.numTeenMinutes2 + StatBean.numTeenMinutes3}"/></td>
+      </tr>
+      <tr>
+        <td>4. TOTAL minutes read by these teens</td>
+        <td><c:out value="${StatBean.teenMinutesRead}" /></td>  
+         <td><c:out value="${StatBean.teenMinutesRead2}" /></td>  
+        <td><c:out value="${StatBean.teenMinutesRead3}" /></td>  
+        <td><c:out value="${StatBean.teenMinutesRead + StatBean.teenMinutesRead2 + StatBean.teenMinutesRead3}"/></td>
+      </tr>
+      <tr>
+        <td>For participants recording by books read:</td>
+      </tr>
+      <tr>
+        <td>5. TOTAL number of children who recorded by books read</td>
+        <td><c:out value="${StatBean.numChildBooks}" /></td>  
+        <td><c:out value="${StatBean.numChildBooks2}" /></td> 
+        <td><c:out value="${StatBean.numChildBooks3}" /></td> 
+        <td><c:out value="${StatBean.numChildBooks + StatBean.numChildBooks2 + StatBean.numChildBooks3}"/></td>
+      </tr>
+      <tr>
+        <td>6. TOTAL number of books children read</td>
+        <td><c:out value="${StatBean.childBooksRead}" /></td>  
+        <td><c:out value="${StatBean.childBooksRead2}" /></td>
+        <td><c:out value="${StatBean.childBooksRead3}" /></td>
+        <td><c:out value="${StatBean.childBooksRead + StatBean.childBooksRead2 + StatBean.childBooksRead3}"/></td>
+      </tr>
+      <tr>
+        <td>7. TOTAL number of teens who recorded by books read</td>
+        <td><c:out value="${StatBean.numTeenBooks}" /></td>  
+        <td><c:out value="${StatBean.numTeenBooks2}" /></td>  
+        <td><c:out value="${StatBean.numTeenBooks3}" /></td>  
+        <td><c:out value="${StatBean.numTeenBooks + StatBean.numTeenBooks2 + StatBean.numTeenBooks3}"/></td>
+      </tr>
+      <tr>
+        <td>8. TOTAL number of books teens read</td>
+        <td><c:out value="${StatBean.teenBooksRead}" /></td>  
+        <td><c:out value="${StatBean.teenBooksRead2}" /></td>
+        <td><c:out value="${StatBean.teenBooksRead3}" /></td>
+        <td><c:out value="${StatBean.teenBooksRead + StatBean.teenBooksRead2 + StatBean.teenBooksRead3}"/></td>
+      </tr>
+      <tr>
+        <td height="20"/>
+      </tr>
+      <tr>
+        <td height="20"/>
+      </tr>
+      <tr>
+        <Td><b>G. Programs</b><br/>A program is defined as one planned 
+        session conducted by a staff member, outside performer or other 
+        programmer – it does not include informal visits to the library 
+        to report on reading, etc.  Please answer each question or 
+        type 0 where a question does not apply to your system.</td>
+      </tr>
+      <tr>
+        <td>1. How many total programs did libraries in the system 
+        offer for children during summer of this year?</td>
+        <td><c:out value="${StatBean.childPrograms}" /></td>  
+        <td><c:out value="${StatBean.childPrograms2}" /></td> 
+        <td><c:out value="${StatBean.childPrograms3}" /></td> 
+        <td><c:out value="${StatBean.childPrograms + StatBean.childPrograms2 + StatBean.childPrograms3}"/></td>
+      </tr>
+      <tr>
+        <td>Total attendance (including parents/caregivers)?</td>
+        <td><c:out value="${StatBean.childProgramAttendance}" /></td>  
+        <td><c:out value="${StatBean.childProgramAttendance2}" /></td>
+        <td><c:out value="${StatBean.childProgramAttendance3}" /></td>
+        <td><c:out value="${StatBean.childProgramAttendance + StatBean.childProgramAttendance2 + StatBean.childProgramAttendance3}"/></td>
+      </tr>
+      <tr>
+        <td>2. How many total programs did libraries in the 
+        system offer for teens during summer of this year?</td>
+        <td><c:out value="${StatBean.teenPrograms}"/></td>  
+        <td><c:out value="${StatBean.teenPrograms2}"/></td>
+        <td><c:out value="${StatBean.teenPrograms3}"/></td>
+        <td><c:out value="${StatBean.teenPrograms + StatBean.teenPrograms2 + StatBean.teenPrograms3}"/></td>
+      </tr>
+      <tr>
+        <td>Total attendance (including parents/caregivers)?</td>
+        <td><c:out value="${StatBean.teenProgramAttendance}" /></td>  
+        <td><c:out value="${StatBean.teenProgramAttendance2}" /></td>
+        <td><c:out value="${StatBean.teenProgramAttendance3}" /></td>
+        <td><c:out value="${StatBean.teenProgramAttendance + StatBean.teenProgramAttendance2 + StatBean.teenProgramAttendance3}"/></td>
+      </tr>
+      <tr>
+        <td>3. Total of 1 & 2, Programs?</td>
+        <td><c:out value="${StatBean.childTeenProgramTotal}" /></td>  
+        <td><c:out value="${StatBean.childPrograms2 + StatBean.teenPrograms2}" /></td> 
+        <td><c:out value="${StatBean.childPrograms3 + StatBean.teenPrograms3}" /></td> 
+        <td><c:out value="${StatBean.childTeenProgramTotal + StatBean.childPrograms2 + StatBean.teenPrograms2 + StatBean.childPrograms3 + StatBean.teenPrograms3}" /></td> 
+      </tr>
+      <tr>
+        <td>Total of 1 & 2, Attendance?</td>
+        <td><c:out value="${StatBean.childTeenAttendanceTotal}" /></td>  
+        <td><c:out value="${StatBean.childProgramAttendance2 + StatBean.teenProgramAttendance2}" /></td> 
+        <td><c:out value="${StatBean.childProgramAttendance3 + StatBean.teenProgramAttendance3}" /></td> 
+        <td><c:out value="${StatBean.childTeenAttendanceTotal + StatBean.childProgramAttendance2 + StatBean.teenProgramAttendance2 + StatBean.childProgramAttendance3 + StatBean.teenProgramAttendance3}" /></td>
+      </tr>
+      <tr>
+        <td>4. How many programs listed in #3 included parents/caregivers?</td>
+        <td><c:out value="${StatBean.parentPrograms}" /></td>  
+        <td><c:out value="${StatBean.parentPrograms2}" /></td>
+        <td><c:out value="${StatBean.parentPrograms3}" /></td>
+        <td><c:out value="${StatBean.parentPrograms + StatBean.parentPrograms2 + StatBean.parentPrograms3}"/></td>
+      </tr>
+      <tr>
+        <td>Attendance of parents/caregivers?</td>
+        <td><c:out value="${StatBean.parentProgramAttendance}" /></td> 
+        <td><c:out value="${StatBean.parentProgramAttendance2}" /></td> 
+        <td><c:out value="${StatBean.parentProgramAttendance3}" /></td> 
+        <td><c:out value="${StatBean.parentProgramAttendance + StatBean.parentProgramAttendance2 + StatBean.parentProgramAttendance3}"/></td>
+      </tr>
+      <tr>
+        <td>5. How many workshops (professional development) were offered by the system from 
+        July 1 through June 30 (grant program cycle)?</td>
+        <td><c:out value="${StatBean.workshops}" /></td> 
+        <td><c:out value="${StatBean.workshops2}" /></td> 
+        <td><c:out value="${StatBean.workshops3}" /></td> 
+        <td><c:out value="${StatBean.workshops + StatBean.workshops2 + StatBean.workshops3}"/></td>
+      </tr>      
+      <Tr>
+        <td>Total attendance?</td>
+        <td><c:out value="${StatBean.workshopAttendance}" /></td> 
+        <td><c:out value="${StatBean.workshopAttendance2}" /></td> 
+        <td><c:out value="${StatBean.workshopAttendance3}" /></td>
+        <td><c:out value="${StatBean.workshopAttendance + StatBean.workshopAttendance2 + StatBean.workshopAttendance3}"/></td>
+      </tr>
+      <tr>
+        <td height="20"/>
+      </tr>
+    </table>  
+  
+  
+  </body>
+</html>

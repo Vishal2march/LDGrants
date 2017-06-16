@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+
+<!-- These are original definitions -->
+<definition name="applicationchecklist" extends="checklist.mainlayout">
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/applicationChecklist.jsp" />
+		
+	</definition>
+
+
+	<definition name="formchecklist" extends="checklist.mainlayout">
+		<put-attribute name="title" expression="Form Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/formChecklist.jsp" />
+		
+	</definition>
+
+	
+	
+	
+	<!-- SH: These are AL/FL specific definitions -->
+	<definition name="adultLiteracyApplicationChecklist" extends="al.layout">
+		<put-attribute name="title" expression="Application Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/applicationChecklist.jsp" />		
+	</definition>
+	
+	<definition name="familyLiteracyApplicationChecklist" extends="fl.layout">
+		<put-attribute name="title" expression="Application Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/applicationChecklist.jsp" />		
+	</definition>
+	
+	<!-- SH: AL/FL inital/finalyear1reporting checklists with Hardcoded URLs -->
+	<definition name="adultLiteracyInitialChecklist" extends="al.layout">
+		<put-attribute name="title" expression="Initial Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/adultLiteracy/initialVersionChecklist.jsp" />		
+	</definition>
+	
+	<definition name="familyLiteracyInitialChecklist" extends="fl.layout">
+		<put-attribute name="title" expression="Initial Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/familyLiteracy/initialVersionChecklist.jsp" />		
+	</definition>
+	
+	<definition name="adultLiteracyFinalReportChecklist" extends="al.layout">
+		<put-attribute name="title" expression="Final Year 1 Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/adultLiteracy/yr1FinalReportingChecklist.jsp" />		
+	</definition>
+	
+	<definition name="familyLiteracyFinalReportChecklist" extends="fl.layout">
+		<put-attribute name="title" expression="Final Year 1 Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/familyLiteracy/yr1FinalReportingChecklist.jsp" />		
+	</definition>
+	
+	
+	
+	<definition name="adultLiteracyAmendmentChecklist" extends="al.layout">
+		<put-attribute name="title" expression="Final Year 1 Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/adultLiteracy/amendmentChecklist.jsp" />		
+	</definition>
+	
+	<definition name="familyLiteracyAmendmentChecklist" extends="fl.layout">
+		<put-attribute name="title" expression="Final Year 1 Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/familyLiteracy/amendmentChecklist.jsp" />		
+	</definition>
+	
+	
+	
+	<definition name="adultLiteracyFinalSummaryChecklist" extends="al.layout">
+		<put-attribute name="title" expression="Final Summary Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/finalSummaryChecklist.jsp" />		
+	</definition>
+	
+	<definition name="familyLiteracyFinalSummaryChecklist" extends="fl.layout">
+		<put-attribute name="title" expression="Final Summary Checklist" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/checklist/finalSummaryChecklist.jsp" />		
+	</definition>
+	
+</tiles-definitions>

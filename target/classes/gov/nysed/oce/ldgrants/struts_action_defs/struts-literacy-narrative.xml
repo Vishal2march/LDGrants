@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-literacy-narrative" namespace="/" extends="appSecurity">
+
+
+
+<!--   actions below for literacy final narrative-->
+
+	  <action name="literacyYr1FinalNarrative" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacyYr1FinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrative.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrative.tiles</result>
+      </action> 
+      
+      <action name="literacySelectFinalNarrative" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacySelectFinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrative.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrative.tiles</result>
+      </action>   
+      
+      <action name="literacySaveFinalNarrative" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacySaveFinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrative.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrative.tiles</result>
+      </action> 
+      
+      
+      
+      
+      
+      
+      <!--   ADMIN  final narrative-->
+
+	  <action name="literacyYr1FinalNarrativeAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacyYr1FinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrativeAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrativeAdmin.tiles</result>
+      </action> 
+      
+      <action name="literacySelectFinalNarrativeAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacySelectFinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrativeAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrativeAdmin.tiles</result>
+      </action>   
+      
+      <action name="literacySaveFinalNarrativeAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacySaveFinalNarrative">
+           <result name="adultlit">/adultLiteracyYr1FinalNarrativeAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyYr1FinalNarrativeAdmin.tiles</result>
+      </action> 
+      
+      
+      
+      <!--  literacy applicant final summary -->
+      
+      <action name="literacyFinalSummary" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacyFinalSummary">
+           <result name="adultlit">/adultLiteracyFinalSummary.tiles</result>
+           <result name="familylit">/familyLiteracyFinalSummary.tiles</result>
+      </action> 
+      
+       <action name="literacySaveFinalSummary" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacySaveFinalSummary">
+           <result name="adultlit">/adultLiteracyFinalSummary.tiles</result>
+           <result name="familylit">/familyLiteracyFinalSummary.tiles</result>
+      </action> 
+      
+      <!--   ADMIN  final summary-->
+
+	  <action name="literacyFinalSummaryAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalNarrativeAction" 
+            method="literacyFinalSummary">
+           <result name="adultlit">/adultLiteracyFinalSummaryAdmin.tiles</result>
+           <result name="familylit">/familyLiteracyFinalSummaryAdmin.tiles</result>
+      </action> 
+      
+      
+      
+      
+    </package>
+</struts>

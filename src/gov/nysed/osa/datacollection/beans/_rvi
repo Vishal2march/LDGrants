@@ -1,0 +1,18 @@
+# RVI 2.0 - Oracle Repository Version Information : DO NOT EDIT
+<
+  <ReposName=beans>
+  <ReposUUID=49ebc267-95a2-4fdc-8664-a4a72bace104>
+  <ReposTimeStamp=>
+  <ReposFolderIRID=134401189458392526824970864283467063>
+  <ReposFolderIVID=134401189458397249191453733928680759>
+  <ReposFiles:
+    <
+      <ReposName=SSOprocessorBean.java>
+      <ReposTimeStamp=2005-10-11 11:48:04.0>
+      <ReposCRC=1859410271>
+      <ReposIRID=134401189458420861023868082154749239>
+      <ReposIVID=134401189458425583390350951799962935>
+      <ReposStatus=I>
+    >
+  >
+>

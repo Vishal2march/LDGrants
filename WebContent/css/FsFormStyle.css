@@ -1,0 +1,27 @@
+BODY
+{
+  BACKGROUND-COLOR: White;
+  COLOR: black;
+}
+
+DIV.pageBreak { page-break-before: always; }
+
+
+TABLE.fsLarge{
+  width:96%;
+  border-color:Black;
+  border-style:solid; 
+  border-width:1px;
+}
+
+table.boxtype{
+  width:100%;
+  border-color:Black;
+  border-style:solid; 
+  border-width:1px;
+}
+
+
+
+
+

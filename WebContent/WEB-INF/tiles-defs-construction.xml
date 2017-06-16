@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions> 
+   <definition name="conbanner" path="/common/banner.jsp">
+      <put name="grprogram" value="Library Construction Program" /> 
+   </definition>
+   
+   <definition name="apcntconlayout" path="/layout.jsp">
+      <put name="header" value="conbanner" type="definition" /> 
+      <put name="menubar" value="/construction/constructionNavBar.jsp" />
+      <put name="footer" value="/common/cnFooter.jsp" />
+   </definition>
+   
+   <definition name="reviewconlayout" path="/layout.jsp">
+      <put name="header" value="conbanner" type="definition" /> 
+      <put name="menubar" value="/construction/reviewNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="adminconlayout" path="/layout.jsp">
+      <put name="header" value="conbanner" type="definition" /> 
+      <put name="menubar" value="/construction/adminNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="dasnyconlayout" path="/layout.jsp">
+      <put name="header" value="conbanner" type="definition" /> 
+      <put name="menubar" value="/construction/dasny/dasnyNavMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+
+  <!-- APPLICANT  -->
+  <definition name="/constructionHome" extends="apcntconlayout">   
+      <put name="title" value="Library Construction Home" />
+      <put name="body" value="/construction/homeGrants.jsp" />
+  </definition>
+ 
+   <definition name="/constructionCheckList" extends="apcntconlayout">
+      <put name="body" value="/construction/checkListBody.jsp" />
+      <put name="title" value="Construction Checklist" />
+   </definition>
+    
+   <definition name="/cnHelp" extends="apcntconlayout">
+      <put name="title" value="Construction Help Page"  />    
+      <put name="body" value="/construction/help.jsp" />
+   </definition>
+    
+   <definition name="/seaf" extends="apcntconlayout">
+      <put name="title" value="Construction - SEAF"  />  
+      <put name="body" value="/construction/seaf.jsp" />
+   </definition>
+     
+   <definition name="/avfunds" extends="apcntconlayout">
+      <put name="title" value="Construction -Certificate of Available Funds"  />     
+      <put name="body" value="/construction/avfunds.jsp" />
+   </definition>
+     
+   <definition name="/10yr" extends="apcntconlayout">
+      <put name="title" value="Construction -Certificate of Lease Agreement"  /> 
+      <put name="body" value="/construction/10yrlease.jsp" />
+   </definition>
+      
+   <definition name="/ofp" extends="apcntconlayout">
+      <put name="title" value="Construction -Office of Facilities Planning Approval"  />    
+      <put name="body" value="/construction/ofp.jsp" />
+   </definition>
+   
+   <definition name="/cncertificateoccupancy" extends="apcntconlayout">
+      <put name="title" value="Construction -Certificate of Occupancy"  />    
+      <put name="body" value="/construction/certOccupancy.jsp" />
+   </definition>
+   
+   <definition name="/shpo" extends="apcntconlayout">
+      <put name="title" value="Construction -SHPO Approval"  /> 
+      <put name="body" value="/construction/shpo.jsp" />
+   </definition>
+   
+   <definition name="/photo" extends="apcntconlayout">
+      <put name="title" value="Construction - Photos"  />  
+      <put name="body" value="/construction/photo.jsp" />
+   </definition>
+   
+   <definition name="/smartgrowth" extends="apcntconlayout">
+      <put name="title" value="Construction - Smart Growth Form"  />  
+      <put name="body" value="/construction/smartgrowth.jsp" />
+   </definition>
+   
+  <definition name="/payee" extends="apcntconlayout">
+      <put name="title" value="Construction -Payee Information Form"  /> 
+      <put name="body" value="/construction/payee.jsp" />
+   </definition>
+   
+  <definition name="/cncoversheet" extends="apcntconlayout">
+      <put name="title" value="Construction Application Form"  />   
+      <put name="body" value="/construction/coversheet.jsp" />
+   </definition>
+   
+  <definition name="/fs20" extends="apcntconlayout">
+      <put name="title" value="Construction - FS 20 Form"  /> 
+      <put name="body" value="/construction/fs20.jsp" />
+   </definition>
+   
+  <definition name="/submit" extends="apcntconlayout">
+      <put name="title" value="Construction -Submit Application"  /> 
+      <put name="body" value="/construction/submitApp.jsp" />
+   </definition>
+   
+   <definition name="/cnotherfunds" extends="apcntconlayout">
+      <put name="title" value="Construction -Other Fund Sources"  /> 
+      <put name="body" value="/construction/otherFunds.jsp?p=cn" />
+   </definition>
+   
+   <definition name="/cndeletefunds" extends="apcntconlayout">
+      <put name="title" value="Construction -Delete Fund Source"  /> 
+      <put name="body" value="/construction/confirmDeleteFund.jsp" />
+   </definition>
+   
+   <definition name="/assurance" extends="apcntconlayout">
+      <put name="title" value="Construction -Assurances"  />   
+      <put name="body" value="/construction/assurance.jsp" />
+   </definition>
+   
+   <definition name="/costestimate" extends="apcntconlayout">
+      <put name="title" value="Construction -Cost Estimate"  />   
+      <put name="body" value="/construction/costestimates.jsp" />
+   </definition>
+   
+   <definition name="/cnmunicipal" extends="apcntconlayout">
+      <put name="title" value="Construction -Municipal Consent"  />   
+      <put name="body" value="/construction/municipalConsent.jsp" />
+   </definition>
+   
+   <definition name="/cnmwbe" extends="apcntconlayout">
+      <put name="title" value="Construction -MWBE"  />   
+      <put name="body" value="/construction/mwbe.jsp" />
+   </definition>
+  
+   <definition name="/PostProjectPhoto" extends="apcntconlayout">
+      <put name="title" value="Construction -Post Project Photo"  />   
+      <put name="body" value="/construction/photosAfterProject.jsp" />
+   </definition>
+   
+   <!--rmvd 5/31/12 per MLT; now using data entry form
+   <definition name="/CompletionForm" extends="apcntconlayout">
+      <put name="title" value="Construction -Project Completion Form"  />   
+      <put name="body" value="/construction/completionForm.jsp" />
+   </definition>-->
+   
+   <definition name="/CompletionForm" extends="apcntconlayout">
+      <put name="title" value="Construction -Project Completion Form"  />   
+      <put name="body" value="/construction/completionDataEntry.jsp" />
+   </definition>
+   
+   <definition name="/CnAmendments" extends="apcntconlayout">
+      <put name="title" value="Construction - Budget Amendments"  />   
+      <put name="body" value="/construction/budgetAmendment.jsp" />
+   </definition>
+   
+   <definition name="/CnFsFinalForm" extends="apcntconlayout">
+      <put name="title" value="Construction - FS-10-F Form"  />   
+      <put name="body" value="/construction/fs10Final.jsp" />
+   </definition>
+   
+   <definition name="/attachmentHome"  extends="apcntconlayout">
+      <put name="title" value="Construction -Attachments"  />   
+      <put name="body" value="/attachment.jsp?prog=cn" />
+   </definition>
+      
+   <definition name="/cnAddattachment" extends="apcntconlayout">
+      <put name="title" value="Construction -Add Attachment"  /> 
+      <put name="body" value="/addAttachment.jsp?prog=cn" />
+   </definition>
+    
+  <definition name="/cnNarrative" extends="apcntconlayout">
+      <put name="title" value="Construction Narratives"  />   
+      <put name="body" value="/construction/narrativeMenu.jsp" />
+      <put name="body2" value="/construction/narrative.jsp" />
+   </definition>
+   
+   <definition name="/cnAbstractNarrative" extends="apcntconlayout">
+      <put name="title" value="Construction Narratives"  />   
+      <put name="body" value="/construction/narrativeMenu.jsp" />
+      <put name="body2" value="/construction/narrativeAbstract.jsp" />
+   </definition>
+    
+    <definition name="/CnDeleteBudget" extends="apcntconlayout">     
+      <put name="title" value="Construction - Delete Budget Record"  />     
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+   
+   <definition name="/budgetcontractor" extends="apcntconlayout">
+      <put name="title" value="Construction - Project Budget"  />  
+      <put name="body" value="/construction/budgetPurchased.jsp" />
+   </definition>
+   
+  <definition name="/budgetsupplies" extends="apcntconlayout">
+      <put name="title" value="Construction - Project Budget"  />  
+      <put name="body" value="/construction/budgetSupplies.jsp" />
+   </definition>
+   
+   <definition name="/budgetequip" extends="apcntconlayout">
+      <put name="title" value="Construction - Project Budget"  />  
+      <put name="body" value="/construction/budgetEquipment.jsp" />
+   </definition>
+   
+  <definition name="/budgetremodel" extends="apcntconlayout">
+      <put name="title" value="Construction - Project Budget"  />  
+      <put name="body" value="/construction/budgetRemodel.jsp" />
+   </definition>
+   
+   <definition name="/CnSubmitComplete" extends="apcntconlayout">
+      <put name="title" value="Construction - Confirm Application Submission"  />  
+      <put name="body" value="/construction/submitComplete.jsp" />
+   </definition>
+   
+   <definition name="/CnConfirmCreate" extends="apcntconlayout">
+      <put name="title" value="Construction - Confirm Create New Application"  />  
+      <put name="body" value="/construction/confirmNewApplication.jsp" />
+   </definition>
+   
+   <definition name="/CnExpensePurchased" extends="apcntconlayout">
+      <put name="title" value="Construction - Purchased Services Expenses"  />  
+      <put name="body" value="/construction/expensePurchased.jsp" />
+   </definition>
+   
+   <definition name="/CnExpenseEquipment" extends="apcntconlayout">
+      <put name="title" value="Construction - Equipment Expenses"  />  
+      <put name="body" value="/construction/expenseEquipment.jsp" />
+   </definition>
+   
+   <definition name="/CnExpenseSupply" extends="apcntconlayout">
+      <put name="title" value="Construction - Supply Expenses"  />  
+      <put name="body" value="/construction/expenseSupply.jsp" />
+   </definition>
+   
+   <definition name="/CnExpenseDelete" extends="apcntconlayout">
+      <put name="title" value="Construction - Delete Expenses"  />  
+      <put name="body" value="/construction/expenseDelete.jsp" />
+   </definition>
+   
+   <definition name="/CnCompleteApplication" path="/layout.jsp">
+      <put name="title" value="Construction Application" />      
+      <put name="body" value="/construction/cnApplicationHtml.jsp" />
+      <put name="body2" value="/construction/otherFundsHtml.jsp" />
+      <put name="body3" value="/construction/cnBudgetHtml.jsp" />
+      <put name="body4" value="/construction/cnNarrativesHtml.jsp" />
+    </definition>
+    
+    <definition name="/CnUpdateProjManager" extends="apcntconlayout">
+      <put name="title" value="Construction - Update Project Manager"  />  
+      <put name="body" value="/construction/editProjectManager.jsp" />
+   </definition>
+                
+   <!--  REVIEW MODULE     -->
+   
+  <definition name="/cnReviewApplications" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review -Member Applications"  />  
+      <put name="body" value="/construction/reviewMemberSearch.jsp" />
+   </definition>
+   
+  <definition name="/cnReviewChecklist" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Checklist"  />       
+      <put name="body" value="/construction/reviewCheckList.jsp" />
+   </definition>
+   
+   <definition name="/cnReviewCoversheet" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Application Form"  />       
+      <put name="body" value="/construction/reviewCoversheet.jsp" />
+   </definition>
+   
+  <definition name="/cnReviewRating" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Evaluation Form"  />       
+      <put name="body" value="/construction/reviewRatingForm.jsp" />
+   </definition>
+   
+   <definition name="/cnAddattachmentreview" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Add Attachment"  />     
+      <put name="body" value="/addAttachment.jsp?prog=cnreview" />
+   </definition>
+   
+   <definition name="/cnReviewAttachment" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Attachments"  />   
+      <put name="body" value="/attachment.jsp?prog=cnreview" />
+   </definition>
+   
+   <definition name="/cnReviewAttachRead" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Attachments"  />   
+      <put name="body" value="/downloadDocuments.jsp" /><!--read only version-->
+   </definition>
+     
+   <definition name="/cnReviewSubmitMember" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Submit to LD"  />     
+      <put name="body" value="/construction/reviewSubmitMembers.jsp" />
+   </definition>
+    
+    <definition name="/cnReviewNarrative" extends="reviewconlayout">     
+      <put name="title" value="Construction - PLS Narrative"  />  
+      <put name="body" value="/construction/reviewNarrativeMenu.jsp" />
+      <put name="body2" value="/construction/reviewNarrative.jsp" />
+    </definition>
+    
+    <definition name="/cnReviewAbstractNarr" extends="reviewconlayout">     
+      <put name="title" value="Construction - PLS Narrative"  />  
+      <put name="body" value="/construction/reviewNarrativeMenu.jsp" />
+      <put name="body2" value="/construction/reviewAbstractNarr.jsp" />
+    </definition>
+    
+    <definition name="/cnReviewotherfunds" extends="reviewconlayout">
+      <put name="title" value="Construction - Additional Funding"  />       
+      <put name="body" value="/construction/reviewOtherFunds.jsp?p=cnreview" />
+   </definition>
+   
+   <definition name="/cnReviewdeletefunds" extends="reviewconlayout">
+      <put name="title" value="Construction - Delete Additional Funding"  />       
+      <put name="body" value="/construction/confirmDeleteFund.jsp" />
+   </definition>
+   
+   <definition name="/CnRevDeleteBudget" extends="reviewconlayout">
+      <put name="title" value="Construction - Delete Budget Record"  />       
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+   </definition>
+   
+   <definition name="/cnReviewduedates" extends="reviewconlayout">
+      <put name="title" value="Construction - Due Dates"  />       
+      <put name="body" value="/construction/reviewDueDates.jsp" />
+   </definition>
+   
+   <definition name="/cnRevieweditduedate" extends="reviewconlayout">
+      <put name="title" value="Construction - Edit Due Date"  />       
+      <put name="body" value="/construction/reviewUpdateDueDate.jsp" />
+   </definition>
+   
+   <definition name="/budgetcontractorReview" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Budget"  />     
+      <put name="body" value="/construction/budgetRevPurchased.jsp" />
+   </definition>
+   
+   <definition name="/budgetsuppliesReview" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Budget"  />     
+      <put name="body" value="/construction/budgetRevSupplies.jsp" />
+   </definition>
+   
+   <definition name="/budgetequipReview" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Budget"  />     
+      <put name="body" value="/construction/budgetRevEquipment.jsp" />
+   </definition>
+   
+   <definition name="/budgetremodelReview" extends="reviewconlayout">
+      <put name="title" value="Construction - PLS Review Budget"  />     
+      <put name="body" value="/construction/budgetRevRemodel.jsp" />
+   </definition>
+   
+   <definition name="/cnReviewHelp" extends="reviewconlayout">
+      <put name="title" value="Construction - Help Page"  />     
+      <put name="body" value="/construction/help.jsp" />
+   </definition>
+   
+   <definition name="/cnReviewSearch" extends="reviewconlayout">
+      <put name="title" value="Construction - Search for Members" />     
+      <put name="body" value="/construction/cnReviewSearch.jsp" />
+   </definition>
+   
+   <definition name="/cnReviewcoversheet" extends="reviewconlayout">
+      <put name="title" value="Construction - Application Form" />     
+      <put name="body" value="/construction/reviewCoversheet.jsp" />
+   </definition>
+   
+   <definition name="/cnRevSeaf" extends="reviewconlayout">
+      <put name="title" value="Construction - SEAF"/>  
+      <put name="body" value="/construction/seaf.jsp?p=rev" />
+   </definition>
+     
+   <definition name="/cnRevAvfunds" extends="reviewconlayout">
+      <put name="title" value="Construction -Certificate of Available Funds"  />     
+      <put name="body" value="/construction/avfunds.jsp?p=rev" />
+   </definition>
+     
+   <definition name="/cnRev10yr" extends="reviewconlayout">
+      <put name="title" value="Construction -Certificate of Lease Agreement"  /> 
+      <put name="body" value="/construction/10yrlease.jsp?p=rev" />
+   </definition>
+      
+   <definition name="/cnRevOfp" extends="reviewconlayout">
+      <put name="title" value="Construction -Office of Facilities Planning Approval"  />    
+      <put name="body" value="/construction/ofp.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/cnRevShpo" extends="reviewconlayout">
+      <put name="title" value="Construction -SHPO Approval"  /> 
+      <put name="body" value="/construction/shpo.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/cnRevPhoto" extends="reviewconlayout">
+      <put name="title" value="Construction - Photos"  />  
+      <put name="body" value="/construction/photo.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/cnRevSmartgrowth" extends="reviewconlayout">
+      <put name="title" value="Construction - Smart Growth Form"  />  
+      <put name="body" value="/construction/smartgrowth.jsp?p=rev" />
+   </definition>
+   
+  <definition name="/cnRevPayee" extends="reviewconlayout">
+      <put name="title" value="Construction -Payee Information Form"  /> 
+      <put name="body" value="/construction/payee.jsp?p=rev" />
+   </definition>
+      
+    <definition name="/cnRevAssurance" extends="reviewconlayout">
+      <put name="title" value="Construction -Assurances"  />   
+      <put name="body" value="/construction/assurance.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/cnRevFs20" extends="reviewconlayout">
+      <put name="title" value="Construction - FS 20 Form"  /> 
+      <put name="body" value="/construction/fs20.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevAmendments" extends="reviewconlayout">
+      <put name="title" value="Construction - Budget Amendments"  />   
+      <put name="body" value="/construction/budgetAmendment.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevPostProjPhoto" extends="reviewconlayout">
+      <put name="title" value="Construction - Post Project Photos"  />   
+      <put name="body" value="/construction/photosAfterProject.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevMunicipal" extends="reviewconlayout">
+      <put name="title" value="Construction - Municipal Consent"  />   
+      <put name="body" value="/construction/municipalConsent.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevMwbe" extends="reviewconlayout">
+      <put name="title" value="Construction - MWBE"  />   
+      <put name="body" value="/construction/mwbe.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevFsFinal" extends="reviewconlayout">
+      <put name="title" value="Construction - FS-10-F Form"  />   
+      <put name="body" value="/construction/fs10Final.jsp?p=rev" />
+   </definition>
+   
+   <definition name="/CnRevReduceMatch" extends="reviewconlayout">
+      <put name="title" value="Construction - Reduced Match Justification Form"  /> 
+      <put name="body" value="/construction/reviewReduceMatch.jsp" />
+   </definition>
+   
+   <definition name="/CnRevFinalExpenses" extends="reviewconlayout">
+      <put name="title" value="Construction - Budget - Final Expenses"  />   
+      <put name="body" value="/construction/cnExpensesHtml.jsp" />
+   </definition>
+   
+   <definition name="/CnRevCertOccupancy" extends="reviewconlayout">
+      <put name="title" value="Construction - Certificate of Occupancy"/>  
+      <put name="body" value="/construction/certOccupancy.jsp?p=rev" />
+   </definition>
+   
+   <!--   ADMIN MODULE   -->   
+    <definition name="/CnAdminHome" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Home"  />     
+      <put name="body" value="/construction/adminHome.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminAllocation" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Allocation"  />     
+      <put name="body" value="/construction/adminAllocationSearch.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminEditAlloc" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Edit Allocation"  />     
+      <put name="body" value="/construction/adminAddUpdateAllocation.jsp" />
+   </definition>
+   
+    <definition name="/CnAdminSearch" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Search Applications"  />     
+      <put name="body" value="/construction/adminSearch.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminChecklist" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Checklist"  />     
+      <put name="body" value="/construction/adminchecklist.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminNarrative" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Narrative"  />  
+      <put name="body" value="/construction/adminNarrativeMenu.jsp" />
+      <put name="body2" value="/construction/adminNarrative.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminAbstractNarrative" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Narrative"  />     
+      <put name="body" value="/construction/adminNarrativeMenu.jsp" />
+      <put name="body2" value="/construction/adminAbstractNarrative.jsp" />
+   </definition>
+   
+   <!--9/30/11 rmvd and replaced with separate budget tabs
+   <definition name="/CnAdminBudget" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Budget"  />     
+      <put name="body" value="/construction/cnBudgetHtml.jsp" />
+   </definition>-->
+   
+    <definition name="/CnAdminCoversheet" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Application Form"  />     
+      <put name="body" value="/construction/adminCoversheet.jsp" />
+   </definition>
+   
+    <definition name="/CnAdminSubmitValid" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Submission Validation"  />     
+      <put name="body" value="/construction/adminSubmitValidation.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminEvaluation" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Evaluation Form"  />     
+      <put name="body" value="/construction/adminEvaluationForm.jsp" />
+   </definition>
+                
+    <definition name="/CnAdminReports" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Reports"  />     
+      <put name="body" value="/construction/adminReports.jsp" />
+   </definition>   
+   
+   <definition name="/CnAdminAttachment" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Attachments"  />     
+      <put name="body" value="/attachmentAdminDownload.jsp?prog=conadmin" />
+   </definition> 
+   
+   <definition name="/CnAdminAddAttach" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Add Attachments" />
+      <put name="body" value="/addAttachment.jsp?prog=conadmin" />
+    </definition>
+    
+    <definition name="/CnAdminOtherFunds" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Additional Funding" />
+      <put name="body" value="/construction/adminOtherFunds.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminDeleteFunds" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Delete Additional Funding" />
+      <put name="body" value="/construction/confirmDeleteFund.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminDeleteBudget" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Delete Budget Record"  />       
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+   </definition>
+    
+    <definition name="/CnAdminUpdateManager" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Update Project Manager" />
+      <put name="body" value="/fmliteracy/adminProjManUpdate.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminBudgetPurchased" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Budget - Purchased Services" />
+      <put name="body" value="/construction/adminBudgetPurchased.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminBudgetSupplies" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Budget - Supplies" />
+      <put name="body" value="/construction/adminBudgetSupplies.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminBudgetEquipment" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Budget - Equipment" />
+      <put name="body" value="/construction/adminBudgetEquipment.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminSelectMail" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Email" />
+      <put name="body" value="/construction/adminSelectMailType.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminUnsentMail" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Email" />
+      <put name="body" value="/construction/adminUnsentMail.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminConfirmMail" extends="adminconlayout">
+      <put name="title" value="Construction - Confirm Send Email" />
+      <put name="body" value="/common/confirmSend.jsp?p=cn" />
+    </definition>
+    
+    <definition name="/CnAdminMailRecipients" extends="adminconlayout">
+      <put name="title" value="Construction - Email Recipients" />
+      <put name="body" value="/construction/adminSelectMailRecipients.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminViewSentMail" extends="adminconlayout">
+      <put name="title" value="Construction - View Emails" />
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminNewTemplate" extends="adminconlayout">
+      <put name="title" value="Construction - Create New Email Template" />
+      <put name="body" value="/construction/adminNewTemplate.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminReducedMatch" extends="adminconlayout">
+      <put name="title" value="Construction - Admin Reduced Match Form" />
+      <put name="body" value="/construction/adminReduceMatch.jsp" />
+    </definition>
+    
+    <definition name="/CnAdminExpensePurchased" extends="adminconlayout">
+      <put name="title" value="Construction Admin - Purchased Services Expenses"  />  
+      <put name="body" value="/construction/adminExpensePurchased.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminExpenseEquipment" extends="adminconlayout">
+      <put name="title" value="Construction  Admin - Equipment Expenses"  />  
+      <put name="body" value="/construction/adminExpenseEquipment.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminExpenseSupply" extends="adminconlayout">
+      <put name="title" value="Construction  Admin - Supply Expenses"  />  
+      <put name="body" value="/construction/adminExpenseSupply.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminExpenseDelete" extends="adminconlayout">
+      <put name="title" value="Construction  Admin - Delete Expenses"  />  
+      <put name="body" value="/construction/adminExpenseDelete.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminCompletion" extends="adminconlayout">
+      <put name="title" value="Construction Admin -Project Completion Form"  />   
+      <put name="body" value="/construction/adminCompletionForm.jsp" />
+   </definition>
+   
+   <definition name="/CnAdminViewDates" extends="adminconlayout">
+      <put name="title" value="Construction Admin - Due Dates"  />   
+      <put name="body" value="/adminAppDate.jsp?m=cn" />
+   </definition>
+   
+   <definition name="/CnAdminAddDate" extends="adminconlayout">
+      <put name="title" value="Construction Admin - Add Application Date Record" />
+      <put name="body" value="/adminAddDate.jsp?m=cn" />
+   </definition>
+    
+    <!--DASNY TILE DEFINITIONS-->
+    <definition name="/CnDasnyHome" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction"/>
+      <put name="body" value="/construction/dasny/dasnyHome.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyChecklist" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Checklist"/>
+      <put name="body" value="/construction/dasny/dasnyChecklist.jsp"/>
+    </definition>
+    
+   <definition name="/CnDasnyCoversheet" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Application Form"/>     
+      <put name="body" value="/construction/cnApplicationHtml.jsp"/>
+   </definition>
+   
+   <definition name="/CnDasnyOtherFunds" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Additional Funding"/>
+      <put name="body" value="/construction/otherFundsHtml.jsp"/>
+   </definition>
+   
+   <definition name="/CnDasnyNarrative" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Narrative"/>     
+      <put name="body" value="/construction/cnNarrativesHtml.jsp"/>
+   </definition>
+   
+   <definition name="/CnDasnyBudget4" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Budget - Purchased Services"/>
+      <put name="body" value="/construction/dasny/dasnyBudgetPurchased.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyBudget5" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Budget - Supplies"/>
+      <put name="body" value="/construction/dasny/dasnyBudgetSupplies.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyBudget6" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Budget - Equipment"/>
+      <put name="body" value="/construction/dasny/dasnyBudgetEquipment.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyAttachment" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Attachments"/>
+      <put name="body" value="/downloadDocuments.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyEvaluationForm" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Evaluation Form"/>
+      <put name="body" value="/construction/evaluationFormHtml.jsp"/>
+    </definition>
+    
+    <definition name="/CnDasnyReport" extends="dasnyconlayout">
+      <put name="title" value="DASNY - Public Library Construction Reports"/>
+      <put name="body" value="/construction/dasny/dasnyReports.jsp"/>
+    </definition>
+</tiles-definitions>

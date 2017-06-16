@@ -1,0 +1,32 @@
+.table td, .table th {
+	border: none;
+}
+
+.table {
+	border: 1px solid #eee;
+}
+
+.addbutton {
+	height: 50px !important;
+	font-size: 25px;
+}
+
+.infopanelheading.panel {
+	margin-bottom: 0;
+}
+
+.alert-warning {
+	color: #6a3f00 !important;
+}
+
+.panel-heading .accordion-toggle:before {
+    /* symbol for "opening" panels */
+font-family:'FontAwesome';
+content:"\f150";
+text-decoration: none
+}
+.panel-heading .accordion-toggle.collapsed:before {
+    /* symbol for "collapsed" panels */
+content:"\f152";
+
+}

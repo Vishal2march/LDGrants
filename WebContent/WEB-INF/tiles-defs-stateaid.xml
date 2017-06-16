@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions> 
+   <definition name="stateaidbanner" path="/common/banner.jsp">
+      <put name="grprogram" value="State Aid Program" /> 
+   </definition>
+   
+   <definition name="apcntsalayout" path="/layout.jsp">
+      <put name="header" value="stateaidbanner" type="definition" /> 
+      <put name="menubar" value="/stateaid/stateaidNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+      
+   <definition name="adminsalayout" path="/layout.jsp">
+      <put name="header" value="stateaidbanner" type="definition" /> 
+      <put name="menubar" value="/stateaid/stateaidAdminNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+  
+  <!-- APPLICANT  -->
+  <definition name="/stateaidHome" extends="apcntsalayout">   
+      <put name="title" value="State Aid Home" />
+      <put name="body" value="/stateaid/stateaidHome.jsp" />
+  </definition>
+  
+  <definition name="/stateaidChecklist" extends="apcntsalayout">   
+      <put name="title" value="State Aid Checklist" />
+      <put name="body" value="/stateaid/checklist.jsp" />
+  </definition>
+
+  <definition name="/stateaidCoversheet" extends="apcntsalayout">   
+      <put name="title" value="State Aid Coversheet" />
+      <put name="body" value="/stateaid/coversheet.jsp" />
+  </definition>
+  
+  <definition name="/stateaidNarrative" extends="apcntsalayout">   
+      <put name="title" value="State Aid Coversheet" />
+      <put name="body" value="/stateaid/narrative.jsp" />
+  </definition>
+  
+  <definition name="/StateAidTab1" extends="apcntsalayout">   
+      <put name="title" value="State Aid Budget" />
+      <put name="body" value="/stateaid/budgetPersonal.jsp" />
+  </definition>
+  
+  <definition name="/StateAidTab2" extends="apcntsalayout">   
+      <put name="title" value="State Aid Budget" />
+      <put name="body" value="/stateaid/budgetBenefits.jsp" />
+  </definition>
+  
+  <definition name="/StateAidTab3" extends="apcntsalayout">   
+      <put name="title" value="State Aid Budget" />
+      <put name="body" value="/stateaid/budgetContracted.jsp" />
+  </definition>
+  
+  <definition name="/StateAidTab4" extends="apcntsalayout">   
+      <put name="title" value="State Aid Budget" />
+      <put name="body" value="/stateaid/budgetSupply.jsp" />
+  </definition>
+  
+  <definition name="/StateAidTab6" extends="apcntsalayout">   
+      <put name="title" value="State Aid Budget" />
+      <put name="body" value="/stateaid/budgetTravel.jsp" />
+  </definition>
+  
+  <definition name="/stateaidBdgtDelete" extends="apcntsalayout">
+      <put name="title" value="State Aid - Delete Budget Record" />      
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+  </definition>
+    
+  <definition name="/stateaidAttachment" extends="apcntsalayout">
+    <put name="title" value="State Aid - Attachments" />      
+    <put name="body" value="/attachment.jsp?prog=staid" />
+  </definition>
+  
+  <definition name="/stateaidAssurance" extends="apcntsalayout">
+    <put name="title" value="State Aid - Assurance" />      
+    <put name="body" value="/stateaid/assurance.jsp?prog=staid" />
+  </definition>
+  
+  <definition name="/StateAidAddAttach" extends="apcntsalayout">
+      <put name="title" value="State Aid - Add Attachment" />      
+      <put name="body" value="/addAttachment.jsp?prog=staid" />
+  </definition>
+  
+  <definition name="/stateaidFinalRpt" extends="apcntsalayout">
+      <put name="title" value="State Aid - Final Report Narrative" />      
+      <put name="body" value="/stateaid/finalNarrative.jsp" />
+  </definition>
+  
+   <definition name="/stateaidStatus" extends="apcntsalayout">
+      <put name="title" value="State Aid - Application Status" />      
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/staidConfirmSubmit" extends="apcntsalayout">
+      <put name="title" value="State Aid - Confirm Submission" />      
+      <put name="body" value="/stateaid/submit.jsp" />
+    </definition>
+    
+    <!-- ADMIN  -->
+    <definition name="/stateaidAdminHome" extends="adminsalayout">   
+        <put name="title" value="State Aid Admin Home" />
+        <put name="body" value="/stateaid/adminHome.jsp?p=staid" />
+    </definition>
+    
+    <definition name="/stateaidAdminChecklist" extends="adminsalayout">   
+        <put name="title" value="State Aid Admin Checklist" />
+        <put name="body" value="/stateaid/adminChecklist.jsp" />
+    </definition>
+    
+    <definition name="/stateaidAdminCoversheet" extends="adminsalayout">   
+        <put name="title" value="State Aid Admin Coversheet" />
+        <put name="body" value="/stateaid/coversheet.jsp" />
+    </definition>
+    
+    <definition name="/stateaidAdminNarrative" extends="adminsalayout">   
+        <put name="title" value="State Aid Admin Narrative" />
+        <put name="body" value="/stateaid/narrativeHtml.jsp" />
+    </definition>
+    
+    <definition name="/stateaidAdminAssurance" extends="adminsalayout">   
+        <put name="title" value="State Aid Admin Assurance" />
+        <put name="body" value="/stateaid/assurance.jsp?p=admin" />
+    </definition>
+    
+    <definition name="/stateaidAdminAttach" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Attachments" />      
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+    <definition name="/stateaidAdminViewMail" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Email" />      
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/StateAidAdminTab1" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Budget - Personal" />      
+      <put name="body" value="/stateaid/budgetAdminPersonal.jsp" />
+    </definition>
+    
+    <definition name="/StateAidAdminTab2" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Budget - Benefits" />      
+      <put name="body" value="/stateaid/budgetAdminBenefits.jsp" />
+    </definition>
+    
+    <definition name="/StateAidAdminTab3" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Budget - Purchased Services" />      
+      <put name="body" value="/stateaid/budgetAdminContracted.jsp" />
+    </definition>
+    
+    <definition name="/StateAidAdminTab4" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Budget - Supply/Material" />      
+      <put name="body" value="/stateaid/budgetAdminSupply.jsp" />
+    </definition>
+    
+    <definition name="/StateAidAdminTab6" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Budget - Travel" />      
+      <put name="body" value="/stateaid/budgetAdminTravel.jsp" />
+    </definition>
+    
+    <definition name="/stateaidAllocation" extends="adminsalayout">
+      <put name="title" value="State Aid Admin Appropriation" />      
+      <put name="body" value="/stateaid/adminAllocation.jsp" />
+    </definition>
+    
+</tiles-definitions>

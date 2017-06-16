@@ -1,0 +1,7 @@
+/* this css file contains defs for lgrmif pages that are not in main archives css a.css */
+table.boxtype{/* SH added 8/16/13 per fc for budget records */
+  FONT-FAMILY: Arial, Helvetica, sans-serif;
+  border-color:rgb(128,128,128); 
+  border-style:solid; 
+  border-width:thin;
+}

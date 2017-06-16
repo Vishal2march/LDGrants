@@ -1,0 +1,36 @@
+.application-links ul li:before {
+	font-family: "FontAwesome";
+	content: "\f054";
+	position: absolute;
+	color: #CCC;
+	top: 3px;
+	left: 0;
+	font-size: 10px;
+	margin: 3px 3px 0px 5px;
+}
+
+.application-links ul li {
+	position: relative;
+	padding: 3px 0px 3px 15px;
+	border-bottom: 1px dashed #EFEFEF;
+	margin-bottom: 5px;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+	list-style: none;
+}
+
+.table>t>tr>td {
+	
+}
+
+.table>thead>tr>th {
+	text-align: center;
+	width: 25%;
+}
+
+.newButton {
+padding:10px 0px !important;
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-literacy-landing-page" namespace="/"
+		extends="appSecurity">
+
+		<action name="adultlitlandingpage">           
+			<result type="redirectAction">
+				<param name="actionName">literacylandingpage</param>
+				<param name="fc">40</param>
+				<param name="p">al</param>
+			</result>
+		</action>
+     		
+		<action name="familylitlandingpage">
+			<result type="redirectAction">
+				<param name="actionName">literacylandingpage</param>
+				<param name="fc">42</param>
+				<param name="p">fl</param>
+			</result>
+		</action>
+
+		<action name="literacylandingpage"
+			class="gov.nysed.oce.ldgrants.grants.common.action.GrantLandingPageAction"
+			method="LandingPage">
+			<result name="adultlit">/literacyLanding.tiles</result>
+			<result name="familylit">/famLiteracyLanding.tiles</result>
+		</action>
+
+
+       
+       <!--  admin literacy landing page -->  
+            
+            
+      <action name="familyLiteracyAdminLandingPage">            
+            <result type="redirectAction">
+				<param name="actionName">literacyAdminLandingPage</param>
+				<param name="fcCode">42</param>
+			</result>
+      </action>
+      
+      <action name="adultLiteracyAdminLandingPage">            
+            <result type="redirectAction">
+				<param name="actionName">literacyAdminLandingPage</param>
+				<param name="fcCode">40</param>
+			</result>
+      </action>
+      
+      <action name="literacyAdminLandingPage" 
+            class="gov.nysed.oce.ldgrants.grants.common.action.AdminLandingPageAction" 
+            method="literacyLandingPage">
+            <result name="familylit">/familyLiteracyAdminLanding.tiles</result>
+            <result name="adultlit">/adultLiteracyAdminLanding.tiles</result>
+      </action>
+            
+      
+      
+      <!--  admin landing page search -->      
+       
+      <action name="familyLiteracyAdminLandingSearch" 
+            class="gov.nysed.oce.ldgrants.grants.common.action.AdminLandingPageAction" 
+            method="literacyLandingPageSearch">
+            <result name="familylit">/familyLiteracyAdminLanding.tiles</result>
+      </action>
+      
+      <action name="adultLiteracyAdminLandingSearch" 
+            class="gov.nysed.oce.ldgrants.grants.common.action.AdminLandingPageAction" 
+            method="literacyLandingPageSearch">
+            <result name="adultlit">/adultLiteracyAdminLanding.tiles</result>
+      </action>
+		
+	</package>
+</struts>

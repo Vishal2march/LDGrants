@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-checklist" namespace="/" extends="appSecurity">
+
+	<action name="applicationchecklist" 
+		class="gov.nysed.oce.ldgrants.grants.common.action.CheckListAction"
+		method="generateApplicationChecklist">
+	 		<result name="success">/applicationchecklist.tiles</result>
+	 		
+	 		<!-- SH: adding AL/FL specific tiles for different navbars, titles, etc -->
+	 		<result name="adultlit">/adultLiteracyApplicationChecklist.tiles</result>
+	 		<result name="familylit">/familyLiteracyApplicationChecklist.tiles</result>
+		</action>
+
+	
+		<action name="formchecklist"
+		class="gov.nysed.oce.ldgrants.grants.common.action.CheckListAction"
+		method="generateFormChecklist">
+	 		<result name="success">/formchecklist.tiles</result>
+	
+			<!-- SH: adding AL/FL specific tiles with hardcoded URL's. To use the intended 
+			dynamic formchecklist.tiles; remove the defs below and have action return "success"-->
+	 		<result name="adultlitinitial">/adultLiteracyInitialChecklist.tiles</result>
+	 		<result name="familylitinitial">/familyLiteracyInitialChecklist.tiles</result>
+	 		<result name="adultlitfinalyear1reporting">/adultLiteracyFinalReportChecklist.tiles</result>
+	 		<result name="familylitfinalyear1reporting">/familyLiteracyFinalReportChecklist.tiles</result>
+	 		<result name="adultlitfinalyear2reporting">/adultLiteracyPlaceholder.tiles</result>
+	 		<result name="familylitfinalyear2reporting">/familyLiteracyPlaceholder.tiles</result>
+	 		<result name="adultlitfinalyear3reporting">/adultLiteracyPlaceholder.tiles</result>
+	 		<result name="familylitfinalyear3reporting">/familyLiteracyPlaceholder.tiles</result>	 		
+	 		<result name="adultlitfs10amendment">/adultLiteracyAmendmentChecklist.tiles</result>
+	 		<result name="familylitfs10amendment">/familyLiteracyAmendmentChecklist.tiles</result>
+	 		<result name="adultlitfinalsummary">/adultLiteracyFinalSummaryChecklist.tiles</result>
+	 		<result name="familylitfinalsummary">/familyLiteracyFinalSummaryChecklist.tiles</result>
+		</action>
+		
+				
+		<action name="adminChecklist" 
+				class="gov.nysed.oce.ldgrants.grants.common.action.CheckListAction"
+				method="generateAdminChecklist">	 		
+	 		<result name="adultlit">/AlCheckstatus.do</result>
+	 		<result name="familylit">/FlCheckstatus.do</result>
+		</action>
+				
+		
+		
+		<!-- SH NOTE: not sure if the actions below are used?? -->
+				<action name="coverpage">
+	 		<result name="success">/adultliteracycoverpage.tiles</result>
+		</action>
+		
+		
+		<action name="isform"
+			class="gov.nysed.oce.ldgrants.grants.common.action.CheckListAction"
+			method="isForm">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		
+		<action name="narrativeformstatus"
+			class="gov.nysed.oce.ldgrants.grants.common.action.CheckListAction"
+			method="narrativeFormStatus">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+	</package>
+</struts>

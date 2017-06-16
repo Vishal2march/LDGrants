@@ -1,0 +1,697 @@
+<?xml version='1.0' encoding='windows-1252'?>
+ <!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+  <tiles-definitions>        
+    <definition name="lgbanner" path="/common/LgBannerNew.jsp">
+      <put name="grprogram" value="LGRMIF" /> 
+   </definition>
+   
+    <!-- lgrmif layouts-->
+    <definition name="lgApcnt" path="/layoutlg.jsp">
+      <put name="header" value="lgbanner" type="definition" /> 
+      <!--<put name="archmenu" value="/common/archMenu.jsp"/>-->
+      <put name="menubar" value="/lgrmif/lgNavBar.jsp" />
+      <put name="footer" value="/common/LgFooter.html" />
+   </definition>
+   
+   <definition name="lgPartApcnt" path="/layoutlg.jsp">
+      <put name="header" value="lgbanner" type="definition" /> 
+      <!--<put name="archmenu" value="/common/archMenu.jsp"/>-->
+      <put name="menubar" value="/lgrmif/lgPartNavBar.jsp" />
+      <put name="footer" value="/common/LgFooter.html" />
+   </definition>
+   
+   <definition name="lgApcntNarr" path="/common/narrLayoutlg.jsp">
+      <put name="header" value="lgbanner" type="definition" /> 
+     <!-- <put name="archmenu" value="/common/archMenu.jsp"/>-->
+      <put name="menubar" value="/lgrmif/lgNavBar.jsp" />
+      <put name="narrmenu" value="/lgrmif/narrativeMenu.jsp" />
+      <put name="footer" value="/common/LgFooter.html" />
+   </definition>   
+   
+   <definition name="lgRev" path="/layoutlg.jsp">
+      <put name="header" value="lgbanner" type="definition" /> 
+      <!--<put name="archmenu" value="/common/archMenu.jsp"/>-->
+      <put name="menubar" value="/reviewers/lgrmif/navBar.jsp" />
+      <put name="footer" value="/common/LgFooter.html" />
+   </definition>
+   
+   <definition name="lgAdmin" path="/layoutlg.jsp">
+      <put name="header" value="lgbanner" type="definition" /> 
+      <!--<put name="archmenu" value="/common/archMenu.jsp"/>-->
+      <put name="menubar" value="/lgrmif/adminNavBar.jsp" />
+      <put name="footer" value="/common/LgFooter.html" />
+   </definition>
+   
+    <!-- applicant page mappings for lgrmif-->   
+    <definition name="/lgHome" path="/layoutlg.jsp"><!--changed 8/6/09 per FC-->
+      <put name="header" value="lgbanner" type="definition" /> 
+      <put name="title" value="LGRMIF Home Page" />
+      <put name="footer" value="/common/LgFooter.html" />
+      <put name="body" value="/lgrmif/homepage.jsp" />
+    </definition>
+    
+    <definition name="/lgChecklist" extends="lgApcnt">
+      <put name="title" value="LGRMIF Checklist" />
+      <put name="body" value="/lgrmif/checklist.jsp" />
+    </definition>
+   
+   <definition name="/lgApplicationsheet" extends="lgApcnt">
+      <put name="title" value="LGRMIF Application" />
+      <put name="body" value="/lgrmif/coversheet.jsp" />
+    </definition>
+   
+    <definition name="/lgNarrative" extends="lgApcntNarr">
+      <put name="title" value="LGRMIF Project Narrative" />      
+      <put name="body" value="/lgrmif/narrative.jsp" />
+    </definition>
+    
+    <definition name="/LgDeleteAmendment" extends="lgApcnt">
+      <put name="title" value="LGRMIF Confirm Delete Amendment Record" />      
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+    <definition name="/LgDeleteBdgtRecord" extends="lgApcnt">
+      <put name="title" value="LGRMIF Confirm Delete Budget Record" />      
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/lgAuthorization" extends="lgApcnt">
+      <put name="title" value="LGRMIF Institutional Authorization" />      
+      <put name="body" value="/lgrmif/instauth.jsp" />
+    </definition>
+    
+    <definition name="/lgFinalSignoff" extends="lgApcnt">
+      <put name="title" value="LGRMIF Final Signoff" />      
+      <put name="body" value="/lgrmif/finalsignoff.jsp" />
+    </definition>
+    
+    <definition name="/lgFinalReport" extends="lgApcnt">
+      <put name="title" value="LGRMIF Final Report" />      
+      <put name="body" value="/lgrmif/narrative.jsp?t=frpt" />
+    </definition>
+    
+    <definition name="/lgStatistics" extends="lgApcnt">
+      <put name="title" value="LGRMIF Final Statistics" />      
+      <put name="body" value="/lgrmif/statistics.jsp" />
+    </definition>
+    
+    <definition name="/lgStatisticsNew" extends="lgApcnt">
+      <put name="title" value="LGRMIF Final Statistics (New)" />      
+      <put name="body" value="/lgrmif/statistics1314.jsp" />
+    </definition>
+    
+    <definition name="/lgAttachments" extends="lgApcnt">
+      <put name="title" value="LGRMIF Attachments" />      
+      <put name="body" value="/attachment.jsp?prog=lg" />
+    </definition>
+    
+    <definition name="/lgAddAttachment" extends="lgApcnt">
+      <put name="title" value="LGRMIF Attachments" />      
+      <put name="body" value="/addAttachment.jsp?prog=lg" />
+    </definition>
+    
+    <definition name="/lgParticipants" extends="lgApcnt">
+      <put name="title" value="LGRMIF Participating Institutions" />      
+      <put name="body" value="/common/participants.jsp?prog=lg" />
+    </definition>
+    
+    <definition name="/lgCoopAgreement" extends="lgApcnt">
+      <put name="title" value="LGRMIF Cooperative Agreement" />      
+      <put name="body" value="/lgrmif/coopagreement.jsp" />
+    </definition>
+    
+    <definition name="/lgPayeeInfo" extends="lgApcnt">
+      <put name="title" value="LGRMIF Payee Info" />      
+      <put name="body" value="/discretionary/diPayeeInfoForm.jsp?prog=lg" />
+    </definition>
+    
+    <definition name="/lgFsForms" extends="lgApcnt">
+      <put name="title" value="LGRMIF FS Forms" />      
+      <put name="body" value="/lgrmif/fsform.jsp" />
+    </definition>
+    
+    <definition name="/lgFsOtherForms" extends="lgApcnt">
+      <put name="title" value="LGRMIF FS Forms" />      
+      <put name="body" value="/lgrmif/fsformOther.jsp" />
+    </definition>
+    
+    <definition name="/lgFs10aSummary" extends="lgApcnt">
+      <put name="title" value="LGRMIF Amendment Summary" />      
+      <put name="body" value="/lgrmif/fsAmendmentSummary.jsp" />
+    </definition>
+    
+    <definition name="/lgConfirmSubmit" extends="lgApcnt">
+      <put name="title" value="LGRMIF Submit" />      
+      <put name="body" value="/lgrmif/submit.jsp" />
+    </definition>
+    
+    <definition name="/lgHelp" extends="lgApcnt">
+      <put name="title" value="LGRMIF Help Page" />      
+      <put name="body" value="/docs/lgHelpIndex.jsp" />
+    </definition>
+    
+    <definition name="/lgAcceptanceForm" extends="lgApcnt">
+      <put name="title" value="LGRMIF Acceptance Form" />      
+      <put name="body" value="/lgrmif/acceptanceForm.jsp" />
+    </definition>
+    
+    <definition name="/lgStatus" extends="lgApcnt">
+      <put name="title" value="LGRMIF Application Submission" />      
+      <put name="body" value="/applicationStatus.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgImageMicrofilm" extends="lgApcnt">
+      <put name="title" value="LGRMIF Imaging and Microfilming Form" />      
+      <put name="body" value="/lgrmif/imageMicrofilm.jsp" />
+    </definition>
+    
+    <definition name="/lgMwbe" extends="lgApcnt">
+      <put name="title" value="LGRMIF M/WBE Documents" />      
+      <put name="body" value="/discretionary/diMwbe.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgVendorQuote" extends="lgApcnt">
+      <put name="title" value="LGRMIF Vendor Quote" />      
+      <put name="body" value="/lgrmif/vendorQuote.jsp" />
+    </definition>
+    
+    <definition name="/lgEditVendor" extends="lgApcnt">
+      <put name="title" value="LGRMIF Edit Vendor" />      
+      <put name="body" value="/lgrmif/addUpdateVendor.jsp" />
+    </definition>
+    
+    <definition name="/lgAdditionalForms" extends="lgApcnt">
+      <put name="title" value="LGRMIF Forms" />      
+      <put name="body" value="/lgrmif/lgForms.jsp" />
+    </definition>
+    
+    <definition name="/lgApplicationView" path="/layout.jsp">
+      <put name="title" value="LGRMIF Application" />      
+      <put name="body" value="/lgrmif/lgCoversheetHtml.jsp" />
+      <put name="body2" value="/lgrmif/lgNarrativesHtml.jsp" />
+      <put name="body3" value="/lgrmif/lgBudgetHtml.jsp" />
+      <put name="body4" value="/lgrmif/vqHtml.jsp" />
+      <put name="body5" value="/lgrmif/imHtml.jsp" />
+    </definition>
+    
+    <definition name="/lgDecisionSummary" extends="lgApcnt">
+      <put name="title" value="LGRMIF Decision" />      
+      <put name="body" value="/lgrmif/decisionSummary.jsp" />
+    </definition>
+    
+    <definition name="/lgAppPrintout" extends="lgApcnt">
+      <put name="title" value="LGRMIF Application Printouts" />      
+      <put name="body" value="/lgrmif/printLinks.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget1" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab1.jsp?p=1" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget2" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab1.jsp?p=2" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget3" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab3.jsp?p=3" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget4" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab4.jsp" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget5" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab5.jsp?p=5" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget6" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab5.jsp?p=6" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget7" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab3.jsp?p=7" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget8" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab8.jsp" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgBudget9" extends="lgApcnt">
+      <put name="title" value="LGRMIF Project Budget" />      
+      <put name="body" value="/lgrmif/pb_menu.jsp" />
+      <put name="body2" value="/lgrmif/pb_tab9.jsp" />
+      <put name="body3" value="/lgrmif/multiBudgetNarrative.jsp" />
+    </definition>
+    
+    <definition name="/lgPartApplication" extends="lgPartApcnt">
+      <put name="title" value="LGRMIF Participating Project" />      
+      <put name="body" value="/lgrmif/participantcover.jsp" />
+    </definition>
+    
+    <definition name="/lgPartCoAgreement" extends="lgPartApcnt">
+      <put name="title" value="LGRMIF Cooperative Agreement" />      
+      <put name="body" value="/lgrmif/coopagreement.jsp" />
+    </definition>
+    
+    <definition name="/lgPartAttachments" extends="lgPartApcnt">
+      <put name="title" value="LGRMIF Attachments" />      
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+    <definition name="/lgPartAddAttach" extends="lgPartApcnt">
+      <put name="title" value="LGRMIF Add Attachment" />      
+      <put name="body" value="/addAttachment.jsp?prog=partlg" />
+    </definition>
+    
+    <definition name="/lgRevHome" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Home" />      
+      <put name="body" value="/reviewers/lgrmif/revHome.jsp" />      
+    </definition>
+    
+    <definition name="/lgParticipation" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Participation" />      
+      <put name="body" value="/reviewers/coord/revParticipationView.jsp?p=lg" />      
+    </definition>
+    
+    <definition name="/lgParticipateForm" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Participation Form" />      
+      <put name="body" value="/reviewers/lgrmif/participationForm.jsp" />      
+    </definition>
+    
+    <definition name="/lgReviewerInfo" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Information" />      
+      <put name="body" value="/reviewers/coord/updateRevInfo.jsp?p=lg" />      
+    </definition>
+    
+    <definition name="/lgRevAssignments" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Assignments" />      
+      <put name="body" value="/reviewers/lgrmif/revAtHomeAssign.jsp?p=lg" />      
+    </definition>
+    
+    <definition name="/lgReviewerGrant" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Grant Summary" />      
+      <put name="body" value="/reviewers/lgrmif/grantSummary.jsp" />      
+    </definition>
+    
+    <definition name="/lgEvaluation" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Evaluation" />      
+      <put name="body" value="/reviewers/lgrmif/homeRating.jsp" />      
+    </definition>
+    
+    <definition name="/lgNewEvaluation" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Evaluation" />      
+      <put name="body" value="/reviewers/lgrmif/homeRating1112.jsp" />      
+    </definition>
+    
+    <definition name="/lgEvaluation1415" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Evaluation for 2014-15" />      
+      <put name="body" value="/reviewers/lgrmif/homeRating1415.jsp" />      
+    </definition>
+    
+    <definition name="/lgEvaluation1516" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer Evaluation starting 2015-16" />      
+      <put name="body" value="/reviewers/lgrmif/homeRating1516.jsp" />      
+    </definition>
+    
+    <definition name="/lgSubmitRating" extends="lgRev">
+      <put name="title" value="LGRMIF Submit Reviewer Rating" />      
+      <put name="body" value="/reviewers/lgrmif/submitrating.jsp?p=lg" />      
+    </definition>
+    
+    <definition name="/lgPanelAssignments" extends="lgRev">
+      <put name="title" value="LGRMIF Panel Assignments" />      
+      <put name="body" value="/reviewers/lgrmif/panelAssignments.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevDeliberation" extends="lgRev">
+      <put name="title" value="LGRMIF Final Evaluation Form - Deliberation" />      
+      <put name="body" value="/reviewers/lgrmif/deliberationForm.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevNewDelibForm" extends="lgRev">
+      <put name="title" value="LGRMIF Final Evaluation Form - Deliberation" />      
+      <put name="body" value="/reviewers/lgrmif/deliberationForm1112.jsp" />      
+    </definition>
+    
+    <definition name="/LgRevDeliberation1213" extends="lgRev">
+      <put name="title" value="LGRMIF Final Evaluation Form - Deliberation (starting FY12-13)" />      
+      <put name="body" value="/reviewers/lgrmif/deliberationForm1213.jsp" />      
+    </definition>
+    
+    <definition name="/LgRevDeliberation1415" extends="lgRev">
+      <put name="title" value="LGRMIF Final Evaluation Form - Deliberation (for FY14-15)" />      
+      <put name="body" value="/reviewers/lgrmif/deliberationForm1415.jsp" />      
+    </definition>
+    
+    <definition name="/LgRevDeliberation1516" extends="lgRev">
+      <put name="title" value="LGRMIF Final Evaluation Form - Deliberation (starting FY15-16)" />      
+      <put name="body" value="/reviewers/lgrmif/deliberationForm1516.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevDecisionSearch" extends="lgRev">
+      <put name="title" value="LGRMIF Decisions by Region" />      
+      <put name="body" value="/reviewers/lgrmif/selectRegionDecision.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevDecision" extends="lgRev">
+      <put name="title" value="LGRMIF Decision" />      
+      <put name="body" value="/reviewers/lgrmif/editDecision.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevReports" extends="lgRev">
+      <put name="title" value="LGRMIF Reports" />      
+      <put name="body" value="/reviewers/lgrmif/reviewerReports.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevAttachments" extends="lgRev">
+      <put name="title" value="LGRMIF Attachments" />      
+      <put name="body" value="/downloadDocuments.jsp" />      
+    </definition>
+    
+    <definition name="/lgRevBudget1" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin1.jsp?p=1" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget2" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin1.jsp?p=2" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget3" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin3.jsp?p=3" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget4" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin4.jsp" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget5" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin5.jsp?p=5" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget6" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin5.jsp?p=6" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget7" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin3.jsp?p=7" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget8" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin8.jsp" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgRevBudget9" extends="lgRev">
+      <put name="title" value="LGRMIF Reviewer - Budget Approvals" />    
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp" /> 
+      <put name="body2" value="/lgrmif/pb_admin9.jsp" />      
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminHome" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin" />      
+      <put name="body" value="/discretionary/adminHome.jsp?p=lg" />      
+    </definition>
+    
+    <definition name="/lgGrantSummary" extends="lgAdmin">
+      <put name="title" value="LGRMIF Application" />      
+      <put name="body" value="/lgrmif/admincheckstatus.jsp" />      
+    </definition>
+    
+    <definition name="/lgViewReviewers" extends="lgAdmin">
+      <put name="title" value="LGRMIF Reviewers" />
+      <put name="body" value="/coordinated/adminViewReviewers.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgUpdateReviewer" extends="lgAdmin">
+      <put name="title" value="LGRMIF Add/Update Reviewer" />
+      <put name="body" value="/coordinated/addUpdateReviewer.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgPanels" extends="lgAdmin">
+      <put name="title" value="LGRMIF Panel View" />
+      <put name="body" value="/lgrmif/viewPanels.jsp" />
+    </definition>
+    
+    <definition name="/lgUpdatePanel" extends="lgAdmin">
+      <put name="title" value="LGRMIF Update Panel" />
+      <put name="body" value="/lgrmif/addUpdatePanel.jsp" />
+    </definition>
+    
+    <definition name="/lgPanelRevSearch" extends="lgAdmin">
+      <put name="title" value="LGRMIF Reviewer Panel" />
+      <put name="body" value="/lgrmif/adminPanelReviewers.jsp" />
+    </definition>
+    
+    <definition name="/lgPanelGrantSearch" extends="lgAdmin">
+      <put name="title" value="LGRMIF Grant Panel" />
+      <put name="body" value="/lgrmif/adminPanelGrants.jsp" />
+    </definition>
+    
+    <definition name="/lgViewDates" extends="lgAdmin">
+      <put name="title" value="LGRMIF Application Dates" />
+      <put name="body" value="/adminAppDate.jsp?m=lg" />
+    </definition>
+    
+    <definition name="/lgAddDate" extends="lgAdmin">
+      <put name="title" value="LGRMIF Add Application Date Record" />
+      <put name="body" value="/adminAddDate.jsp?m=lg" />
+    </definition>
+    
+    <definition name="/lgAccounts" extends="lgAdmin">
+      <put name="title" value="LGRMIF User Accounts" />
+      <put name="body" value="/adminLDAPAccounts.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminHelp" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Help" />
+      <put name="body" value="/docs/lgHelpIndex.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminMwbe" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin M/WBE" />
+      <put name="body" value="/discretionary/diMwbe.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgAdminReports" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Reports" />
+      <put name="body" value="/lgrmif/adminReports.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminViewEmail" extends="lgAdmin">
+      <put name="title" value="LGRMIF View Email" />
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminAttachment" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Attachments" />
+      <put name="body" value="/attachment.jsp?prog=lgradmin" />
+    </definition>
+    
+    <definition name="/lgAdminAddAttach" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Add Attachments" />
+      <put name="body" value="/addAttachment.jsp?prog=lgradmin" />
+    </definition>
+    
+    <definition name="/lgAdminApplication" extends="lgAdmin">
+      <put name="title" value="LGRMIF Application Sheet" />
+      <put name="body" value="/lgrmif/lgCoversheetHtml.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminNarrative" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Narratives" />
+      <put name="body" value="/lgrmif/narrativeLookup.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminSearch" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Search" />
+      <put name="body" value="/lgrmif/adminSearch.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgAdminBonusPoints" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Update Application Sheet Items" />
+      <put name="body" value="/lgrmif/adminBonusPoints.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminBudget1" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin1.jsp?p=1" /> 
+      rmvd 3/14/11, now using appr jsp so admin can edit entire budget-->
+      <put name="body2" value="/lgrmif/pb_adminappr1.jsp?p=1" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget2" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin1.jsp?p=2" /> rmvd 3/14/11-->
+      <put name="body2" value="/lgrmif/pb_adminappr1.jsp?p=2"/>
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget3" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin3.jsp?p=3" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr3.jsp?p=3" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget4" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin4.jsp" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr4.jsp" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget5" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+     <!-- <put name="body2" value="/lgrmif/pb_admin5.jsp?p=5" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr5.jsp?p=5" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget6" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin5.jsp?p=6"/>-->
+      <put name="body2" value="/lgrmif/pb_adminappr5.jsp?p=6" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget7" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin3.jsp?p=7" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr3.jsp?p=7" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget8" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin8.jsp" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr8.jsp" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/lgAdminBudget9" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Budget" />
+      <put name="body" value="/lgrmif/pb_adminmenu.jsp?usermod=admin" />
+      <!--<put name="body2" value="/lgrmif/pb_admin9.jsp" />-->
+      <put name="body2" value="/lgrmif/pb_adminappr9.jsp" />
+      <put name="body3" value="/lgrmif/adminNarrative.jsp"/>
+    </definition>
+    
+    <definition name="/LgAdminDeleteBudget" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Delete Budget Record" />
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminPanelAmount" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Panel Amounts" />
+      <put name="body" value="/lgrmif/panelMoney.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminScores" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Scores/Assignments" />
+      <put name="body" value="/lgrmif/adminAssignments.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminStatistics" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Statistics" />
+      <put name="body" value="/lgrmif/statisticsHtml.jsp" />
+    </definition>
+    
+    <definition name="/lgAdminMassMail" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Emails" />
+      <put name="body" value="/lgrmif/adminSelectEmail.jsp" />
+    </definition>
+    
+    <definition name="/lgUnsentMail" extends="lgAdmin">
+      <put name="title" value="LGRMIF Unsent Emails" />
+      <put name="body" value="/common/unsentLgMail.jsp" />
+    </definition>
+    
+    <definition name="/lgRecipients" extends="lgAdmin">
+      <put name="title" value="LGRMIF Email Recipients" />
+      <put name="body" value="/lgrmif/adminSelectRecipients.jsp" />
+    </definition>
+    
+    <definition name="/lgConfirmSendMail" extends="lgAdmin">
+      <put name="title" value="LGRMIF Confirm Email" />
+      <put name="body" value="/common/confirmSend.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgAdminUpdateEval" extends="lgAdmin">
+      <put name="title" value="LGRMIF Update Evaluation Form" />
+      <put name="body" value="/lgrmif/adminUpdateEvalForm.jsp" />
+    </definition>
+
+    <definition name="/lgAdminUpdateDelib" extends="lgAdmin">
+      <put name="title" value="LGRMIF Update Deliberation Form" />
+      <put name="body" value="/lgrmif/adminUpdateDelibForm.jsp" />
+    </definition>
+    
+     <definition name="/lgAdminFs10aSummary" extends="lgAdmin">
+      <put name="title" value="LGRMIF Amendment Summary" />
+      <put name="body" value="/statutory/adminFS10.jsp?p=lg" />
+    </definition>
+    
+    <definition name="/lgAdminNarrList" extends="lgAdmin">
+      <put name="title" value="LGRMIF Admin Narrative" />
+      <put name="body" value="/lgrmif/lgNarrativesHtml.jsp" />
+    </definition>
+  </tiles-definitions>

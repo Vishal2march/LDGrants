@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="budgetamendmentsummary" extends="nysed.bootstrap.layout">
+		<put-attribute name="title" expression="Budget Amendment Summary Page" />
+		<put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/budgetAmendmentSummary/budgetAmendmentSummary.jsp" />
+	</definition>
+	
+		<definition name="adminbudgetamendmentsummary" extends="nysed.bootstrap.layout">
+		<put-attribute name="title" expression="Budget Amendment Summary Page" />
+		<put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsps/common/budgetAmendmentSummary/adminBudgetAmendmentSummary.jsp" />
+	</definition>
+
+</tiles-definitions>

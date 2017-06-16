@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://www.getahead.ltd.uk/dwr/dwr20.dtd">
+<dwr>
+  <allow>
+    <create creator="new" javascript="revsearchScript">
+      <param name="class" value="lgrmif.RevGrantSearch"/>
+    </create>
+    <create creator="new" javascript="panelsearchScript">
+      <param name="class" value="lgrmif.RevGrantSearch"/>
+    </create>
+    <convert converter="bean" match="mypackage.SearchResultBean"/>
+  </allow>
+</dwr>

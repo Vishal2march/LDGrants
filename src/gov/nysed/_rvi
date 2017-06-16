@@ -1,0 +1,26 @@
+# RVI 2.0 - Oracle Repository Version Information : DO NOT EDIT
+<
+  <ReposName=nysed>
+  <ReposUUID=49ebc267-95a2-4fdc-8664-a4a72bace104>
+  <ReposTimeStamp=>
+  <ReposFolderIRID=134401189454567409973846451660373303>
+  <ReposFolderIVID=134401189454572132340329321305586999>
+  <ReposDirs:
+    <
+      <ReposName=osa>
+      <ReposTimeStamp=>
+      <ReposCRC=0>
+      <ReposIRID=134401189454624078371640887402937655>
+      <ReposIVID=134401189454628800738123757048151351>
+      <ReposStatus=I>
+    >
+    <
+      <ReposName=liberty>
+      <ReposTimeStamp=>
+      <ReposCRC=0>
+      <ReposIRID=134401189454595744172743669531655479>
+      <ReposIVID=135172124909902198074811818287676727>
+      <ReposStatus=I>
+    >
+  >
+>

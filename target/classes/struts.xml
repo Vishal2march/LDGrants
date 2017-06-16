@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+   "http://struts.apache.org/dtds/struts-2.5.dtd">
+   
+<struts>
+   <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+   <constant name="struts.devMode" value="false" />
+   <constant name="struts.ui.theme" value="simple"/><!-- to enable bootstrap tags on struts2 tags -->
+   <constant name="struts.locale" value="en" />
+   
+   
+   <package name="breadcrumb-default"  extends="struts-default, json-default">      
+            
+     <!--  interceptor runs on all actions; too many actions to "exclude"
+     <interceptors>
+	    <interceptor name="breadcrumbIntercept" class="gov.nysed.oce.ldgrants.interceptor.BreadcrumbNavigation" />
+	    <interceptor-stack name="defaultBreadcrumbStack">
+	        <interceptor-ref name="breadcrumbIntercept" />
+	        <interceptor-ref name="basicStack" />
+	    </interceptor-stack>
+	  </interceptors>   
+	  	  
+	  <default-interceptor-ref name="defaultBreadcrumbStack" />  
+	  -->  
+	       
+      <action name="hello" 
+            class="gov.nysed.oce.ldgrants.HelloWorld" 
+            method="test">
+            <result name="success">WEB-INF/jsps/HelloWorld.jsp</result>
+      </action>      
+      
+      
+      
+      <action name="ld177"
+      		class="gov.nysed.oce.ldgrants.test.Fs10RecordTestAction"
+      		method="test">
+      		<result name ="success">WEB-INF/jsps/HelloWorld.jsp</result>
+      		</action>
+      
+      
+   </package>
+   
+   
+   <!-- Add packages here -->
+    <include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-literacy-budget.xml" />
+    <include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-budget-amendment.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-literacy-narrative.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-literacy-signoff.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-literacy-statistics.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-checklist.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-common.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-literacy-landing-page.xml" />
+	<include file="gov/nysed/oce/ldgrants/struts_action_defs/struts-email-recipient.xml" />
+	<!-- Add packages here -->
+<include file="/struts_action_defs/checklistStruts.xml"/>
+	
+</struts>

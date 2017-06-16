@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-common" namespace="/" extends="struts-default, json-default">
+
+	<action name="logout" 
+			class="gov.nysed.oce.ldgrants.grants.common.action.LogoutAction"
+			method="logout">
+	 	<result name="success">/logout.tiles</result>
+	</action>
+	
+	
+	<action name="help" 
+		class="gov.nysed.oce.ldgrants.grants.common.action.HelpAction"
+		method="help">
+	 		<result name="literacy">/literacyHelp.tiles</result>
+		</action>
+			</package>
+			
+		   	<package name="appSecurity_basic" extends="struts-default">
+		<default-interceptor-ref name="basicStack" />
+	</package>
+
+	<package name="appSecurity" extends="struts-default, json-default, breadcrumb-default">
+
+		<interceptors>
+			<interceptor name="userauth"
+				class="gov.nysed.oce.ldgrants.user.interceptor.UserAuthentication" />
+			<interceptor-stack name="defaultUserAuthStack">
+				<interceptor-ref name="userauth" />
+				<interceptor-ref name="basicStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultUserAuthStack" />
+
+		<global-results>
+			<result name="login" type="redirect" >${url}</result>
+		</global-results>
+
+		<!--default-interceptor-ref name="basicStack" / -->
+	</package>
+	
+	<package name="adminAppSecurity" extends="struts-default, json-default, breadcrumb-default">
+
+		<interceptors>
+			<interceptor name="adminauth"
+				class="gov.nysed.oce.ldgrants.user.interceptor.AdminAuthentication" />
+			<interceptor-stack name="defaultAdminAuthStack">
+				<interceptor-ref name="adminauth" />
+				<interceptor-ref name="basicStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultAdminAuthStack" />
+
+		<global-results>
+			<result name="login" type="redirect" >/error.jsp?errormsg=ACCESS DENIED: User is not an Admin</result>
+		</global-results>
+
+	</package>
+   
+
+</struts>

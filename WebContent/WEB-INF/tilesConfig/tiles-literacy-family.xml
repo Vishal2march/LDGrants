@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+<!--  LITERACY YEAR1 FINAL BUDGETS (2016-17)  -->
+
+    <definition name="familyLiteracyYr1ContractedServices" extends="fl.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy - Contracted Services"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/budget/yr1ContractedServicesJtable.jsp"/>        
+    </definition>
+    
+     <definition name="familyLiteracyYr1Travel" extends="fl.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy - Travel"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/budget/yr1TravelJtable.jsp"/>        
+    </definition>
+    
+    <definition name="familyLiteracyYr1Supplies" extends="fl.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy - Supplies and Materials"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/budget/yr1SuppliesJtable.jsp"/>        
+    </definition>
+    
+    <definition name="familyLiteracyYr1Equipment" extends="fl.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy - Equipment"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/budget/yr1EquipmentJtable.jsp"/>        
+    </definition>
+    
+    <!-- literacy year1 final signoff -->
+    
+    <definition name="familyLiteracyYr1FinalSignoff" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy - Final Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/yr1FinalSignoff.jsp"/>        
+    </definition>
+    
+    <!-- literacy amendment signoff -->
+    
+     <definition name="familyLiteracyAmendmentSignoff" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy - Amendment Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/budgetAmendmentSummary/amendmentSignoffLiteracy.jsp"/>        
+    </definition>
+    
+    <!-- literacy year1 final narratives -->
+    
+     <definition name="familyLiteracyYr1FinalNarrative" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy - Final Narrative"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/yr1FinalNarrative.jsp"/>        
+    </definition>
+    
+    <!-- literacy final summary -->
+    
+    <definition name="familyLiteracyFinalSummary" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy - Final Summary"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/finalSummary/finalSummary.jsp"/>        
+    </definition>
+    
+    <!-- literacy ADMIN final summary -->
+    
+    <definition name="familyLiteracyFinalSummaryAdmin" extends="fl.admin.layout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Final Summary"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/finalSummary/adminFinalSummary.jsp"/>        
+    </definition>
+    
+     <!-- literacy year1 final statistics -->
+            
+    <definition name="familyLiteracyYr1Statistics" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy - Final Statistics"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/yr1FinalStatistics.jsp"/>        
+    </definition>
+    
+    <!-- literacy placeholder -->
+            
+    <definition name="familyLiteracyPlaceholder" extends="fl.layout">
+    	<put-attribute name="title" expression="Family Literacy"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/common/placeholder.jsp"/>        
+    </definition>
+    
+   
+    <!-- literacy ADMIN year1 final narratives -->
+    
+     <definition name="familyLiteracyYr1FinalNarrativeAdmin" extends="fl.admin.layout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Final Narrative"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/yr1FinalNarrative.jsp"/>        
+    </definition>
+    
+    <!-- ADMIN statistics -->
+    
+     <definition name="familyLiteracyYr1StatisticsAdmin" extends="fl.admin.layout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Statistics"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/yr1FinalStatistics.jsp"/>        
+    </definition>
+    
+     <!-- literacy ADMIN year1 final signoff -->
+    
+    <definition name="familyLiteracyYr1FinalSignoffAdmin" extends="fl.admin.layout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Final Signoff"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/finalSignoff.jsp"/>        
+    </definition>
+    
+    <!--  LITERACY ADMIN YEAR1  BUDGETS (2016-17)  -->
+    
+      <definition name="familyLiteracyYr1ContractedServicesAdmin" extends="fl.admin.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Contracted Services"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/contractedServices.jsp"/>        
+    </definition>
+        
+    <definition name="familyLiteracyYr1TravelAdmin" extends="fl.admin.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Travel"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/travel.jsp"/>        
+    </definition>
+        
+    <definition name="familyLiteracyYr1SuppliesAdmin" extends="fl.admin.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Supplies and Materials"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/supplies.jsp"/>        
+    </definition>
+        
+    <definition name="familyLiteracyYr1EquipmentAdmin" extends="fl.admin.budgetLayout">
+    	<put-attribute name="title" expression="Family Literacy Admin - Equipment"/>      
+        <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/equipment.jsp"/>        
+    </definition>
+    
+    <!--  literacy landing pages -->
+    
+        
+    
+    <definition name="famLiteracyLanding" extends="nysed.bootstrap.layout">
+    	<put-attribute name="title" expression="Family Literacy Home Page"/>  
+    	<put-attribute name="grantinfo" value="" />    
+      <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/newFlHome.jsp"/>  
+    </definition>
+    <definition name="familyLiteracyAdminLanding" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+      <put-attribute name="title" expression="Family Literacy Admin Home"/>      
+      <put-attribute name="body" value="/WEB-INF/jsps/familyLiteracy/admin/home.jsp"/>  
+    </definition>
+    
+
+</tiles-definitions>

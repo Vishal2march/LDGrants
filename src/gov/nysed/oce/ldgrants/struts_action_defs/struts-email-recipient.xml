@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-email-recipient" namespace="/" extends="appSecurity">
+
+	<action name="constructionRecipients">            
+            <result type="redirectAction">
+				<param name="actionName">loadRecipientPage</param>
+				<param name="fcCode">86</param>
+			</result>
+      </action>
+      
+	<action name="loadRecipientPage" 
+		class="gov.nysed.oce.ldgrants.email.action.SedemsRecipientAction"
+		method="loadRecipientPage">
+	 		<result name="success">/constructionRecipients.tiles</result>
+		</action>
+		
+		
+	<action name="searchRecipients" 
+		class="gov.nysed.oce.ldgrants.email.action.SedemsRecipientAction"
+		method="searchRecipients">
+	 		<result name="success">/constructionRecipients.tiles</result>
+		</action>
+
+	</package>
+</struts>

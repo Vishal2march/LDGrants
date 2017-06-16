@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+ <action-mappings>     
+  <!--applicant navigation-->
+  <action path="/constructionForms" type="statutory.CpNavigationAction" parameter="i">
+      <forward name="coversheet" path="/cnCoversheet.do"/>
+      <forward name="checklist" path="/constructionCheckList" />
+      <forward name="idmissing" path="/constructionHome" /> 
+      <forward name="attachment" path="/attachmentHome" />
+      <forward name="narrative" path="/cnAbstractNarrative"/>
+      <forward name="budget" path="/CnBudgetTab4.do"/>
+      <forward name="confirmbdgtdelete" path="/CnDeleteBudget.do"/>
+      <forward name="otherfunds" path="/CnOtherFunds.do"/>
+      <forward name="finalexpense" path="/CnExpensePurchased.do"/>
+      <forward name="projManager" path="/CnUpdateProjManager.do"/>
+      <forward name="completion" path="/CompletionForm.do"/>
+      <forward name="seaf" path="/Seaf.do"/>
+      <forward name="shpo" path="/SHPO.do"/>
+      <forward name="smartgrowth" path="/CnSmartGrowth.do"/>
+      <forward name="assurance" path="/Assurance.do"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!--applicant home/create app-->    
+  <action path="/constructionNav" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/constructionHome" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/constructionCheckList" />
+      <forward name="confirmnew" path="/CnConfirmCreate" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>     
+  
+  <!-- reviewer navigation-->
+   <action path="/cnReviewNav" type="construction.reviewAction" parameter="item" >
+        <forward name="memberapps" path="/cnReviewApplications" />
+        <forward name="idmissing" path="/cnReviewApplications" />
+        <forward name="checklist" path="/cnReviewChecklist" />
+        <forward name="coversheet" path="/cnReviewCoversheet.do" />      
+        <forward name="narrative" path="/cnReviewAbstractNarr" />
+        <forward name="budget" path="/CnBudgetReview4.do"/>
+        <forward name="welcomePage" path="/welcomePage.jsp" />
+        <forward name="attachment" path="/cnReviewAttachment" />
+        <forward name="attachmentRead" path="/cnReviewAttachRead" />
+        <forward name="ratingform" path="/cnReviewRating" />   
+        <forward name="submitapps" path="/cnReviewSubmitMember" />  
+        <forward name="otherfunds" path="/CnReviewOtherFunds.do" />  
+        <forward name="duedates" path="/CnReviewDueDates.do" />
+        <forward name="updateduedate" path="/CnReviewEditDueDate.do" />
+        <forward name="searchapps" path="/cnReviewSearch" />
+        <forward name="confirmbdgtdelete" path="/CnRevDeleteBudget"/>
+        <forward name="matchform" path="/CnRevReduceMatch"/>
+        <forward name="finalexpense" path="/CnRevFinalExpenses.do"/>        
+        <forward name="assurance" path="/cnRevAssurance.do"/>
+        <forward name="seaf" path="/cnRevSeaf.do"/>
+        <forward name="smartgrowth" path="/cnRevSmartgrowth.do"/>
+        <forward name="shpo" path="/cnRevShpo.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+    
+  <!-- ADMIN NAV action-->
+  <action path="/cnAdminNav" type="construction.CnAdminNavAction" parameter="item" >
+        <forward name="home" path="/CnAdminHome" />
+        <forward name="checklist" path="/CnAdminChecklist" />
+        <forward name="narrative" path="/CnAdminAbstractNarrative" />
+        <forward name="budget" path="/CnAdminBudget4.do" />
+        <forward name="coversheet" path="/CnAdminCoversheet" />
+        <forward name="attachment" path="/CnAdminAttachment" />
+        <forward name="otherfunds" path="/CnAdminOtherFunds.do" />
+        <forward name="evalform" path="/CnAdminEvaluation.do" />
+        <forward name="allocation" path="/CnAdminAllocation" />
+        <forward name="updatealloc" path="/CnAdminEditAlloc" />
+        <forward name="searchapps" path="/CnAdminSearch" />
+        <forward name="projManager" path="/CnAdminUpdateManager.do" />
+        <forward name="reports" path="/CnAdminReports" />
+        <forward name="confirmbdgtdelete" path="/CnAdminDeleteBudget"/>
+        <forward name="matchform" path="/CnAdminReducedMatch"/>
+        <forward name="finalexpense" path="/CnAdminExpensePurchased"/>
+        <forward name="verifyinitial" path="/CnAdminSubmitValid.do"/>
+        <forward name="completion" path="/CnAdminCompletion.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!-- DASNY NAVIGATION LINKS-->
+  <action path="/cnDasnyNav" type="construction.CnAdminNavAction" parameter="task">
+        <forward name="home" path="/CnDasnyHome"/>
+        <forward name="checklist" path="/CnDasnyChecklist.do"/>
+        <forward name="coversheet" path="/CnDasnyCoversheet"/>
+        <forward name="otherfunds" path="/CnDasnyOtherFunds"/>
+        <forward name="evalform" path="/CnDasnyEvaluationForm"/>
+        <forward name="narrative" path="/CnDasnyNarrative"/>
+        <forward name="budget" path="/CnDasnyBudget4"/>
+        <forward name="attachment" path="/CnDasnyAttachment"/>
+        <forward name="reports" path="/CnDasnyReport"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true"/>
+  </action>
+
+  <!--applicant narrative links-->
+  <action path="/cnReadNarrative" type="statutory.ReadNarrativeAction" parameter="t">
+       <forward name="applicant" path="/cnNarrative" />
+       <forward name="abstractnarr" path="/cnAbstractNarrative" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <!-- pls reviewer narrative links-->
+  <action path="/cnReviewReadNarr" type="statutory.ReadNarrativeAction" parameter="t" >
+       <forward name="applicant" path="/cnReviewNarrative" />
+       <forward name="abstractnarr" path="/cnReviewAbstractNarr" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+   <!-- admin narrative links-->
+  <action path="/cnAdminNarrativeNav" type="statutory.ReadNarrativeAction" parameter="t">
+       <forward name="applicant" path="/CnAdminNarrative" />
+       <forward name="abstractnarr" path="/CnAdminAbstractNarrative" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <!--save applicant narrative-->
+  <action path="/cnSaveNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/cnNarrative">
+      <forward name="narrative" path="/cnNarrative" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/cnSaveAbstractNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/cnAbstractNarrative">
+      <forward name="narrative" path="/cnAbstractNarrative" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!--save reviewer narrative-->
+  <action path="/cnSaveRevNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/cnReviewNarrative">
+      <forward name="narrative" path="/cnReviewNarrative" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/cnSaveRevAbstractNarr" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/cnReviewAbstractNarr">
+      <forward name="narrative" path="/cnReviewAbstractNarr" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+   <!--save admin narrative-->
+  <action path="/cnSaveAdminNarr" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/CnAdminNarrative">
+      <forward name="narrative" path="/CnAdminNarrative" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/cnSaveAdminAbstract" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/CnAdminAbstractNarrative">
+      <forward name="narrative" path="/CnAdminAbstractNarrative" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+
+  <action path="/saveCnChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/constructionCheckList">
+      <forward name="success" path="/constructionCheckList" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+   
+   <action path="/cnSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitial" path="/cnSubmit.do?t=initial" />
+      <forward name="verifyfinal" path="/cnSubmit.do?t=final" />
+      <forward name="verifymwbe" path="/cnSubmit.do?t=mwbe" />
+      <!--<forward name="submitinitial" path="/constructionHome" /> rmvd 2/21/12
+      after submit, got to confirmation page, per MLT-->
+      <forward name="submitinitial" path="/CnSubmitComplete"/>
+      <forward name="submitfinal" path="/constructionHome"/>
+      <forward name="submitmwbe" path="/constructionHome"/>
+      <forward name="checklist" path="/constructionCheckList" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+   </action>  
+   
+   <action path="/cnSaveMwbe" type="mypackage.GenericUpdateAction" 
+            name="appStatus" scope="request" input="/constructionCheckList" >
+      <forward name="success" path="/cnSubmitApp.do?i=saveMwbe"/> 
+      <forward name="checklist" path="/constructionCheckList" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+   </action>  
+   
+   <action path="/saveCnCoversheet"  type="construction.SaveCnApplicationAction" 
+           name="applicationFormBean" scope="request" input="/cnCoversheet.do"> 
+      <forward name="success" path="/cnCoversheet.do"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving application form." />
+   </action>
+     
+  <action path="/otherFundsNav" type="construction.OtherFundsAction" parameter="i">
+      <forward name="cnotherfunds" path="/CnOtherFunds.do" />
+      <forward name="cnreviewotherfunds" path="/CnReviewOtherFunds.do" />
+      <forward name="admncnotherfunds" path="/CnAdminOtherFunds.do" />
+      <forward name="errorotherfunds" path="/error.jsp?errormsg=User does not have access permissions for this action." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>     
+  
+  <action path="/saveOtherFunds"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/otherFundsNav.do?i=updatefund"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/saveReviewOtherFunds"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/otherFundsNav.do?i=updatefund"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/adminSaveOtherFunds"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/otherFundsNav.do?i=updatefund"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/cnSaveProjManager" type="construction.SaveProjManagerAction"
+          name="coversheetBean" scope="request" validate="false" input="/CnUpdateProjManager.do">
+      <forward name="cnprojmanager" path="/CnUpdateProjManager.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/saveCompletionData" type="construction.SaveCompletionAction"
+            name="finalExpenseBean" scope="request" validate="false">
+      <forward name="completion" path="/CompletionForm.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+
+  <action path="/cnAdminEmailNav" type="emailws.SedemsAction"  parameter="item" >      
+       <forward name="timeout" path="/error.jsp?sessionTime=true" />
+       <forward name="cncreatetemplate" path="/CnAdminSelectMail.do" /> 
+       <forward name="template" path="/CnAdminSelectMail.do" /> 
+       <forward name="selectmail" path="/CnAdminSelectMail.do?select=true" /> 
+       <forward name="unsentmail" path="/CnAdminUnsentMail.do" /> 
+       <forward name="confirmdelete" path="/CnAdminUnsentMail.do?i=delete" /> 
+       <forward name="confirmsend" path="/CnAdminConfirmMail.do" />
+       <forward name="recipients" path="/CnAdminMailRecipients.do" /> 
+       <forward name="cnemails" path="/CnAdminViewSentMail.do" /> 
+   </action>
+   
+   <action path="/saveCnAdminMail"  type="emailws.EditEmailAction"
+          name="emailHelpBean"  scope="request" validate="false" input="/CnAdminSelectMail.do">
+        <forward name="template" path="/CnAdminSelectMail.do"/>
+        <forward name="error" path="/error.jsp"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true"/>
+  </action>
+  
+  <action path="/cnAddMailRecipients"  type="emailws.CnAddRecipientAction"
+          name="AssignCollectionBean" scope="request" input="/CnAdminMailRecipients.do">
+      <forward name="success" path="/CnAdminUnsentMail.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <action path="/cnSaveNewTemplate"  type="emailws.CnNewTemplateAction"
+          name="emailHelpBean" scope="request" input="/CnAdminNewTemplate.do">
+      <forward name="success" path="/CnAdminUnsentMail.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+   <action path="/Seaf" type="mypackage.LayoutActionBean" ><forward name="success" path="/seaf" /></action>
+   <action path="/AVFUNDS" type="mypackage.LayoutActionBean"><forward name="success" path="/avfunds" /></action>
+   <action path="/10yrs" type="mypackage.LayoutActionBean" ><forward name="success" path="/10yr" /></action>
+   <action path="/Assurance" type="mypackage.LayoutActionBean"><forward name="success" path="/assurance" /></action>
+   <action path="/OFP" type="mypackage.LayoutActionBean"><forward name="success" path="/ofp" /></action>
+   <action path="/SHPO" type="mypackage.LayoutActionBean"><forward name="success" path="/shpo" /></action>
+   <action path="/Payee" type="mypackage.LayoutActionBean"><forward name="success" path="/payee" /></action>
+   <action path="/Photo" type="mypackage.LayoutActionBean"><forward name="success" path="/photo" /></action>
+   <action path="/CnSmartGrowth" type="mypackage.LayoutActionBean"><forward name="success" path="/smartgrowth" /></action>
+   <action path="/CnCostEstimate" type="mypackage.LayoutActionBean"><forward name="success" path="/costestimate" /></action>
+   <action path="/CnMunicipal" type="mypackage.LayoutActionBean"><forward name="success" path="/cnmunicipal" /></action>   
+   <action path="/CnMwbe" type="mypackage.LayoutActionBean"><forward name="success" path="/cnmwbe" /></action>      
+   <action path="/CnCertificateOccupancy" type="mypackage.LayoutActionBean"><forward name="success" path="/cncertificateoccupancy" /></action>
+   <action path="/FS20" type="mypackage.LayoutActionBean"><forward name="success" path="/fs20" /></action>
+   <action path="/PostProjectPhoto" type="mypackage.LayoutActionBean"><forward name="success" path="/PostProjectPhoto" /></action>
+   <action path="/CompletionForm" type="mypackage.LayoutActionBean"><forward name="success" path="/CompletionForm" /></action>
+   <action path="/CnAmendments" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAmendments" /></action>
+   <action path="/CnFsFinalForm" type="mypackage.LayoutActionBean"><forward name="success" path="/CnFsFinalForm" /></action>
+   <action path="/CnCompleteApplication" type="mypackage.LayoutActionBean"><forward name="success" path="/CnCompleteApplication" /></action>
+   <action path="/CnUpdateProjManager" type="mypackage.LayoutActionBean"><forward name="success" path="/CnUpdateProjManager" /></action>
+  
+   <action path="/cnRevSeaf" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnRevSeaf" /></action>
+   <action path="/cnRevAvfunds" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevAvfunds" /></action>
+   <action path="/cnRev10yrs" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnRev10yr" /></action>
+   <action path="/cnRevAssurance" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevAssurance" /></action>
+   <action path="/cnRevOfp" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevOfp" /></action>
+   <action path="/cnRevShpo" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevShpo" /></action>
+   <action path="/cnRevPayee" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevPayee" /></action>
+   <action path="/cnRevPhoto" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevPhoto" /></action>
+   <action path="/cnRevSmartgrowth" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevSmartgrowth" /></action>
+   <action path="/cnRevFs20" type="mypackage.LayoutActionBean"><forward name="success" path="/cnRevFs20" /></action>
+   <action path="/CnRevReduceMatch" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevReduceMatch" /></action>
+   <action path="/CnRevFsFinal" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevFsFinal" /></action>
+   <action path="/CnRevAmendments" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevAmendments" /></action>
+   <action path="/CnRevPostProjPhoto" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevPostProjPhoto" /></action>
+   <action path="/CnRevFinalExpenses" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevFinalExpenses" /></action>
+   <action path="/CnRevCertOccupancy" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevCertOccupancy" /></action>
+   <action path="/CnRevMunicipal" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevMunicipal" /></action>
+   <action path="/CnRevMwbe" type="mypackage.LayoutActionBean"><forward name="success" path="/CnRevMwbe" /></action>
+   
+   <action path="/constructionAddAttachment" type="mypackage.LayoutActionBean" > <forward name="success" path="/cnAddattachment" /></action>
+   <action path="/constructionAddAttachmentReview" type="mypackage.LayoutActionBean" > <forward name="success" path="/cnAddattachmentreview" /></action>
+   <action path="/cnAttachment" type="mypackage.LayoutActionBean" > <forward name="success" path="/attachmentHome" /></action>
+   <action path="/cnReviewAttachment" type="mypackage.LayoutActionBean" > <forward name="success" path="/cnReviewAttachment" /></action>
+   <action path="/CnAdminAddAttach" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminAddAttach" /></action>
+   <action path="/CnAdminAttachment" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminAttachment" /></action>
+   
+   <action path="/CnAdminUpdateManager" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminUpdateManager" /></action>
+   <action path="/CnAdminOtherFunds" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminOtherFunds" /></action>
+   <action path="/CnAdminDeleteFunds" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminDeleteFunds" /></action>
+   <action path="/CnAdminEvaluation" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminEvaluation" /></action>
+   <action path="/CnAdminCoversheet" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminCoversheet" /></action>
+   <action path="/CnAdminSubmitValid" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminSubmitValid" /></action>
+   <action path="/CnAdminNarrative" type="mypackage.LayoutActionBean" > <forward name="success" path="/CnAdminNarrative" /></action>
+   <action path="/CnAdminAbstractNarrative" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminAbstractNarrative"/></action>
+   <action path="/CnAdminSelectMail" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminSelectMail"/></action>
+   <action path="/CnAdminUnsentMail" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminUnsentMail"/></action>
+   <action path="/CnAdminConfirmMail" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminConfirmMail"/></action>
+   <action path="/CnAdminMailRecipients" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminMailRecipients"/></action>
+   <action path="/CnAdminViewSentMail" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminViewSentMail"/></action>
+   <action path="/CnAdminNewTemplate" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminNewTemplate"/></action>
+   
+   <action path="/CnAdminReducedMatch" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminReducedMatch"/></action>
+   <action path="/CnAdminCompletion" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminCompletion" /></action>
+   <action path="/CnAdminViewDates" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminViewDates" /></action>
+   <action path="/CnAdminAddDate" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminAddDate" /></action>
+  
+   <action path="/constructionHelp" type="mypackage.LayoutActionBean"><forward name="success" path="/cnHelp" /></action>
+   <action path="/cnReviewHelp" type="mypackage.LayoutActionBean"><forward name="success" path="/cnReviewHelp" /></action>
+   <action path="/cnCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/cncoversheet" /></action>
+   <action path="/cnReviewCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnReviewcoversheet" /></action>
+   <action path="/cnSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/submit" /></action>   
+   <action path="/CnOtherFunds" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnotherfunds" /></action>   
+   <action path="/CnDeleteFunds" type="mypackage.LayoutActionBean" ><forward name="success" path="/cndeletefunds" /></action>   
+   <action path="/CnDeleteBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/CnDeleteBudget" /></action>   
+   <action path="/CnReviewOtherFunds" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnReviewotherfunds" /></action>   
+   <action path="/CnReviewDeleteFunds" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnReviewdeletefunds" /></action>   
+   
+   <action path="/CnReviewDueDates" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnReviewduedates" /></action>   
+   <action path="/CnReviewEditDueDate" type="mypackage.LayoutActionBean" ><forward name="success" path="/cnRevieweditduedate" /></action>   
+   
+   <action path="/CnBudgetTab4" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetcontractor" /></action>
+   <action path="/CnBudgetTab5" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetsupplies" /></action>
+   <action path="/CnBudgetTab6" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetequip" /></action>
+   <action path="/CnBudgetReview4" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetcontractorReview" /></action>
+   <action path="/CnBudgetReview5" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetsuppliesReview" /></action>
+   <action path="/CnBudgetReview6" type="mypackage.LayoutActionBean"><forward name="success" path="/budgetequipReview" /></action>
+   <action path="/CnAdminBudget4" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminBudgetPurchased" /></action>
+   <action path="/CnAdminBudget5" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminBudgetSupplies" /></action>
+   <action path="/CnAdminBudget6" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminBudgetEquipment" /></action>
+   
+   <action path="/CnExpensePurchased" type="mypackage.LayoutActionBean"><forward name="success" path="/CnExpensePurchased" /></action>
+   <action path="/CnExpenseEquipment" type="mypackage.LayoutActionBean"><forward name="success" path="/CnExpenseEquipment" /></action>
+   <action path="/CnExpenseSupply" type="mypackage.LayoutActionBean"><forward name="success" path="/CnExpenseSupply" /></action>
+   <action path="/CnExpenseDelete" type="mypackage.LayoutActionBean"><forward name="success" path="/CnExpenseDelete" /></action>
+   <action path="/CnAdminExpensePurchased" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminExpensePurchased" /></action>
+   <action path="/CnAdminExpenseEquipment" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminExpenseEquipment" /></action>
+   <action path="/CnAdminExpenseSupply" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminExpenseSupply" /></action>
+   <action path="/CnAdminExpenseDelete" type="mypackage.LayoutActionBean"><forward name="success" path="/CnAdminExpenseDelete" /></action>
+  
+   <action path="/CnDasnyHome" type="mypackage.LayoutActionBean"><forward name="success" path="/CnDasnyHome" /></action>
+   <action path="/CnDasnyChecklist" type="mypackage.LayoutActionBean"><forward name="success" path="/CnDasnyChecklist" /></action>
+   <action path="/CnDasnyBudget4" type="mypackage.LayoutActionBean"><forward name="success" path="/CnDasnyBudget4" /></action>
+   <action path="/CnDasnyBudget5" type="mypackage.LayoutActionBean"><forward name="success" path="/CnDasnyBudget5" /></action>
+   <action path="/CnDasnyBudget6" type="mypackage.LayoutActionBean"><forward name="success" path="/CnDasnyBudget6" /></action>
+   
+ <!-- BUDGET ACTIONS  --> 
+ 
+  <!-- final budget EXPENSES navigation; new 5/17/12 -->    
+  <action path="/cnFinalExpenseNav" type="construction.ExpenseNavAction"
+        parameter="i">
+     <forward name="supplyexp" path="/CnExpenseSupply.do"/>  
+     <forward name="equipexp" path="/CnExpenseEquipment.do"/>  
+     <forward name="purchaseexp" path="/CnExpensePurchased.do"/> 
+     <forward name="confirmdelete" path="/CnExpenseDelete.do"/> 
+     <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/saveCnFinalExpense"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/cnFinalExpenseNav.do?i=saveexp"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+ <!-- save initital budget -->
+  <action path="/saveCnContract"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean" scope="request" input="/CnBudgetTab4.do">
+      <forward name="success" path="/UpdateCpBudget?m=cn"/>  
+      <forward name="fail" path="/CnBudgetTab4.do"/>
+  </action>
+  
+   <action path="/saveCnSupply"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean" scope="request" input="/CnBudgetTab5.do">
+      <forward name="success" path="/UpdateCpBudget?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab5.do"/>
+  </action>
+  
+  <action path="/saveCnEquip"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean" scope="request" input="/CnBudgetTab6.do">
+      <forward name="success" path="/UpdateCpBudget?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab6.do"/>
+  </action>
+  
+  <!--not used as of 5/3/11 per MLT-->
+  <action path="/saveCnRemodel"  type="services.OtherUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetTab5.do">
+      <forward name="success" path="/UpdateCpBudget?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab5.do"/>
+  </action>
+   
+  <!-- save final budget EXPENSES old method-->    
+  <action path="/saveCnContractExp" type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetTab4.do">
+      <forward name="success" path="/UpdateCpExpenses?m=cn"/>  
+      <forward name="fail" path="/CnBudgetTab4.do"/>
+  </action>  
+    
+   <action path="/saveCnSupplyExp"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetTab5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab5.do"/>
+  </action>
+  
+  <action path="/saveCnEquipExp"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetTab6.do">
+      <forward name="success" path="/UpdateCpExpenses?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab6.do"/>
+  </action>
+  
+  <!-- not using 'remodeling' category 5/3/11 per MLT-->
+  <action path="/saveCnRemodelExp" type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetTab5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=cn"/>
+      <forward name="fail" path="/CnBudgetTab5.do"/>
+  </action>
+      
+  <!-- save reviewer budget tabs -->
+   <action path="/saveCnContractReview"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetReview4.do">
+      <forward name="success" path="/UpdateCpBudget?m=cnrev"/>  
+      <forward name="fail" path="/CnBudgetReview4.do"/>
+  </action>
+
+ <action path="/saveCnSupplyReview"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetReview5.do">
+      <forward name="success" path="/UpdateCpBudget?m=cnrev"/>
+      <forward name="fail" path="/CnBudgetReview5.do"/>
+  </action>    
+  
+  <action path="/saveCnEquipReview"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnBudgetReview6.do">
+      <forward name="success" path="/UpdateCpBudget?m=cnrev"/>
+      <forward name="fail" path="/CnBudgetReview6.do"/>
+  </action>    
+  
+  <action path="/saveCnRemodelReview"  type="services.OtherUpdateAction"
+            name="BudgetCollectionBean"  scope="request" input="/CnBudgetReview5.do">
+      <forward name="success" path="/UpdateCpBudget?m=cnrev"/>
+      <forward name="fail" path="/CnBudgetReview5.do"/>
+  </action>
+    
+<!-- REVIEWER ACTIONS --> 
+
+    <action path="/saveCnRMwbe"  type="mypackage.GenericUpdateAction" 
+            name="appStatus" scope="request" input="/cnReviewChecklist">
+      <forward name="success" path="/cnReviewNav.do?item=saveMwbe"/> 
+      <forward name="checklist" path="/cnReviewChecklist"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/saveCnReviewForm"  type="construction.SaveCnRatingAction" 
+            name="reviewFormBean" scope="request" input="/cnReviewRating">
+      <forward name="success" path="/cnReviewRating"/> 
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving reviewer comments." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/saveCnReviewSubmission"  type="construction.SaveCnReviewSubmit" 
+            name="AssignCollectionBean" validate="false" scope="request" input="/cnReviewSubmitMember">
+      <forward name="success" path="/cnReviewSubmitMember"/> 
+      <forward name="fail" path="/cnReviewSubmitMember" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/saveCnReviewDate"  type="mypackage.GenericUpdateAction" 
+            name="allocBean" scope="request" input="/CnReviewEditDueDate.do">
+      <forward name="success" path="/cnReviewNav.do?item=saveDate"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/cnRevMemberSearch" type="construction.CnReviewSearchAction" parameter="i" >
+        <forward name="searchpage" path="/cnReviewSearch" />
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveCnRevCoversheet"  type="construction.SaveCnApplicationAction" 
+           name="applicationFormBean" scope="request" input="/cnReviewCoversheet.do"> 
+      <forward name="success" path="/cnReviewCoversheet.do"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving application form." />
+   </action>
+   
+   <action path="/saveCnRevJustification"  type="construction.SaveCnJustificationAction" 
+            name="assignBean" validate="false" scope="request" input="/CnRevReduceMatch">
+      <forward name="success" path="/CnRevReduceMatch"/> 
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving reduce match form." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+
+ <!-- ADMIN ACTIONS -->
+    <action path="/saveCnAdminMwbe"  type="mypackage.GenericUpdateAction" 
+            name="appStatus" scope="request" input="/CnAdminChecklist">
+      <forward name="success" path="/cnAdminNav.do?item=saveMwbe"/> 
+      <forward name="checklist" path="/CnAdminChecklist"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+   <action path="/saveCnAdminAlloc"  type="mypackage.GenericUpdateAction" 
+            name="allocBean" scope="request" input="/CnAdminEditAlloc">
+      <forward name="success" path="/cnAdminNav.do?item=saveAllocation"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/cnAdminSearchAction" type="construction.CnAdminSearch" parameter="i">
+      <forward name="searchapps" path="/CnAdminSearch"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/cnAdminReportNav" type="reports.ConstructReportAction" parameter="i" >
+       <forward name="duedates" path="/reports/dt/cnDueDateRpt.jsp" />
+       <forward name="systemalloc" path="/reports/dt/cnSysAllocationRpt.jsp" />
+       <forward name="awardbysystem" path="/reports/dt/cnSystemAwardPercent.jsp" />
+       <forward name="awardbyldadmin" path="/reports/dt/cnLdAwardPercent.jsp" />
+       <forward name="submittodasny" path="/reports/dt/cnAppsSubmittedDasny.jsp" />
+       <forward name="dasnyawarddesc" path="/reports/dt/cnDasnyAwardDesc.jsp" />
+       <forward name="reducematchrpt" path="/reports/dt/cnReduceMatchRpt.jsp" />
+       <forward name="projnumrpt" path="/reports/dt/cnProjectNumberRpt.jsp" />
+       <forward name="finalsubmitrpt" path="/reports/dt/cnFinalSubmitRpt.jsp" />
+       <forward name="finalnotsubmitrpt" path="/reports/dt/cnFinalNotSubmitRpt.jsp" />
+       <forward name="certoccupy" path="/reports/dt/cnCertOccupancyRpt.jsp" />
+       <forward name="bondapp" path="/reports/dt/cnBondedRpt.jsp" />
+       <forward name="projcosttotal" path="/reports/dt/cnProjectCostRpt.jsp" />
+       <forward name="projcategory" path="/reports/dt/cnProjectCategoryRpt.jsp" />
+       <forward name="reducematchcriteria" path="/reports/dt/cnReduceMatchCriteria.jsp" />
+       <forward name="shporpt" path="/reports/dt/cnShpoLibrariesRpt.jsp" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  
+   <action path="/saveCnAdminBudget"  type="statutory.AdminBudgetSave"
+        name="BudgetCollectionBean"  scope="request" input="/CnAdminBudget4.do">
+      <forward name="cntab4" path="/CnAdminBudget4.do" />
+      <forward name="cntab5" path="/CnAdminBudget5.do" />
+      <forward name="cntab6" path="/CnAdminBudget6.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>
+  
+  <action path="/cnAdminExpenseNav" type="construction.ExpenseNavAction"
+        parameter="i">
+     <forward name="supplyexp" path="/CnAdminExpenseSupply.do"/>  
+     <forward name="equipexp" path="/CnAdminExpenseEquipment.do"/>  
+     <forward name="purchaseexp" path="/CnAdminExpensePurchased.do"/> 
+     <forward name="confirmdelete" path="/CnAdminExpenseDelete.do"/> 
+     <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+  
+  <action path="/saveCnAdminExpense"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/cnAdminExpenseNav.do?i=saveexp"/>
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <!--rmvd 1/3/12, separate save actions for ea. bdgt tab
+  <action path="/saveCnAdminContractBdgt"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/CnAdminBudget4.do">
+      <forward name="success" path="/AdminBudgetSave.do"/>  
+      <forward name="fail" path="/CnAdminBudget4.do"/>
+  </action>  -->
+  
+  <action path="/saveCnAdminCompletion" type="construction.SaveCompletionAction"
+            name="finalExpenseBean" scope="request" validate="false">
+      <forward name="completion" path="/CnAdminCompletion.do"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/saveCnAdminEvaluation"  type="construction.SaveCnRatingAction" 
+            name="reviewFormBean" scope="request" input="/CnAdminEvaluation">
+      <forward name="success" path="/CnAdminEvaluation"/> 
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving the evaluation form." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+    
+    <action path="/saveCnAdminAppForm"  type="construction.SaveCnApplicationAction" 
+           name="applicationFormBean" scope="request" input="/CnAdminCoversheet.do"> 
+      <forward name="success" path="/CnAdminCoversheet.do"/> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving application form." />
+   </action>
+   
+   <action path="/saveAdminCnJustification"  type="construction.SaveCnJustificationAction" 
+            name="assignBean" validate="false" scope="request" input="/CnAdminReducedMatch">
+      <forward name="success" path="/CnAdminReducedMatch"/> 
+      <forward name="fail" path="/error.jsp?errormsg=An error occured saving reduce match form." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>    
+  
+  <action path="/displayDasnyBudget"  type="statutory.AdminBudgetSave"
+        name="BudgetCollectionBean"  scope="request" input="/CnDasnyBudget4.do">
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve application."/>
+  </action>
+  
+  <action path="/saveDasnyChecklist"  type="construction.SaveDasnyApproval" 
+            name="appStatus" scope="request" validate="false" input="/CnDasnyChecklist.do">
+      <forward name="success" path="/CnDasnyChecklist.do"/> 
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve application." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+    </action>
+  
+  <action path="/dasnyReportNav" type="reports.ConstructReportAction" parameter="i" >
+       <forward name="systemalloc" path="/reports/dt/cnSysAllocationRpt.jsp" />
+       <forward name="awardbyldadmin" path="/reports/dt/cnLdAwardPercent.jsp" />
+       <forward name="dasnyreviewlist" path="/reports/dt/cnAppsSubmittedDasny.jsp" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+</action-mappings>
+</struts-config>

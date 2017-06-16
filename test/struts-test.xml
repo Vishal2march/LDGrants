@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+   "http://struts.apache.org/dtds/struts-2.5.dtd">
+   
+<struts>
+
+   <package name="struts-test"  extends="struts-default" namespace="/">
+   
+   <action name="test">
+   <result>
+   /WEB-INF/jsps/HelloWorld.jsp
+   </result>
+   </action>
+   
+                 <action name="Ld146" class="gov.nysed.oce.ldgrants.test.action.Ld146"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+   
+    <action name="Ld148" class="gov.nysed.oce.ldgrants.test.action.Ld148"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+              
+              <action name="Ld147" class="gov.nysed.oce.ldgrants.test.action.Ld147"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+              
+              <action name="Ld149" class="gov.nysed.oce.ldgrants.test.action.Ld149"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+              
+              <action name="Ld150" class="gov.nysed.oce.ldgrants.test.action.Ld150"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+              
+              <action name="Ld151" class="gov.nysed.oce.ldgrants.test.action.Ld151"
+                     method="test">
+                     <result name="success">/testlogin.jsp</result>
+              </action>
+              
+              
+           <action name="fileUploadAction" class="gov.nysed.oce.ldgrants.grants.grant.action.FileUploadAction"
+                   method = "display">
+                   <result name="none">/fileUpload.jsp</result>
+           </action> 
+           
+           <action name="resultAction" class="gov.nysed.oce.ldgrants.grants.grant.action.FileUploadAction">
+           
+           <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+       		<param name="allowedTypes">text/plain,text/pdf,image/jpeg,image/gif,image/png</param>
+       		<param name="maximumSize">10240</param>
+  	    </interceptor-ref>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            
+            <result name="success">/result.jsp</result>
+           
+           </action>  
+              
+      <action name="searchId"
+      class="gov.nysed.oce.ldgrants.test.action.Ld147"
+      method="searchCategoryId">
+      <result name="success">/testlogin.jsp</result>
+      </action>
+      
+      <action name="searchCategoryDescr"
+      class="gov.nysed.oce.ldgrants.test.action.Ld147"
+      method=" selectCategoryDescr">
+      <result name="success">/testlogin.jsp</result>
+      </action>  
+      
+      <action name="searchGrants"
+      class="gov.nysed.oce.ldgrants.test.action.Ld146"
+      method=" select">
+      <result name="success">/testlogin.jsp</result>
+      </action>   
+      
+      <action name="insertGrants"
+      class="gov.nysed.oce.ldgrants.test.action.Ld146"
+      method=" insert">
+      <result name="success">/testlogin.jsp</result>
+      </action> 
+      
+      <action name="updateGrants"
+      class="gov.nysed.oce.ldgrants.test.action.Ld146"
+      method=" update">
+      <result name="success">/testlogin.jsp</result>
+      </action> 
+      
+      <action name="deleteGrants"
+      class="gov.nysed.oce.ldgrants.test.action.Ld146"
+      method=" delete">
+      <result name="success">/testlogin.jsp</result>
+      </action> 
+      
+      <action name="searchGrants"
+      class="gov.nysed.oce.ldgrants.test.action.Ld146"
+      method=" search">
+      <result name="success">/testlogin.jsp</result>
+      </action> 
+   
+   </package>
+   </struts>
+   

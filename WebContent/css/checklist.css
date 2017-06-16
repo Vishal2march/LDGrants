@@ -1,0 +1,55 @@
+.btn {
+	white-space: normal !important;
+	word-wrap: break-word;
+}
+
+.btn.disabled {
+	
+	cursor: default !important;
+}
+
+.btn-warning, .btn-warning:hover, .btn-warning:active, btn-warning.active
+	{
+	background-color: #774b0c !important;
+	border-color: #9c610e !important;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, btn-success.active
+	{
+	background-color: #255425 !important;
+	border-color: #2f6b2f !important;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, btn-danger.active {
+	background-color: #a62924 !important;
+	border-color: #c12f2a !important;
+}
+
+.btn-active:hover, .btn-active:focus, .btn-active:active, .btn-active.active
+	{
+	color: #fff;
+	background-color: #777 !important;
+	border-color: #777 !important;
+}
+
+.label {
+	font-size: 100%;
+}
+
+.table>thead>tr>th, .table>thead>tr>td {
+	border-color: #337ab7 !important;
+}
+/* #formtable th, #formtable thead>tr>td {
+background-color: #003751 !important;
+border-color: #003751 !important;
+color:white;
+	
+} */
+#checklisttable th, #checklisttable thead>tr>td {
+background-color: #337ab7 !important;
+border-color: #337ab7 !important;
+color:white;
+}
+.table>tbody>tr>td {
+	border:0;
+}

@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='windows-1252'?>
+ <!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+  <tiles-definitions>        
+  <definition name="dibanner" path="/common/banner.jsp">
+      <put name="grprogram" value="Discretionary Aid Grants" /> 
+  </definition>
+  
+  <definition name="revdilayout" path="/layout.jsp">
+      <put name="header" value="revbanner" type="definition" /> 
+      <put name="menubar" value="/reviewers/disc/RevNavBarDi.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+    <definition name="admindilayout" path="/layout.jsp">
+      <put name="header" value="cpadminbanner" type="definition" /> 
+      <put name="menubar" value="/discretionary/AdminDiNavBar.html" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="apcntdilayout" path="/layout.jsp">
+      <put name="header" value="dibanner" type="definition" /> 
+      <put name="menubar" value="/discretionary/DiNavBar.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="apcntdipartlayout" path="/layout.jsp">
+      <put name="header" value="dibanner" type="definition" /> 
+      <put name="menubar" value="/discretionary/DiNavBarPart.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+   
+   <definition name="apcntdinarrlayout" path="/common/narrLayout.jsp">
+      <put name="header" value="dibanner" type="definition" /> 
+      <put name="menubar" value="/discretionary/DiNavBar.jsp" />
+      <put name="narrmenu" value="/discretionary/narrativeMenu.jsp" />
+      <put name="footer" value="/common/Footer.html" />
+   </definition>
+  
+  
+   <!-- tile mappings for DI DISCRETIONARY -->
+    
+    <!--<definition name="/diHome" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Home Page" />      
+      <put name="body" value="/discretionary/diHome.jsp" />
+    </definition>-->
+    
+    <definition name="/diHome" path="/layout.jsp">
+     <put name="header" value="dibanner" type="definition" /> 
+      <put name="footer" value="/common/Footer.html" />
+      <put name="title" value="Discretionary Aid Home Page" />      
+      <put name="body" value="/discretionary/diHome.jsp" />
+    </definition>
+    
+    <definition name="/diChecklist" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Checklist" />      
+      <put name="body" value="/discretionary/diChecklist.jsp" />
+    </definition>
+    
+    <definition name="/diCoversheet" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Coversheet" />      
+      <put name="body" value="/discretionary/diCoversheet.jsp" />
+    </definition>
+    
+    <definition name="/diFinalrpt" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Final Report" />      
+      <put name="body" value="/discretionary/diApcntNarrative.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab1" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab1.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab2" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab2.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab3" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab3.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab4" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab4.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab5" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab5.jsp" />
+    </definition>
+    
+    <definition name="/diBudgettab6" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Project Budget" />      
+      <put name="body" value="/discretionary/pb_tab6.jsp" />
+    </definition>
+    
+    <definition name="/diNarrative" extends="apcntdinarrlayout">
+      <put name="title" value="Discretionary Aid Project Description" />      
+      <put name="body" value="/discretionary/diApcntNarrative.jsp" />
+    </definition>
+    
+    <definition name="/diAttachment" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Attachments" />      
+      <put name="body" value="/attachment.jsp?prog=di" />
+    </definition>
+    
+    <definition name="/diInstauth" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Institutional Authorization" />      
+      <put name="body" value="/discretionary/diInstAuth.jsp" />
+    </definition>
+    
+     <definition name="/diMicroform" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Microform Guidelines Form" />      
+      <put name="body" value="/discretionary/diMicroform.jsp" />
+    </definition>
+    
+     <definition name="/diCoopagreement" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Cooperative Agreement Form" />      
+      <put name="body" value="/discretionary/diCoopAgreement.jsp" />
+    </definition>
+    
+    <definition name="/diPrequal" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Prequalification Requirement" />      
+      <put name="body" value="/discretionary/diPrequal.jsp" />
+    </definition>
+    
+    <definition name="/diMwbe" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid M/WBE Requirement" />      
+      <put name="body" value="/discretionary/diMwbe.jsp" />
+    </definition>
+    
+    <definition name="/diFinalsignoff" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Final Report Signoff" />      
+      <put name="body" value="/discretionary/diFinalSignoff.jsp" />
+    </definition>
+    
+    <definition name="/diPayeeinfo" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Payee Info Form" />      
+      <put name="body" value="/discretionary/diPayeeInfoForm.jsp?prog=di" />
+    </definition>
+    
+    <definition name="/diFsforms" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid Forms" />      
+      <put name="body" value="/discretionary/diFsForms.jsp" />
+    </definition>
+    
+    <definition name="/DiDeleteAmendment" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Delete Amendment" />      
+      <put name="body" value="/confirmDeleteAmendment.jsp" />
+    </definition>
+    
+    <definition name="/DiDeleteBudget" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Delete Budget Record" />      
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+    <definition name="/diAddattachment" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Add Attachment" />      
+      <put name="body" value="/addAttachment.jsp?prog=di" />
+    </definition>
+    
+    <definition name="/diPartinst" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Participating Institutions" />      
+      <put name="body" value="/common/participants.jsp?prog=di" />
+    </definition>
+    
+    <definition name="/diPartcoversheet" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Participating Coversheet" />      
+      <put name="body" value="/diCoversheetHtml.jsp" />
+    </definition>
+    
+    <definition name="/diPartnarrative" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Participating Narrative" />      
+      <put name="body" value="/discretionary/diViewNarrative.jsp" />
+    </definition>
+    
+    <definition name="/diPartbudget" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Participating Budget" />      
+      <put name="body" value="/discretionary/diViewBudget.jsp" />
+    </definition>
+    
+    <definition name="/diPartfinalrpt" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Participating Final Report" />      
+      <put name="body" value="/discretionary/diViewFinalRpt.jsp" />
+    </definition>
+    
+    <definition name="/diPartdocuments" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Attached Documents" />      
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+    <definition name="/diPartcoopagree" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Cooperative Agreement" />      
+      <put name="body" value="/discretionary/diViewCoopAgree.jsp" />
+    </definition>
+    
+    <definition name="/diPartadddocument" extends="apcntdipartlayout">
+      <put name="title" value="Discretionary Aid - Add Document" />      
+      <put name="body" value="/addAttachment.jsp?prog=partdi" />
+    </definition>
+    
+    <definition name="/diConfirmsubmit" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Confirm Submission" />      
+      <put name="body" value="/discretionary/diSubmit.jsp" />
+    </definition>
+        
+     <definition name="/diAppstatus" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Application Status" />      
+      <put name="body" value="/applicationStatus.jsp" />
+    </definition>
+    
+    <definition name="/diApcntreports" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Reports" />      
+      <put name="body" value="/reports/apcntReportIndex.jsp" />
+    </definition>
+    
+     <definition name="/diApcnthelp" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Help" />      
+      <put name="body" value="/docs/sacoHelpIndex.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diApcntscores" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - Comments/Scores" />      
+      <put name="body" value="/discretionary/diViewRatingCom.jsp" />
+    </definition>
+    
+    <definition name="/diFsworksheet" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - FS Form Worksheet" />      
+      <put name="body" value="/discretionary/fsworksheet.jsp" />
+    </definition>
+    
+    <definition name="/diFs10aForm" extends="apcntdilayout">
+      <put name="title" value="Discretionary Aid - FS10A Budget Amendment" />      
+      <put name="body" value="/statutory/fs10aFormNew.jsp?m=di" />
+    </definition>    
+    
+    
+     <definition name="/diRevhome" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Home" />      
+      <put name="body" value="/reviewers/coord/revHome.jsp?p=di" />
+    </definition>
+    
+     <definition name="/diRevhelp" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Help" />      
+      <put name="body" value="/docs/reviewerHelpIndex.jsp?m=di" />
+    </definition>
+    
+     <definition name="/diRevcontactinfo" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Contact Information" />      
+      <put name="body" value="/reviewers/coord/updateRevInfo.jsp" />
+    </definition>
+    
+    <definition name="/diRevparticipation" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Participation Records" />      
+      <put name="body" value="/reviewers/coord/revParticipationView.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diRevparticipationform" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Participation Form" />      
+      <put name="body" value="/reviewers/coord/revParticipationForm.jsp" />
+    </definition>
+    
+    <definition name="/diRevassignments" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Assignments" />      
+      <put name="body" value="/reviewers/coord/revAssignments.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diRevgrant" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Grant Summary" />      
+      <put name="body" value="/reviewers/coord/revGrantSummary.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diRevrating" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Rating" />      
+      <put name="body" value="/reviewers/disc/diRating.jsp" />
+    </definition>
+    
+    <definition name="/diRevNewrating" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Rating 2012-13" />      
+      <put name="body" value="/reviewers/disc/diRating1213.jsp" />
+    </definition>
+    
+    <definition name="/diRevEducrating" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Education Proposal Rating" />      
+      <put name="body" value="/reviewers/disc/diRatingEduc.jsp" />
+    </definition>
+    
+    <definition name="/diRevNewEducrating" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Education Proposal Rating 2012-13" />      
+      <put name="body" value="/reviewers/disc/diRatingEduc1213.jsp" />
+    </definition>
+    
+    <definition name="/diRevsubmit" extends="revdilayout">
+      <put name="title" value="Discretionary Aid Reviewer Submit Rating" />      
+      <put name="body" value="/reviewers/coord/revSubmitRating.jsp" />
+    </definition>
+    
+    
+    
+     <definition name="/diAdminhome" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Home" />      
+      <put name="body" value="/discretionary/adminHome.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diAdmincheckstatus" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Checkstatus" />      
+      <put name="body" value="/discretionary/diAdminCheckstatus.jsp" />
+    </definition>
+    
+    <definition name="/diAdmincoversheet" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Coversheet" />      
+      <put name="body" value="/diCoversheetHtml.jsp" />
+    </definition>
+    
+    <definition name="/diAdminattachment" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Attachments" />      
+      <put name="body" value="/downloadDocuments.jsp" />
+    </definition>
+    
+    <definition name="/diAdminnarrative" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Narratives" />      
+      <put name="body" value="/discretionary/diViewNarrative.jsp" />
+    </definition>
+    
+    <definition name="/diAdminfinalrpt" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Final Report" />      
+      <put name="body" value="/discretionary/diViewFinalRpt.jsp?m=admin" />
+    </definition>
+    
+    <definition name="/diAdminbudget1" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab1adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdminbudget2" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab2adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdminbudget3" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab3adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdminbudget4" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab4adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdminbudget5" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab5adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdminbudget6" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Budget" />      
+      <put name="body" value="/discretionary/pb_tab6adm.jsp" />
+    </definition>
+    
+    <definition name="/diAdmincomments" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Comments" />      
+      <put name="body" value="/discretionary/diAdminComments.jsp" />
+    </definition>
+    
+    <definition name="/DiAdminDeleteBudget" extends="admindilayout">
+      <put name="title" value="Construction - Admin Delete Budget Record"  />       
+      <put name="body" value="/confirmDeleteBudget.jsp" />
+    </definition>
+    
+       
+    <definition name="/diAdminassign" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Assign Reviewer" />      
+      <put name="body" value="/discretionary/diAdminAssignRev.jsp" />
+    </definition>
+    
+    <definition name="/diAdminratings" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Ratings" />      
+      <put name="body" value="/adminViewRatings.jsp" />
+    </definition>
+    
+    <definition name="/diAdminrevcomment" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Reviewer Comment" />      
+      <put name="body" value="/adminUpdateRevComment.jsp" />
+    </definition>
+    
+    <definition name="/diAdminemail" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Emails" />      
+      <put name="body" value="/coordinated/adminEmail.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diAdminmassmail" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Mass Emails" />      
+      <put name="body" value="/coordinated/adminMassApprEmail.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diAdminrevmail" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Reviewer Emails" />      
+      <put name="body" value="/discretionary/diAdminRevMail.jsp" />
+    </definition>
+    
+    <definition name="/diViewreviewers" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Reviewers" />      
+      <put name="body" value="/coordinated/adminViewReviewers.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diUpdatereviewer" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Update Reviewer" />      
+      <put name="body" value="/coordinated/addUpdateReviewer.jsp" />
+    </definition>
+    
+    <definition name="/diApplication" path="/layout.jsp">
+      <put name="title" value="Discretionary Aid Application" />      
+      <put name="body" value="/diCoversheetHtml.jsp" />
+      <put name="body2" value="/discretionary/diViewBudget.jsp" />
+      <put name="body3" value="/diNarrativeHtml.jsp" />
+    </definition>
+    
+    <definition name="/diAdminviewemail" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Admin Email" />      
+      <put name="body" value="/viewSentEmails.jsp" />
+    </definition>
+    
+    <definition name="/diAdminConfirmComment" extends="admindilayout">
+      <put name="title" value="Discretionary Aid Confirm Comment Email" />      
+      <put name="body" value="/confirmCorrectionEmail.jsp" />
+    </definition>
+    
+    <definition name="/diSearchRevMail" extends="admindilayout">
+      <put name="title" value="Search Discretionary Reviewer Emails" />      
+      <put name="body" value="/viewReviewerEmail.jsp" />
+    </definition>
+    
+     <definition name="/diAdminRateSummary" extends="admindilayout">
+      <put name="title" value="Discretionary Reviewer Summary" />      
+      <put name="body" value="/discretionary/diViewRatingCom.jsp" />
+    </definition>
+    
+    <definition name="/diAdminProjManager" extends="admindilayout">
+      <put name="title" value="Discretionary - Update Project Manager" />      
+      <put name="body" value="/fmliteracy/adminProjManUpdate.jsp" />
+    </definition>
+    
+    <definition name="/diAdminFs10aForm" extends="admindilayout">
+      <put name="title" value="Discretionary - FS-10-A Budget Amendments" />      
+      <put name="body" value="/statutory/adminFS10.jsp?p=di" />
+    </definition>
+    
+    <definition name="/diAdminMwbe" extends="admindilayout">
+      <put name="title" value="Discretionary - M/WBE" />      
+      <put name="body" value="/discretionary/diMwbe.jsp" />
+    </definition>
+    
+    <definition name="/diAdminPrequal" extends="admindilayout">
+      <put name="title" value="Discretionary - Prequalification" />      
+      <put name="body" value="/discretionary/diPrequal.jsp" />
+    </definition>
+  </tiles-definitions>

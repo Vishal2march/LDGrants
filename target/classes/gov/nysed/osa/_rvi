@@ -1,0 +1,18 @@
+# RVI 2.0 - Oracle Repository Version Information : DO NOT EDIT
+<
+  <ReposName=osa>
+  <ReposUUID=49ebc267-95a2-4fdc-8664-a4a72bace104>
+  <ReposTimeStamp=>
+  <ReposFolderIRID=134401189454624078371640887402937655>
+  <ReposFolderIVID=134401189454628800738123757048151351>
+  <ReposDirs:
+    <
+      <ReposName=datacollection>
+      <ReposTimeStamp=>
+      <ReposCRC=0>
+      <ReposIRID=134401189458364192626073646412184887>
+      <ReposIVID=134401189458368914992556516057398583>
+      <ReposStatus=I>
+    >
+  >
+>

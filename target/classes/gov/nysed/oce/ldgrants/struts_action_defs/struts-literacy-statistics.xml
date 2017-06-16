@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-literacy-statistics" namespace="/" extends="appSecurity">
+
+
+      
+      <!--   family literacy final statistics-->
+	        
+      <action name="familyLiteracyYr1Statistics" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalStatisticAction" 
+            method="literacyYr1Statistics">
+           <result name="success">/familyLiteracyYr1Statistics.tiles</result>
+      </action>  
+      
+      <action name="familyLiteracySaveStatistics" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalStatisticAction" 
+            method="literacySaveStatistics">
+           <result name="success">/familyLiteracyYr1Statistics.tiles</result>
+      </action> 
+
+
+	<!--   ADMIN family literacy statistics-->
+	        
+      <action name="familyLiteracyYr1StatisticsAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalStatisticAction" 
+            method="literacyYr1Statistics">
+           <result name="success">/familyLiteracyYr1StatisticsAdmin.tiles</result>
+      </action>  
+      
+      <action name="familyLiteracySaveStatisticsAdmin" 
+            class="gov.nysed.oce.ldgrants.grants.literacy.action.FinalStatisticAction" 
+            method="literacySaveStatistics">
+           <result name="success">/familyLiteracyYr1StatisticsAdmin.tiles</result>
+      </action> 
+
+
+
+      
+	</package>
+</struts>
+
+		

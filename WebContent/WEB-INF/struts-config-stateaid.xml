@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+ <action-mappings>     
+  
+  <!--applicant home/create app-->    
+  <action path="/stateaidNav" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/stateaidHome" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/stateaidChecklist" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>   
+  
+  
+  <action path="/stateaidForms" type="statutory.CpNavigationAction" parameter="i">
+      <forward name="checklist"  path="/stateaidChecklist"/>
+      <forward name="coversheet"  path="/stateaidCoversheet"/>
+      <forward name="narrative"  path="/stateaidNarrative"/>
+      <forward name="attachment" path="/stateaidAttachment"/>
+      <forward name="assurance" path="/stateaidAssurance"/>
+      <forward name="budget" path="/StateAidTab1.do"/>
+      <forward name="confirmbdgtdelete" path="/stateaidBdgtDelete"/>
+      <forward name="finalrpt" path="/stateaidFinalRpt"/>    
+      <forward name="appstatus" path="/stateaidStatus" />
+  </action>
+  
+    
+  <action path="/saveAidNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/ApcntDescription.do">
+      <forward name="narrative" path="/stateaidNarrative" />
+      <forward name="finalreport" path="/stateaidFinalRpt" />
+      <forward name="coversheet" path="/stateaidCoversheet" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveAidAssurance" type="stateaid.AssuranceAction"
+          name="authorizationBean" scope="request" input="/stateaidAssurance">
+      <forward name="success" path="/stateaidAssurance" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  
+  <action path="/stateaidReadNarr" type="statutory.ReadNarrativeAction" parameter="t" >
+      <!-- <forward name="admin" path="/DiAdminNarrative.do?m=admin" />  -->
+       <forward name="applicant" path="/stateaidNarrative" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <action path="/staidSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="verifyinitial" path="/StaidConfirmSubmit.do?todo=initial" />
+      <forward name="verifyfinal" path="/StaidConfirmSubmit.do?todo=final" />
+      <forward name="submitinitial" path="/stateaidHome" />
+      <forward name="submitfinal" path="/stateaidHome" />
+      <forward name="error" path="/error.jsp?errormsg=An error occured submitting the application." />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>    
+  
+  
+  <!--initial budget -->
+  <action path="/saveStaidPersonal"  type="services.PersonalUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab1.do">
+      <forward name="success" path="/UpdateCpBudget?m=staid"/>
+      <forward name="fail" path="/StateAidTab1.do"/>
+  </action>
+    
+  <action path="/saveStaidBenefit"  type="services.BenefitsUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab2.do">
+      <forward name="success" path="/UpdateCpBudget?m=staid"/>
+      <forward name="fail" path="/StateAidTab2.do"/>
+  </action>
+    
+  <action path="/saveStaidContract"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab3.do">
+      <forward name="success" path="/UpdateCpBudget?m=staid"/>
+      <forward name="fail" path="/StateAidTab3.do"/>
+  </action>
+    
+  <action path="/saveStaidSupply"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab4.do">
+      <forward name="success" path="/UpdateCpBudget?m=staid"/>
+      <forward name="fail" path="/StateAidTab4.do"/>
+  </action>
+      
+   <action path="/saveStaidTravel"  type="services.TravelUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab6.do">
+      <forward name="success" path="/UpdateCpBudget?m=staid"/>
+      <forward name="fail" path="/StateAidTab6.do"/>
+  </action>
+  
+  <!--new actions for expenses  -->
+  <action path="/saveStaidPersExp"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab1.do">
+      <forward name="success" path="/UpdateCpExpenses?m=staid"/>
+      <forward name="fail" path="/StateAidTab1.do"/>
+  </action>
+  
+  <action path="/saveStaidContrExp"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab3.do">
+      <forward name="success" path="/UpdateCpExpenses?m=staid"/>
+      <forward name="fail" path="/StateAidTab3.do"/>
+  </action>
+  
+  <action path="/saveStaidSuppExp"  type="services.UpdateFinalExpenseAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab4.do">
+      <forward name="success" path="/UpdateCpExpenses?m=staid"/>
+      <forward name="fail" path="/StateAidTab4.do"/>
+  </action>
+  
+  <!-- action paths for budget pages (only for travel/benefits) -->  
+   <action path="/saveStaidExpenses"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidTab1.do">
+      <forward name="success" path="/UpdateCpExpenses?m=staid"/>
+  </action>
+  
+  
+  <action path="/staidAdminNav" type="discretionary.AdminNavAction" parameter="item" >
+      <forward name="home" path="/stateaidAdminHome" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+      <forward name="grant" path="/stateaidAdminChecklist" />
+      <forward name="coversheet" path="/stateaidAdminCoversheet" />
+      <forward name="narrative" path="/stateaidAdminNarrative" />
+      <forward name="auth" path="/stateaidAdminAssurance" />
+      <forward name="attachment" path="/stateaidAdminAttach" />
+      <forward name="budget" path="/StateAidAdminTab1.do" />          
+   </action>
+   
+   <action path="/saveStaidAdminBudget"  type="statutory.AdminBudgetSave"
+            name="BudgetCollectionBean"   scope="request" input="/StateAidAdminTab1.do">
+      <forward name="staidtab1" path="/StateAidAdminTab1.do" />
+      <forward name="staidtab2" path="/StateAidAdminTab2.do" />
+      <forward name="staidtab3" path="/StateAidAdminTab3.do" />
+      <forward name="staidtab4" path="/StateAidAdminTab4.do" />
+      <forward name="staidtab6" path="/StateAidAdminTab6.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>
+  
+  <action path="/staidAdminAlloc" type="stateaid.AdminAllocationAction" parameter="i" >
+      <forward name="viewAlloc" path="/stateaidAllocation" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />            
+   </action>
+   
+   <action path="/staidSaveAllocation" type="mypackage.GenericUpdateAction"
+            name="AssignCollectionBean"   scope="request" input="/staidAllocation" >
+      <forward name="success" path="/staidAdminAlloc.do?i=addUpdateAlloc" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />            
+   </action>
+  
+   <action path="/StateAidTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidTab1" /></action>
+   <action path="/StateAidTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidTab2" /></action>
+   <action path="/StateAidTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidTab3" /></action>
+   <action path="/StateAidTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidTab4" /></action>
+   <action path="/StateAidTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidTab6" /></action>
+ 
+   <action path="/StateAidAdminTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAdminTab1" /></action>
+   <action path="/StateAidAdminTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAdminTab2" /></action>
+   <action path="/StateAidAdminTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAdminTab3" /></action>
+   <action path="/StateAidAdminTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAdminTab4" /></action>
+   <action path="/StateAidAdminTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAdminTab6" /></action>
+  
+   <action path="/StateAidAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/stateaidAttachment" /></action>
+   <action path="/StateAidAddAttach" type="mypackage.LayoutActionBean" ><forward name="success" path="/StateAidAddAttach" /></action>
+   <action path="/StaidConfirmSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/staidConfirmSubmit" /></action>
+   
+ </action-mappings>
+</struts-config>

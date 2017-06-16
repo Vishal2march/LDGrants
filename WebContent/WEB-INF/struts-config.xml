@@ -1,0 +1,810 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+<form-beans>
+  <form-bean name="ReviewerBean" type="mypackage.ReviewerBean" />
+  <form-bean name="RatingBean" type="mypackage.RatingBean" />
+  <form-bean name="ReviewAssignMaxBean" type="mypackage.ReviewAssignMaxBean" />
+  <form-bean name="AppDatesBean" type="mypackage.AppDatesBean" />
+  <form-bean name="BudgetCollectionBean" type="mypackage.BudgetCollectionBean" />
+  <form-bean name="appStatus" type="mypackage.AppStatusBean" />
+  <form-bean name="projNarrative" type="mypackage.DescriptionBean" />
+  <form-bean name="coversheetBean" type="mypackage.CoversheetBean" />
+  <form-bean name="comment" type="mypackage.CommentBean" />
+  <form-bean name="infoBean" type="ldgext.RegisterBean" />
+  <form-bean name="applicationFormBean" type="construction.CnApplicationBean" />
+  <form-bean name="reviewFormBean" type="construction.CnRatingFormBean" />
+  <form-bean name="allocBean" type="construction.AllocationYearBean" />
+  <form-bean name="assignBean" type="construction.SystemAssignBean" />
+  <form-bean name="finalExpenseBean" type="construction.FinalExpenseBean" />
+  <form-bean name="authorizationBean" type="mypackage.AuthorizationBean" />
+</form-beans>
+  
+<action-mappings>
+  <!-- action form validation for CO -->  
+   <action path="/saveRevComment"  type="services.UpdateRevCommentAction"
+              name="comment"  scope="request"  input="/AdminRevComment.do">
+        <forward name="coord" path="/AdminRating.do" />
+        <forward name="disc" path="/DiAdminRatings.do" />
+        <forward name="timeout" path="/error.jsp" />
+  </action>
+  
+  <action path="/adminSaveReviewer"  type="discretionary.SaveReviewerAction"
+              name="ReviewerBean"  scope="request" validate="false">
+        <forward name="successco" path="/AdminUpdateReviewer.do?result=true"/>
+        <forward name="failco" path="/AdminUpdateReviewer.do"/>
+        <forward name="successdi" path="/DiUpdateReviewer.do?result=true"/>
+        <forward name="faildi" path="/DiUpdateReviewer.do"/>
+        <forward name="successli" path="/LitUpdateReviewer.do?result=true"/>
+        <forward name="failli" path="/LitUpdateReviewer.do"/>
+        <forward name="successlg" path="/LgUpdateReviewer.do?result=true"/>
+        <forward name="faillg" path="/LgUpdateReviewer.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+        <forward name="error" path="/error.jsp" />
+  </action>
+  
+  <action path="/saveCoRating"  type="reviewers.CoRatingAction"
+              name="RatingBean"  scope="request"  input="/RevRating.do">
+        <forward name="success" path="/RevRating.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveCoEducRating"  type="reviewers.CoRatingAction"
+              name="RatingBean"  scope="request"  input="/RevCoEducRating.do">
+        <forward name="success" path="/RevCoEducRating.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/updateReviewerInfo"  type="reviewers.RevUpdateAction"
+              name="ReviewerBean"  scope="request" validate="false">
+        <forward name="successco" path="/RevInfo.do?update=true"/>
+        <forward name="successdi" path="/DiRevContactInfo.do?update=true"/>
+        <forward name="successli" path="/FlRevInformation.do?update=true"/>
+        <forward name="successlg" path="/LgReviewerInfo.do?update=true"/>
+        <forward name="failco" path="/RevInfo.do"/>
+        <forward name="faildi" path="/DiRevContactInfo.do"/>  
+        <forward name="failli" path="/FlRevInformation.do"/>  
+        <forward name="faillg" path="/LgReviewerInfo.do"/>  
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/updateParticipation" type="reviewers.RevParticipationAction"
+          name="ReviewAssignMaxBean"  scope="request" validate="false">
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="successco" path="/ViewAccepted.do" />
+       <forward name="successdi" path="/DiRevParticipation.do" />
+       <forward name="successlg" path="/LgParticipation.do" />
+       <forward name="failco" path="/RevRegister.do" />
+       <forward name="faildi" path="/DiRevParticipationForm.do" />
+       <forward name="faillg" path="/LgParticipateForm.do" />
+  </action>
+      
+  <action path="/adminAppDates" type="mypackage.ApplicationDatesAction" parameter="item">
+        <forward name="cpviewdates" path="/AdminViewDate.do"/>
+        <forward name="cpupdate" path="/AdminViewDate.do?t=update"/>
+        <forward name="litviewdates" path="/LitAdminViewDates.do"/>
+        <forward name="litupdate" path="/LitAdminViewDates.do?t=update"/>
+        <forward name="lgviewdates" path="/LgViewDates.do"/>
+        <forward name="lgupdate" path="/LgViewDates.do?t=update"/>
+        <forward name="cnviewdates" path="/CnAdminViewDates.do"/>
+        <forward name="cnupdate" path="/CnAdminViewDates.do?t=update"/>
+        <forward name="litadd" path="/LitAdminAddDate.do"/>
+        <forward name="cpadd" path="/AdminAddDate.do"/>
+        <forward name="lgadd" path="/LgAddDate.do"/>
+        <forward name="cnadd" path="/CnAdminAddDate.do"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/addAppDate"  type="mypackage.GenericUpdateAction"
+              name="AppDatesBean" validate="false"  scope="request">
+        <forward name="success" path="/adminAppDates.do?item=addrecord"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/updateAppDate"  type="mypackage.GenericUpdateAction"
+              name="AppDatesBean" validate="false" scope="request">
+        <forward name="success" path="/adminAppDates.do?item=updaterecord"/>
+        <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+      
+  <action path="/saveSaNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/ApcntDescription.do">
+      <forward name="narrative" path="/ApcntDescription.do" />
+      <forward name="finalreport" path="/ApcntFinalReport.do" />
+      <forward name="coversheet" path="/ApcntCoversheet.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveCoNarrative" type="discretionary.SaveNarrativeAction"
+          name="projNarrative" scope="request" input="/CoApcntNarrative.do">
+      <forward name="narrative" path="/CoApcntNarrative.do" />
+      <forward name="finalreport" path="/ApcntCoFinalReport.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/coSaveCoversheet" type="coordinated.CoCoversheetAction"
+          name="coversheetBean" scope="request" input="/ApcntCoCoversheet.do">
+      <forward name="success" path="/ApcntCoCoversheet.do" />
+      <forward name="authorize" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/coSubmitApp" type="mypackage.SubmitAppAction"  parameter="i" >
+      <forward name="verifyinitial" path="/CoConfirmSubmit.do?todo=initial" />
+      <forward name="submitinitial" path="/ApcntCOHome.do" />
+      <forward name="submitfinal" path="/ApcntCOHome.do" />
+      <forward name="submitamend" path="/ApcntCOHome.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saSubmitApp" type="mypackage.SubmitAppAction" parameter="i" >
+      <forward name="submitinitial" path="/ApcntHome.do" />
+      <forward name="submitfinal" path="/ApcntHome.do" />
+      <forward name="submitamend" path="/ApcntHome.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <!--Action forms for CO budget -->
+   <action path="/updateFinalExpenses"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBViewTab5.do">
+      <forward name="success" path="/UpdateCpExpenses?m=co"/>
+  </action>
+  
+  <action path="/updateOtherExp"  type="services.OtherUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab5.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab5.do"/>
+  </action>
+   
+  <action path="/updateTravelExp"  type="services.TravelUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab6.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab6.do"/>
+  </action>
+  
+  <action path="/updatePersonal"  type="services.PersonalUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab1.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab1.do"/>
+  </action>
+  
+  <action path="/updateBenefits"  type="services.BenefitsUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab2.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab2.do"/>
+  </action>
+    
+  <action path="/updateContracted"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab3.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab3.do"/>
+  </action>
+  
+  <action path="/updateSupply"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntCoPBTab4.do">
+      <forward name="success" path="/UpdateCpBudget?m=co"/>
+      <forward name="fail" path="/ApcntCoPBTab4.do"/>
+  </action>  
+  
+  <!--Action forms for SA/CO ADMIN budget-->  
+  <action path="/saveSaAdminBudget"  type="statutory.AdminBudgetSave"
+            name="BudgetCollectionBean"   scope="request" input="/AdminBudgetTab1.do">
+      <forward name="satab1" path="/AdminBudgetTab1.do" />
+      <forward name="satab2" path="/AdminBudgetTab2.do" />
+      <forward name="satab3" path="/AdminBudgetTab3.do" />
+      <forward name="satab4" path="/AdminBudgetTab4.do" />
+      <forward name="satab5" path="/AdminBudgetTab5.do" />
+      <forward name="satab6" path="/AdminBudgetTab6.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>
+    
+  <action path="/saveCoAdminBudget"  type="statutory.AdminBudgetSave"
+            name="BudgetCollectionBean"   scope="request" input="/AdminBudgetTab1.do">
+      <forward name="cotab1" path="/AdminCoPBTab1.do" />
+      <forward name="cotab2" path="/AdminCoPBTab2.do" />
+      <forward name="cotab3" path="/AdminCoPBTab3.do" />
+      <forward name="cotab4" path="/AdminCoPBTab4.do" />
+      <forward name="cotab5" path="/AdminCoPBTab5.do" />
+      <forward name="cotab6" path="/AdminCoPBTab6.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />  
+      <forward name="authorize" path="/error.jsp?errormsg=User not authorized to approve grant"/>
+  </action>  
+  
+   <!--Action forms for SA budget-->  
+   <action path="/saveSaExpense"  type="services.UpdateFinalAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab6.do">
+      <forward name="success" path="/UpdateCpExpenses?m=sa"/>
+  </action>
+  
+  <action path="/saveTravelBudget"  type="services.TravelUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab6.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab6.do"/>
+  </action>
+    
+ <action path="/saveOtherBudget"  type="services.OtherUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab5.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab5.do"/>
+  </action>
+  
+  <action path="/saveSupplyBudget"  type="services.SupplyUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab4.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab4.do"/>
+  </action>
+  
+   <action path="/saveContractBudget"  type="services.ContractedUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab3.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab3.do"/>
+  </action>
+    
+  <action path="/saveBenefitBudget"  type="services.BenefitsUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab2.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab2.do"/>
+  </action>
+    
+   <action path="/savePersonalBudget"  type="services.PersonalUpdateAction"
+            name="BudgetCollectionBean"   scope="request" input="/ApcntBudgetTab1.do">
+      <forward name="success" path="/UpdateCpBudget?m=sa"/>
+      <forward name="fail" path="/ApcntBudgetTab1.do"/>
+  </action>  
+    
+  <action path="/fsaTasks"  type="statutory.FsaAction" parameter="i">
+      <forward name="saadminfsa" path="/AdminFS10AForm.do"/>
+      <forward name="coadminfsa" path="/AdminCoFS10AForm.do"/>
+      <forward name="diadminfsa" path="/DiAdminFs10aForm.do"/>
+      <forward name="lgadminfsa" path="/LgAdminFs10aSummary.do"/>
+      <forward name="fladminfsa" path="/FlAdminAmendment.do"/>
+      <forward name="aladminfsa" path="/AlAdminAmendment.do"/>
+      <forward name="saupdatefsa" path="/ApcntFS10AForm.do"/>
+      <forward name="coupdatefsa" path="/CoFS10AForm.do"/>
+      <forward name="diupdatefsa" path="/DiFs10aForm.do"/>
+      <forward name="lgupdatefsa" path="/LgFs10aSummary.do"/>
+      <forward name="alupdatefsa" path="/AlAmendmentSummary.do"/>
+      <forward name="flupdatefsa" path="/FlAmendmentSummary.do"/>
+      <forward name="error" path="/error.jsp"/>
+  </action>  
+  
+  <action path="/saveFsaRecords"  type="mypackage.GenericUpdateAction"
+            name="BudgetCollectionBean" scope="request" validate="false">
+      <forward name="success" path="/fsaTasks.do?i=updatefsa"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>  
+  
+  <!-- action forms FOR ACCT REGISTRATION USING LDGEXT -->  
+  <action path="/ldgext/diRegistration" type="ldgext.DiRegisterAction"
+          name="infoBean" scope="request" input="/ldgext/discRegister.jsp">
+      <forward name="error" path="/error.jsp" />
+      <forward name="success" path="/ldgext/endRegistration.jsp" />  
+  </action>
+  
+    <action path="/ldgext/constructionRegistration" type="ldgext.DiRegisterAction"
+          name="infoBean" scope="request" input="/ldgext/constructionRegister.jsp">
+      <forward name="error" path="/error.jsp" />
+      <forward name="success" path="/ldgext/endRegistration.jsp" />  
+  </action>
+  
+  <action path="/ldgext/litRegistration" type="ldgext.DiRegisterAction"
+          name="infoBean" scope="request" input="/ldgext/litRegister.jsp">
+      <forward name="error" path="/error.jsp" />
+      <forward name="success" path="/ldgext/endRegistration.jsp" />  
+  </action>
+  
+  <action path="/ldgext/cnRegistration" type="ldgext.DiRegisterAction"
+          name="infoBean" scope="request" input="/ldgext/cnRegister.jsp">
+      <forward name="error" path="/error.jsp" />
+      <forward name="success" path="/ldgext/endRegistration.jsp" />  
+  </action>
+  
+  <!-- action forms for sa/co using di actionfiles -->
+  <action path="/saveSaChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/ApcntChecklist.do">
+      <forward name="success" path="/ApcntChecklist.do" />  
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saveCoChecklist" type="discretionary.SaveChecklistAction"
+          name="appStatus" scope="request" input="/ApcntCoChecklist.do">
+      <forward name="success" path="/ApcntCoChecklist.do" />  
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>  
+   
+   <action path="/adminCommentNav" type="discretionary.AdminCommentAction" parameter="item" >
+      <forward name="dicomments" path="/DiAdminComments.do?todo=view" />
+      <forward name="sacomments" path="/AdminComments.do?todo=view" />
+      <forward name="cocomments" path="/AdminCoComments.do?todo=view" />
+      <forward name="flcomments" path="/FlAdminComments.do?todo=view" />
+      <forward name="alcomments" path="/AlAdminComments.do?todo=view" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+      <forward name="diadd" path="/DiAdminComments.do?todo=add" />
+      <forward name="coadd" path="/AdminCoComments.do?todo=add" />
+      <forward name="fladd" path="/FlAdminComments.do?todo=add" />
+      <forward name="aladd" path="/AlAdminComments.do?todo=add" />
+      <forward name="saadd" path="/AdminComments.do?todo=view" />
+      <forward name="error" path="/error.jsp?errormsg=Comment action could not be completed"/>
+   </action>
+  
+  <action path="/submitRatingForm" type="reviewers.ReviewerNavAction" parameter="i">
+      <forward name="assignmentslg" path="/LgRevAssignments.do" /> 
+      <forward name="assignmentsdi" path="/DiRevAssignments.do" /> 
+      <forward name="assignmentsco" path="/RevAssignments.do" /> 
+      <forward name="assignmentsli" path="/FlRevAssignment.do" /> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/participantTask" type="discretionary.ParticipantAddSearchAction"
+          parameter="i">
+      <forward name="participantlg" path="/LgParticipants.do" /> 
+      <forward name="participantdi" path="/DiParticipatingInst.do" /> 
+      <forward name="participantfl" path="/FlParticipants.do" /> 
+      <forward name="participantal" path="/AlParticipants.do" /> 
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+   <action path="/coAdminRevNav"  type="discretionary.AdminRevAction" parameter="item" >
+       <forward name="assignments" path="/AdminRevProcess.do" />   
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />
+       <forward name="ratings" path="/AdminRating.do" />
+       <forward name="unlock" path="/AdminRating.do" />
+       <forward name="comment" path="/AdminRevComment.do" />
+       <forward name="reviewers" path="/AdminViewRev.do" />
+  </action>  
+  
+  <action path="/adminReviewerNav"  type="discretionary.AdminRevAction" parameter="item" >
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />      
+       <forward name="reviewersco" path="/AdminViewRev.do" />
+       <forward name="reviewersdi" path="/DiViewReviewers.do" />
+       <forward name="reviewersli" path="/LitViewReviewers.do" />
+       <forward name="reviewerslg" path="/LgViewReviewers.do" />
+       <forward name="recordco" path="/AdminUpdateReviewer.do" />
+       <forward name="recorddi" path="/DiUpdateReviewer.do" />
+       <forward name="loademailco" path="/AdminRevEmail.do" />
+       <forward name="loademaildi" path="/DiAdminRevMail.do" />
+       <forward name="recordli" path="/LitUpdateReviewer.do" />
+       <forward name="recordlg" path="/LgUpdateReviewer.do" />
+  </action>  
+  
+  <action path="/saReadNarrative"  type="statutory.ReadNarrativeAction" parameter="t" >
+       <forward name="admin" path="/AdminDescription.do?m=admin" />  
+       <forward name="prior" path="/ApcntPriorNarrative.do?m=prior" />
+       <forward name="applicant" path="/ApcntDescription.do" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <action path="/coReadNarrative"  type="statutory.ReadNarrativeAction" parameter="t" >
+       <forward name="admin" path="/AdminCoNarrative.do?m=admin" />  
+       <forward name="adminfinal" path="/AdminCoFinalRpt.do?m=admin" />  
+       <forward name="part" path="/CoViewNarrative.do?m=part" />
+       <forward name="applicant" path="/CoApcntNarrative.do" />
+       <forward name="applicantfinal" path="/ApcntCoFinalReport.do" />
+       <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+       <forward name="error" path="/error.jsp" />       
+  </action>  
+  
+  <action path="/coAdminNav" type="discretionary.AdminNavAction" parameter="item" >
+      <forward name="home" path="/AdminCoordHome.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+      <forward name="attachment" path="/CpAdminAttachment.do" />
+      <forward name="grant" path="/AdminCoCheckStatus.do" />
+      <forward name="budget" path="/AdminCoPBTab1.do" />  
+      <forward name="auth" path="/AdminCoInstAuth.do" />  
+      <forward name="finalrpt" path="/AdminCoFinalRpt.do" />
+      <forward name="coversheet" path="/AdminCoCoversheet.do" />
+      <forward name="comments" path="/AdminCoRateSummary.do" />
+      <forward name="projManager" path="/AdminCoProjManager.do" />
+      <forward name="fs10a" path="/AdminCoFS10AForm.do" />
+   </action>
+      
+   <action path="/saAdminNav" type="discretionary.AdminNavAction" parameter="item" >
+      <forward name="home" path="/AdminStatutoryHome.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" /> 
+      <forward name="grant" path="/AdminCheckStatus.do" />
+      <forward name="budget" path="/AdminBudgetTab1.do" />  
+      <forward name="auth" path="/AdminAuthorization.do" />  
+      <forward name="finalrpt" path="/AdminFinalReport.do" />
+      <forward name="coversheet" path="/AdminCoversheet.do" />
+      <forward name="fs10a" path="/AdminFS10AForm.do" />
+      <forward name="confirmbdgtdelete" path="/AdminDeleteBudget.do"/>
+   </action>
+   
+   <action path="/coParticipantForms" type="discretionary.ParticipatingNavAction"
+          parameter="item" >
+      <forward name="coversheet" path="/CoViewCoversheet.do" />
+      <forward name="ratings" path="/CoViewComments.do" />
+      <forward name="budget" path="/CoViewBudget.do" />
+      <forward name="finalrpt" path="/CoViewFinal.do" />
+      <forward name="appstatus" path="/CoViewAppStatus.do" />
+      <forward name="attachment" path="/CoViewDocuments.do" />
+      <forward name="coopagree" path="/CoCoopAgree.do" />
+      <forward name="auth" path="/CoViewAuth.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saPriorForms" type="discretionary.ParticipatingNavAction" parameter="item" >
+      <forward name="coversheet" path="/ApcntPriorCoversheet.do" />
+      <forward name="budget" path="/ApcntPriorBudget.do" />
+      <forward name="finalrpt" path="/ApcntPriorReport.do" />
+      <forward name="appstatus" path="/ApcntPriorAppStatus.do" />
+      <forward name="auth" path="/ApcntPriorAuth.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/saApplicantForms" type="statutory.CpNavigationAction" parameter="item" >
+      <forward name="coversheet" path="/ApcntCoversheet.do" />
+      <forward name="budget" path="/ApcntBudgetTab1.do" />
+      <forward name="readbudget" path="/ApcntViewBudget.do" />
+      <forward name="finalrpt" path="/ApcntFinalReport.do" />
+      <forward name="narrative" path="/ApcntDescription.do" />
+      <forward name="attachment" path="/ApcntViewDocs.do" />
+      <forward name="checklist" path="/ApcntChecklist.do" />
+      <forward name="appstatus" path="/ApcntAppStatus.do" />
+      <forward name="auth" path="/ApcntSaAuth.do" />
+      <forward name="finalsignoff" path="/ApcntFinalSignoff.do" />
+      <forward name="fs10a" path="/ApcntFS10AForm.do" />
+      <forward name="confirmbdgtdelete" path="/ApcntDeleteBudget" />
+      <forward name="confirmamenddelete" path="/ApcntDeleteAmendment" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="idmissing" path="/ApcntHome.do" />
+  </action>
+  
+  <action path="/coApplicantForms" type="statutory.CpNavigationAction" parameter="item" >
+      <forward name="coversheet" path="/ApcntCoCoversheet.do" />
+      <forward name="attachment" path="/ApcntCoViewDocs.do" />
+      <forward name="checklist" path="/ApcntCoChecklist.do" />
+      <forward name="narrative" path="/CoApcntNarrative.do" />
+      <forward name="budget" path="/ApcntCoPBTab1.do" />
+      <forward name="readbudget" path="/CoReadBudget.do" />
+      <forward name="expbudget" path="/ApcntCoPBViewTab1.do" />
+      <forward name="finalrpt" path="/ApcntCoFinalReport.do" />
+      <forward name="appstatus" path="/CoAppStatus.do" />
+      <forward name="auth" path="/CoAuthorize.do" />
+      <forward name="finalsignoff" path="/CoFinalSignoff.do" />
+      <forward name="comments" path="/CoComments.do" />
+       <forward name="fs10a" path="/CoFS10AForm.do" />
+      <forward name="confirmbdgtdelete" path="/CoDeleteBudget" />
+      <forward name="confirmamenddelete" path="/CoDeleteAmendment" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="idmissing" path="/ApcntCOHome.do" />
+  </action>
+  
+  <action path="/statutoryNav" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/ApcntHome.do" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="/error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/ApcntChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/coordinatedNav" type="statutory.ApcntHomeAction" parameter="item" >
+      <forward name="homepage" path="/ApcntCOHome.do" />
+      <forward name="authorize" path="/error.jsp?errormsg=User permissions or date do not allow application to be created." />
+      <forward name="error" path="/error.jsp?errormsg=An error occured creating the application." />
+      <forward name="checklist" path="/ApcntCoChecklist.do" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+  </action>
+  
+  <action path="/adminMassEmail" type="emailws.AdminMassEmail" parameter="item" >
+      <forward name="error" path="/error.jsp" />
+      <forward name="timeout" path="/error.jsp?sessionTime=true" />
+      <forward name="edittemplate" path="/CpEditApprEmail.do" /> 
+      <forward name="recipients" path="/CpEmailRecipients.do" /> 
+      <forward name="unsentmail" path="/cpAdminEmail.do?item=unsentmail" /> 
+      <!--<forward name="listallsa" path="/AdminSaMassEmail.do?display=true" />
+      <forward name="listallco" path="/AdminApprEmail.do?display=true" />
+      <forward name="listalldi" path="/DiAdminMassMail.do?display=true" />
+      <forward name="sendsa" path="/AdminSaMassEmail.do" />
+      <forward name="sendco" path="/AdminApprEmail.do" />
+      <forward name="senddi" path="/DiAdminMassMail.do" />
+      <forward name="sendcp" path="/CpAdminMassMail.do" />      
+      <forward name="sendlg" path="/LgAdminMassMail.do" />-->      
+  </action>
+  
+  <action path="/cpAddRecipients"  type="mypackage.GenericUpdateAction"
+          name="AssignCollectionBean" scope="request" input="/CpEmailRecipients.do">
+      <forward name="success" path="/adminMassEmail.do?item=addrecips"/>
+      <forward name="fail" path="/error.jsp"/>
+  </action>
+  
+  <!-- Action paths for Statutory page layout using tiles -->            
+  <action path="/ApcntHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntHomePage" /></action>
+  
+  <action path="/AdminStatutoryHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminHomePage" /></action>
+ 
+  <action path="/ApcntCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoversheetPage" /></action>
+  
+  <action path="/AdminCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoversheetPage" /></action>
+  
+  <action path="/ApcntDescription" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntDescription" /></action>
+   
+  <action path="/AdminDescription" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminDescription" /></action>
+  
+  <action path="/ApcntSaAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntSaauth" /></action>
+    
+  <action path="/ApcntChecklist" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntChecklistPage" /></action>
+  
+  <action path="/ApcntFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntFinalReportPage" /></action>
+  
+  <action path="/AdminFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminFinalReportPage" /></action>
+  
+  <action path="/ApcntFinalSignoff" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntFinalSignoffPage" /></action>
+  
+  <action path="/ApcntAuthorization" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntAuthPage" /></action>
+  
+  <action path="/AdminAuthorization" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminAuthPage" /></action>
+  
+  <action path="/ApcntPriorNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriornarrative" /></action>
+    
+  
+  <action path="/ApcntPriorReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriorReportPage" /></action>
+  
+  <action path="/ApcntPriorBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriorBudgetPage" /></action>
+  
+  <action path="/ApcntPriorCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriorCoversheetPage" /></action>
+  
+  <action path="/ApcntPriorAppStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriorStatusPage" /></action>
+  
+  <action path="/ApcntAppStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntAppStatusPage" /></action>
+  
+  <action path="/AdminComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCommentsPage" /></action>
+  
+  <action path="/ApcntFS10AForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntFS10APage" /></action>
+  
+  <action path="/AdminFS10AForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminFS10APage" /></action>
+ 
+  <action path="/AdminCheckStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCheckStatusPage" /></action>
+  
+  <action path="/AdminLdapAccounts" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminLdapPage" /></action>
+  
+  <action path="/AdminSearchForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminSearchPage" /></action>
+    
+  <action path="/ApcntmypackageDocs" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntmypackageDoc" /></action>
+  
+  <action path="/ApcntAddDocs" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntAddDoc" /></action>
+ 
+  <action path="/AdminHelpIndex" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminHelpIndex" /></action>
+ 
+  <action path="/ApcntHelpIndex" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntHelpIndex" /></action>
+ 
+  <action path="/AdminReports" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminReports" /></action>
+ 
+  <action path="/AdminEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminEmails" /></action>
+ 
+ <action path="/AdminSaMassEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminSaMassEmail" /></action>
+  
+  <action path="/ApcntSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntSubmit" /></action>
+ 
+  <action path="/ApcntPriorAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntPriorAuth" /></action>
+ 
+  <action path="/SaAdminViewCo" type="mypackage.LayoutActionBean" ><forward name="success" path="/saAdminViewCo" /></action>
+ 
+ <action path="/AdminSaViewEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminSaViewemail" /></action>
+ 
+ <action path="/AdminSaConfirmComment" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminSaConfirmComment" /></action>
+ 
+ <action path="/CpEditApprEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpEditApprEmail" /></action>
+ 
+ <action path="/CpConfirmSendMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpConfirmSendMail" /></action>
+ 
+ <action path="/CpUnsentEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpUnsentEmail" /></action>
+ 
+ <action path="/CpAdminMassMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpAdminMassMail" /></action>
+ 
+ <action path="/CpEmailRecipients" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpEmailRecipients" /></action>
+ 
+ 
+  <action path="/AdminBudgetTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage1" /></action>
+  
+  <action path="/AdminBudgetTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage2" /></action>
+  
+  <action path="/AdminBudgetTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage3" /></action>
+  
+  <action path="/AdminBudgetTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage4" /></action>
+  
+  <action path="/AdminBudgetTab5" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage5" /></action>
+  
+  <action path="/AdminBudgetTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminBudgetPage6" /></action>
+  
+  <action path="/AdminDeleteBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminDeleteBudget" /></action>
+  
+  <action path="/ApcntBudgetTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage1" /></action>
+  
+  <action path="/ApcntBudgetTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage2" /></action>
+  
+  <action path="/ApcntBudgetTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage3" /></action>
+  
+  <action path="/ApcntBudgetTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage4" /></action>
+  
+  <action path="/ApcntBudgetTab5" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage5" /></action>
+  
+  <action path="/ApcntBudgetTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetPage6" /></action>
+  
+  <action path="/ApcntViewBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntBudgetView" /></action>
+        
+  <!-- Action paths for pages in coordinated grants -->    
+  <action path="/ApcntCOHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCOHome" /></action>
+  
+  <action path="/ApcntCoChecklist" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoChecklist" /></action>
+
+  <action path="/ApcntCoCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoCoversheet" /></action>
+
+  <action path="/ApcntCoFinalReport" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoFinalreport" /></action>
+
+  <action path="/ApcntCoPBTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab1" /></action>
+
+  <action path="/ApcntCoPBTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab2" /></action>
+
+  <action path="/ApcntCoPBTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab3" /></action>
+
+  <action path="/ApcntCoPBTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab4" /></action>
+
+  <action path="/ApcntCoPBTab5" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab5" /></action>
+
+  <action path="/ApcntCoPBTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBtab6" /></action>
+
+  <action path="/ApcntCoPBViewTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab1" /></action>
+
+  <action path="/ApcntCoPBViewTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab2" /></action>
+
+  <action path="/ApcntCoPBViewTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab3" /></action>
+
+  <action path="/ApcntCoPBViewTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab4" /></action>
+
+  <action path="/ApcntCoPBViewTab5" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab5" /></action>
+
+  <action path="/ApcntCoPBViewTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoPBViewtab6" /></action>
+
+  <action path="/ApcntCoViewDocs" type="mypackage.LayoutActionBean" ><forward name="success" path="/apcntCoViewDocs" /></action>
+
+  <action path="/CoAddDocs" type="mypackage.LayoutActionBean" ><forward name="success" path="/coAddDocs" /></action>
+
+  <action path="/CoAppStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/coAppStatus" /></action>
+
+  <action path="/CoConfirmSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/coSubmit" /></action>
+
+  <action path="/CoInstAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/coInstAuth" /></action>
+
+  <action path="/CoFinalSignoff" type="mypackage.LayoutActionBean" ><forward name="success" path="/coFinalSignoff" /></action>
+
+  <action path="/CoViewFinal" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewFinal" /></action>
+
+  <action path="/CoViewAppStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewAppStatus" /></action>
+
+  <action path="/CoViewCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewCoversheet" /></action>
+
+  <action path="/CoViewNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewNarrative" /></action>
+
+  <action path="/CoViewDocuments" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewDocuments" /></action>
+
+  <action path="/CoViewBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewBudget" /></action>
+
+  <action path="/CoViewHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewHelp" /></action>
+
+  <action path="/CoViewAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewAuth" /></action>
+
+  <action path="/CoCoopAgree" type="mypackage.LayoutActionBean" ><forward name="success" path="/coCoopAgree" /></action>
+
+  <action path="/CoApcntHelp" type="mypackage.LayoutActionBean" ><forward name="success" path="/coApcntHelp" /></action>
+
+  <action path="/CoReadBudget" type="mypackage.LayoutActionBean" ><forward name="success" path="/coReadBudget" /></action>
+
+  <action path="/CoComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/coComments" /></action>
+
+  <action path="/CoSelectFs" type="mypackage.LayoutActionBean" ><forward name="success" path="/coSelectFs" /></action>
+ 
+  <action path="/CoViewComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/coViewComments" /></action>
+ 
+  <action path="/CoFS10AForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/coFS10AForm" /></action>
+ 
+   <action path="/CoAuthorize" type="mypackage.LayoutActionBean" ><forward name="success" path="/coAuthorize" /></action>
+ 
+ <action path="/CoApplication" type="mypackage.LayoutActionBean" ><forward name="success" path="/coApplication" /></action>
+  
+  
+  <action path="/CoApcntNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/coApcntNarrative" /></action>
+
+  <action path="/AdminCoPBTab1" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab1" /></action>
+
+  <action path="/AdminCoPBTab2" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab2" /></action>
+
+  <action path="/AdminCoPBTab3" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab3" /></action>
+
+  <action path="/AdminCoPBTab4" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab4" /></action>
+
+  <action path="/AdminCoPBTab5" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab5" /></action>
+
+ <action path="/AdminCoPBTab6" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoPBTab6" /></action>
+
+
+  <action path="/AdminCoViewEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoViewemail" /></action>
+ 
+  <action path="/AdminCoordHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoHome" /></action>
+
+  <action path="/AdminCoCheckStatus" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoCheckStatus" /></action>
+ 
+  <action path="/AdminCoCoversheet" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoCoversheet" /></action>
+ 
+  <action path="/AdminCoFinalRpt" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoFinalRpt" /></action>
+ 
+  <action path="/AdminCoNarrative" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoNarrative" /></action>
+ 
+  <action path="/AdminCoInstAuth" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoInstAuth" /></action>
+
+  <action path="/AdminCoRateSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoRateSummary" /></action>
+ 
+  <action path="/AdminCoProjManager" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoProjManager" /></action>
+ 
+  <action path="/AdminCoComments" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoComments" /></action>
+ 
+  <action path="/AdminCoEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoEmail" /></action>
+ 
+  <action path="/AdminCoFS10AForm" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoFS10AForm" /></action>
+ 
+  <action path="/AdminUpdateReviewer" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminUpdateReviewer" /></action>
+ 
+  <action path="/AdminViewRev" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminViewRev" /></action>
+ 
+  <action path="/AdminRevProcess" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminRevProcess" /></action>
+ 
+  <action path="/AdminRating" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminRating" /></action>
+ 
+  <action path="/AdminRevEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminRevEmail" /></action>
+ 
+  <action path="/AdminViewDate" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminViewDate" /></action>
+ 
+  <action path="/AdminAddDate" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminAddDate" /></action>
+ 
+  <action path="/AdminFsSelect" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminFsSelect" /></action>
+ 
+ <action path="/AdminApprEmail" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminApprEmail" /></action>
+ 
+  <action path="/AdminRevComment" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminRevComment" /></action>
+ 
+ <action path="/AdminCoConfirmComment" type="mypackage.LayoutActionBean" ><forward name="success" path="/adminCoConfirmComment" /></action>
+ 
+ <action path="/SearchRevMail" type="mypackage.LayoutActionBean" ><forward name="success" path="/searchRevMail" /></action>
+ 
+ <action path="/CpAdminAttachment" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpAdminAttachment" /></action>
+ 
+ <action path="/CpAdminAddAttach" type="mypackage.LayoutActionBean" ><forward name="success" path="/cpAdminAddAttach" /></action>
+ 
+  <!-- tile mappings for CO reviewer pages  -->  
+  <action path="/RevHome" type="mypackage.LayoutActionBean" ><forward name="success" path="/revHome" /></action>
+ 
+  <action path="/RevInfo" type="mypackage.LayoutActionBean" ><forward name="success" path="/revInfo" /></action>
+ 
+  <action path="/RevAssignments" type="mypackage.LayoutActionBean" ><forward name="success" path="/revAssignments" /></action>
+ 
+  <action path="/RevRegister" type="mypackage.LayoutActionBean" ><forward name="success" path="/revRegister" /></action>
+ 
+  <action path="/ViewAccepted" type="mypackage.LayoutActionBean" ><forward name="success" path="/viewAccepted" /></action>
+ 
+  <action path="/RevGrantSummary" type="mypackage.LayoutActionBean" ><forward name="success" path="/revGrantSummary" /></action>
+ 
+  <action path="/RevRating" type="mypackage.LayoutActionBean" ><forward name="success" path="/revRating" /></action>
+ 
+  <action path="/RevSubmit" type="mypackage.LayoutActionBean" ><forward name="success" path="/revSubmit" /></action>
+ 
+  <action path="/RevHelpIndex" type="mypackage.LayoutActionBean" ><forward name="success" path="/revHelpIndex" /></action>
+        
+  <action path="/RevCoEducRating" type="mypackage.LayoutActionBean" ><forward name="success" path="/revCoEducRating" /></action>
+         
+      </action-mappings>                 
+  <message-resources parameter="mypackage.ApplicationResources"/>   
+  <!-- Tiles config -->
+  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config"
+                  value="/WEB-INF/tiles-defs.xml,/WEB-INF/tiles-defs-literacy.xml,/WEB-INF/tiles-defs-disc.xml,/WEB-INF/tiles-defs-lgrmif.xml,/WEB-INF/tiles-defs-construction.xml,/WEB-INF/tiles-defs-stateaid.xml" />
+    <set-property property="definitions-parser-validate" value="true" />
+    <set-property property="moduleAware" value="true" />
+  </plug-in>
+</struts-config>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+	<!-- All layout definitions are here just for reference -->
+	<tiles-definitions>	
+	
+	
+	   <definition name="nysed.bootstrap.layout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+	   <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+	<!--  LITERACY APPLICANT DEFINITIONS -->
+	     
+    <definition name="al.budgetLayout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="budgetTabs" value="/WEB-INF/jsps/adultLiteracy/budget/yr1BudgetTabs.jsp"/> 
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <definition name="fl.budgetLayout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="budgetTabs" value="/WEB-INF/jsps/familyLiteracy/budget/yr1BudgetTabs.jsp"/> 
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    
+    <definition name="al.layout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">       
+	    <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <definition name="fl.layout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <!--  LITERACY ADMIN DEFINITIONS -->
+      
+   <definition name="al.admin.layout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <definition name="fl.admin.layout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <definition name="al.admin.budgetLayout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="budgetTabs" value="/WEB-INF/jsps/adultLiteracy/admin/budgetTabs.jsp"/> 
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+    
+    <definition name="fl.admin.budgetLayout" template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+        <put-attribute name="budgetTabs" value="/WEB-INF/jsps/familyLiteracy/admin/budgetTabs.jsp"/> 
+        <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+    </definition>
+      
+      
+    <!--  General definitions -->  
+    <definition name="logout"	template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+	  <put-attribute name="title" expression="Logout of System" /> 
+      <put-attribute name="body" value="/WEB-INF/jsps/common/layout/logout.jsp" /> 
+    </definition>   
+   
+      
+    <definition name="literacyHelp"	template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+	  <put-attribute name="title" expression="Literacy Help" /> 
+      <put-attribute name="body" value="/WEB-INF/jsps/common/help/literacyHelpPage.jsp" /> 
+    </definition>  
+      
+    <!-- NOTE:  from merge-->  
+    <definition name="checklist.mainlayout"	template="/WEB-INF/jsps/common/layout/layoutNysedCommon.jsp">
+	  <put-attribute name="title" expression="Application Checklist" /> 
+      <put-attribute name="grantinfo" value="/WEB-INF/jsps/common/layout/grantInfoBreadcrumb.jsp" />
+      <put-attribute name="footer" value="/WEB-INF/jsps/common/layout/footer.html" />
+   </definition>      
+   <!--   end NOTE -->
+   
+      
+</tiles-definitions>
